@@ -1,70 +1,53 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# First Sip - Coffee App
 
-## Available Scripts
+## Introduction
+**First Sip** is an online coffee shop app that allows users to browse and purchase their favorite coffee while supporting coffee farmers around the world. A portion of the proceeds goes to helping farmers cope with the challenges of climate change, economic instability, and other hardships. The app features a variety of coffee boxes, a quiz to help users discover their ideal coffee, customer testimonials, and more. Users can explore different coffee origins, read about the company’s story, and enjoy benefits like free delivery on orders over 39.99 and a 10% discount for subscribing.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Browse Coffee by Category**  
+   "As a coffee lover, I want to browse a variety of coffee options by category (Premium, Organic, Single Origin), so that I can easily find and purchase the coffee that best suits my taste."
 
-### `npm test`
+2. **Add Coffee to Cart**  
+   "As a customer, I want to add coffee items to my shopping cart, so that I can purchase multiple items in a single transaction."
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Leave a Review**  
+   "As a user, I want to leave a review on a coffee product, so that I can share my feedback with others and help them make an informed decision."
 
-### `npm run build`
+4. **Coffee Quiz**  
+   "As a user, I want to take a coffee quiz to help me discover which coffee suits my taste preferences, so that I can easily find and purchase the perfect coffee for me."
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Login and Registration**  
+   "As a user, I want to log in or register for an account, so that I can save my preferences, track my orders, and access exclusive offers."
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. **Free Delivery Offer**  
+   "As a customer, I want to see the message 'Free delivery from 39.99' so that I can take advantage of the offer when making a purchase."
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7. **Subscribe for Discount**  
+   "As a user, I want to subscribe to the newsletter for a 10% discount, so that I can receive future discounts and promotions."
 
-### `npm run eject`
+8. **Support Coffee Farmers**  
+   "As a user, I want to know that my coffee purchase is supporting coffee farmers worldwide, helping them combat climate change and other challenges, so that I can make a positive impact with my purchase."
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
+Here are the main features currently planned for the app:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Home Page**: The homepage displays an overview of the app and highlights key offers.
+- **Shop Page**: Users can browse coffee products categorized by type (Premium, Organic, Single Origin) and filter by different characteristics.
+- **Coffee Boxes**: A special section showcasing curated coffee boxes for different tastes and preferences.
+- **Our Origins**: Learn about the different coffee origins and where the coffee comes from.
+- **Coffee Quiz**: An interactive quiz powered by OpenAI that helps users discover which coffee is best suited to their taste.
+- **Testimonials**: Users can read reviews and testimonials from other customers to help make their purchasing decisions.
+- **Our Story**: A section describing the company's story, mission, and commitment to supporting coffee farmers globally.
+- **Contact Page**: Users can ask questions or request more information about products before making a purchase.
+- **Login and Registration**: Users can create an account and log in to track their orders and preferences.
+- **Cart**: Users can add products to their cart, view their selections, and proceed to checkout.
+- **Free Delivery**: A banner displaying the "Free delivery from 39.99" offer for eligible purchases.
+- **Subscribe for 10% Off**: Users can subscribe to the newsletter to receive a 10% discount on their next purchase.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
