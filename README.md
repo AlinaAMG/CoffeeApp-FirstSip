@@ -32,6 +32,9 @@
 
 8. **Support Coffee Farmers**  
    "As a user, I want to know that my coffee purchase is supporting coffee farmers worldwide, helping them combat climate change and other challenges, so that I can make a positive impact with my purchase."
+   
+ 9.  Quality, Organic, Handmade Coffee
+"As a coffee enthusiast, I want to purchase high-quality, organic, handmade coffee from a webshop that values craftsmanship and sustainability, so that I can enjoy a premium coffee experience and feel confident in my choice to pay more for a better cup of coffee."
 
 ---
 
