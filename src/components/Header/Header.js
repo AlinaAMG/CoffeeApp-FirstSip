@@ -75,11 +75,12 @@ const Header = () => {
             <Link to="/testimonials">Testimonials</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
             <Link to="/about">Our Story</Link>
           </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          
 
         
           <li>
