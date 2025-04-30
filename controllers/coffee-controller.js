@@ -18,7 +18,7 @@ const addCoffee = (req, res) => {
     const { coffee } = req.body;
 
     // console.log(coffee);
-    
+
     if (coffee) {
         new CoffeeModel(coffee).save()
             .then(data => {
@@ -63,7 +63,7 @@ const getAllCoffees = (req, res) => {
 const deleteCoffee = (req, res) => {
     const { _id } = req.body; // Extract the _id from the request parameters
 
-    console.log(_id);    
+    console.log(_id);
 
     CoffeeModel.findByIdAndDelete(_id)
         .then(data => {
@@ -83,7 +83,7 @@ const updateCoffee = (req, res) => {
     const updateData = req.body;
 
     console.log(_id);
-    
+
     CoffeeModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
         .then(data => {
             if (data) {
@@ -97,10 +97,48 @@ const updateCoffee = (req, res) => {
         });
 };
 
+const getCategoryCoffees = (req, res) => {
+    const { category } = req.params; // Extract the category from the request parameters
+
+    console.log(req.params);
+
+    CoffeeModel.find({ category })
+        .then(data => {
+            if (data.length > 0) {
+                res.status(200).send(data);
+            } else {
+                res.status(404).send({ message: 'No coffees found for this category.' });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({ error: 'Error retrieving coffees by category', details: err });
+        });
+};
+
+const getCoffee = (req, res) => {
+    const { _id } = req.params; // Extract the category from the request parameters
+
+    console.log(_id);
+
+    CoffeeModel.find({ _id })
+        .then(data => {
+            if (data) {
+                res.status(200).send(data);
+            } else {
+                res.status(404).send({ message: 'No coffees found.' });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({ error: 'Error retrieving coffee.', details: err });
+        });
+};
+
 module.exports = {
     addCoffee,
     getBestSellers,
     getAllCoffees,
     deleteCoffee,
-    updateCoffee
+    updateCoffee,
+    getCategoryCoffees,
+    getCoffee
 };
