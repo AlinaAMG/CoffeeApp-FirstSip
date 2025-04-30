@@ -46,7 +46,9 @@ const Header = () => {
             </button>
             {isDropdownOpen && (
               <ul>
-                <li>
+              
+             
+                 <li>
                   <Link to="/shop/all-coffees">All Coffees</Link>
                 </li> 
                 <li>
