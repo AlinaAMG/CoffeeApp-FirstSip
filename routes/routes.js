@@ -9,7 +9,7 @@ router.get('/', (req, res) => {  // Main root
 
 /* Users routes */
 router.post('/api/auth/signup', addUser)    // It related register or sign-up operation it is free, that way it is unprotected.
-router.post('/api/auth/singin', login)       // it is not protected with JWT. It need correct password and email.
+router.post('/api/auth/signin', login)       // it is not protected with JWT. It need correct password and email.
 router.get('/api/auth/logout', logout)
 
 router.post('/api/users', verifyJWT, getAllUsers)

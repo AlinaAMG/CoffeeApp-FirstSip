@@ -120,7 +120,7 @@ const getCoffee = (req, res) => {
 
     console.log(_id);
 
-    CoffeeModel.find({ _id })
+    CoffeeModel.findById(_id)
         .then(data => {
             if (data) {
                 res.status(200).send(data);
