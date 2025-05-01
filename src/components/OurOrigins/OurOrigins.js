@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './OurOrigins.css';
 
+import { Link } from "react-router-dom";
 function OurOrigins() {
   const coffeeOrigins = [
     {
@@ -115,13 +116,13 @@ function OurOrigins() {
               style={{
                 backgroundImage: `url(${origin.backgroundImage})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                 backgroundPosition: 'center',
               }}
             ></div>
             {openIndex === index && (
               <div className="coffee-details">
-                <p className="coffee-description">{origin.description}</p>
-                <button className="order-button">Order Your Coffee</button>
+                <p className="coffee-description1">{origin.description}</p>
+                <button className="order-button"><Link className="ln" to ="/shop/all-coffees">Order Your Coffee</Link></button>
               </div>
             )}
           </div>
