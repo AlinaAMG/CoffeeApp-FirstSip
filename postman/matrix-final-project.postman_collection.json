@@ -17,7 +17,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"ilyas\",\r\n    \"email\": \"lhn2@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"confirmPassword\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"name\": \"ilyas\",\r\n    \"email\": \"lhn@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"confirmPassword\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,7 +49,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"lhn2@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"email\": \"lhn@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -57,7 +57,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:4001/api/auth/singin",
+					"raw": "localhost:4001/api/auth/signin",
 					"host": [
 						"localhost"
 					],
@@ -65,7 +65,7 @@
 					"path": [
 						"api",
 						"auth",
-						"singin"
+						"signin"
 					]
 				}
 			},
@@ -96,11 +96,14 @@
 		},
 		{
 			"name": "localhost:4001/api/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -135,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": {\r\n        \"_id\": \"6810bb23babc4e3d642bbd12\",\r\n        \"name\": \"ilyas\",\r\n        \"email\": \"lhn2@gmail.com\",\r\n        \"createdAt\": \"2025-04-29T11:42:27.633Z\",\r\n        \"updatedAt\": \"2025-04-29T11:42:27.633Z\",\r\n        \"__v\": 0\r\n    }\r\n}",
+					"raw": "{\r\n    \"user\": {\r\n        \"_id\": \"6810ccff4d0bc854ecd3ba51\",\r\n        \"name\": \"ilyas\",\r\n        \"email\": \"lhn2@gmail.com\",\r\n        \"createdAt\": \"2025-04-29T11:42:27.633Z\",\r\n        \"updatedAt\": \"2025-04-29T11:42:27.633Z\",\r\n        \"__v\": 0\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -166,7 +169,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": {\r\n        \"_id\": \"6810ccff4d0bc854ecd3ba51\",\r\n        \"name\": \"ilyas 123\",\r\n        \"email\": \"lhn2@gmail.com\",\r\n        \"password\": \"123456\",\r\n        \"confirmPassword\": \"123456\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"user\": {\r\n        \"_id\": \"681344c7fc112cda6ee09965\",\r\n        \"name\": \"ilyas new \",\r\n        \"email\": \"lhn2@gmail.com\",\r\n        \"password\": \"123456\",\r\n        \"confirmPassword\": \"123456\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -243,7 +246,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"coffee\": {\r\n        \"name\": \"Turkish new coffee\",\r\n        \"description\": \"Floral and citrusy Single Origin coffee from Turkey.\",\r\n        \"price\": 10.99,\r\n        \"imageUrl\": \"\",\r\n        \"rating\": 4.9,\r\n        \"category\": \"Single Origin\",\r\n        \"bestSeller\": true\r\n    }\r\n}",
+					"raw": "{\r\n    \"coffee\": {\r\n        \"name\": \"Blue Mountain new\",\r\n        \"description\": \"A smooth, sweet, and balanced coffee from Jamaica with fruity and floral notes.\",\r\n        \"price\": 18.99,\r\n        \"imageUrl\": \"\",\r\n        \"bestSeller\": true,\r\n        \"category\": \"Single Origin\",\r\n        \"weightOptions\": [\r\n            250\r\n        ],\r\n        \"roastLevel\": \"Medium\",\r\n        \"region\": \"Jamaica\",\r\n        \"tastingNotes\": [\r\n            \"Fruity\",\r\n            \"Floral\"\r\n        ],\r\n        \"soldOut\": false\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -275,7 +278,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"6811f2f1ee619d4c5da79244\"\r\n}",
+					"raw": "{\r\n    \"_id\": \"68134580fc112cda6ee0996a\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -307,7 +310,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"6811eaff3f197726782d1069\",\r\n    \"name\": \"Newe House Premium Blend\",\r\n    \"description\": \"A perfectly balanced blend of premium New Arabica beans.\",\r\n    \"price\": 12.99,\r\n    \"imageUrl\": \"\",\r\n    \"rating\": 4.6,\r\n    \"category\": \"Premium Blends\",\r\n    \"bestSeller\": true\r\n}",
+					"raw": "{\r\n    \"_id\": \"6811eaff3f197726782d1069\",\r\n    \"name\": \"Newe House Premium Blend 000\",\r\n    \"description\": \"A perfectly balanced blend of premium New Arabica beans.\",\r\n    \"price\": 12.99,\r\n    \"imageUrl\": \"\",\r\n    \"rating\": 4.6,\r\n    \"category\": \"Premium Blends\",\r\n    \"bestSeller\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -324,6 +327,55 @@
 						"api",
 						"coffees",
 						"update-coffee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4001/api/coffees/coffee/644f1b2e5f1c2a001c8e4d3a",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/api/coffees/coffee/644f1b2e5f1c2a001c8e4d3a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"coffees",
+						"coffee",
+						"644f1b2e5f1c2a001c8e4d3a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/coffees/category/Single%20Origin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4001/api/coffees/category/Single%20Origin",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"coffees",
+						"category",
+						"Single%20Origin"
 					]
 				}
 			},
