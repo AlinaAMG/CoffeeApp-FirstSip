@@ -14,8 +14,8 @@ let transporter = nodemailer.createTransport({
 const sendEmail = async (name, email, message) => {
   // Set up email data
   const mailOptions = {
-    from: process.env.YAHOO_EMAIL,  
-    to: email,                    
+    from: email,  
+    to:process.env.YAHOO_EMAIL,                
     subject: 'Contact Form Submission',
     text: `Message from ${name}:\n\n${message}`,
     html: `<p>Message from ${name}:</p><p>${message}</p>`,

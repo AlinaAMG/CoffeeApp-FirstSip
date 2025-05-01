@@ -4,7 +4,7 @@ const contactController = require('../controllers/contactController');
 
 
 route.post("/api/contact", contactController.addContact);
-route.get('*', contactController.notFoundPage);
+// route.get('*', contactController.notFoundPage);
 
 module.exports = route;
 

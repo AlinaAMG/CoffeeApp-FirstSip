@@ -47,6 +47,7 @@ const getBestSellers = (req, res) => {
 };
 
 const getAllCoffees = (req, res) => {
+    console.log("getAllCoffees route reached"); 
     CoffeeModel.find({})
         .then(data => {
             if (data.length > 0) {
@@ -134,11 +135,12 @@ const getCoffee = (req, res) => {
 };
 
 module.exports = {
+    getAllCoffees,
+     getCoffee,
     addCoffee,
     getBestSellers,
-    getAllCoffees,
     deleteCoffee,
     updateCoffee,
     getCategoryCoffees,
-    getCoffee
+   
 };
