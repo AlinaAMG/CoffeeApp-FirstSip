@@ -1,5 +1,5 @@
 {
-  "name": "timeline-assignmetnt2",
+  "name": "first-sip-coffee-app-backend",
   "version": "1.0.0",
   "description": "Mongo DB CRUD with VanillaJS and NodeJS",
   "main": "app.js",
