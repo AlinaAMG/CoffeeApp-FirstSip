@@ -1,5 +1,5 @@
 const ContactModel = require("../models/contactModel");
-const sendEmail = require('../sendEmail');
+const { sendEmail } = require('../sendEmail');
 
 // Define the addContact function
 const addContact = async (req, res) => {
