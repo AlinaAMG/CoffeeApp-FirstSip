@@ -1,13 +1,13 @@
-require('dotenv').config();                    // for .env file.
+require('dotenv').config();                  
 const express = require("express");
 const cors = require('cors'); 
 const cookieParser = require('cookie-parser');
-const path = require('path'); // ✅ Required for path.join()
+const path = require('path'); 
 
 const router = require('./routes/routes.js');
 const route = require("./routes/contactRoute.js");
 
-require("./configs/mongoose.js"); // Connects to MongoDB
+require("./configs/mongoose.js"); 
 
 const app = express();
 
