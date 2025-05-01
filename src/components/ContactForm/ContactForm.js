@@ -10,15 +10,16 @@ const ContactForm = () => {
     message: '',
   });
   const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
   const [agreeInfo, setAgreeInfo] = useState(false);
   const [agreePolicy, setAgreePolicy] = useState(false);
   const [error, setError] = useState('');
-    
-    const { name, email, message } = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim(),
-      };
+
+  const { name, email, message } = {
+    name: formData.name.trim(),
+    email: formData.email.trim(),
+    message: formData.message.trim(),
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,7 +33,6 @@ const ContactForm = () => {
     e.preventDefault();
     const { name, email, message } = formData;
 
-    // Validation
     if (!name || !email || !message) {
       setStatus('Please fill in all fields.');
       return;
@@ -45,28 +45,33 @@ const ContactForm = () => {
       setError('You must accept the privacy policy.');
       return;
     }
+
     setError('');
+    setLoading(true); // Start loading
 
     try {
-      const res=  await axios.post('http://localhost:4001/contact', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const res = await axios.post(
+        'http://localhost:4001/api/contact',
+        formData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
 
       if (res.status === 200) {
-        // Checking if status code is 200 (OK)
         setStatus('Your message has been sent!');
-          setFormData({ name: '', email: '', message: '' });
-          setTimeout(() => {
-            setStatus('');
-          }, 5000); 
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus(''), 5000);
       } else {
         setStatus('Something went wrong. Please try again.');
       }
     } catch (error) {
       setError('Error sending message.');
       console.error(error);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus(''), 5000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -128,6 +133,16 @@ const ContactForm = () => {
           </label>
         </div>
         <button type="submit">Send</button>
+
+        {/* Show spinner while loading */}
+       {loading && (
+          <div className="loading">
+            <div className="spinner" />
+            <p>Sending your message...</p>
+          </div>
+        )}
+
+         {/* Show success or error message after submission  */}
         <p className={error ? 'message error' : 'message status'}>
           {error || status}
         </p>
