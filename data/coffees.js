@@ -38,8 +38,8 @@ const coffees = [
       description: "Sumatra Mandheling coffee is known for its earthy, full-bodied flavor profile with low acidity and notes of chocolate, spice, and tobacco.",
       longDescription: "Sumatra Mandheling comes from the island of Sumatra in Indonesia, where it is cultivated in rich volcanic soils. This coffee is typically processed using the wet-hulling method, which contributes to its bold, earthy flavor profile.",
       price: 22.99,
-      imageUrl: "https://images.unsplash.com/photo-1494314671902-399b18174975?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
-      bestSeller: false,
+      imageUrl: "https://images.squarespace-cdn.com/content/v1/5d9f5cfe66c0ff4ce192f1a2/d32676e0-bd1a-46dd-b16c-da27e1b4c1eb/My+project-1+%2820%29.png",
+      bestSeller: true,
       category: "Single Origin",
       weightOptions: [250, 1000],
       roastLevel: "Dark",
@@ -55,7 +55,7 @@ const coffees = [
       longDescription: "Grown in the Antigua region of Guatemala, this coffee has a rich, velvety body and offers a complex profile with hints of cocoa, sweet citrus, and floral notes. It has a clean, bright acidity and is a perfect balance of sweet and bitter.",
       price: 25.99,
       imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
-      bestSeller: true,
+      bestSeller: false,
       category: "Organic",
       weightOptions: [250,1000],
       roastLevel: "Medium",
@@ -70,7 +70,7 @@ const coffees = [
       description: "Brazilian Santos is a smooth, medium-bodied coffee known for its mild flavor with chocolate, nutty, and caramel undertones.",
       longDescription: "Brazilian Santos is one of the most popular coffees in the world, thanks to its easy drinkability. It is grown in the rich soils of Brazil and is known for its clean, nutty profile, which often includes hints of caramel and chocolate.",
       price: 18.99,
-      imageUrl: "https://images.unsplash.com/photo-1610632380989-680fe40816c6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+      imageUrl: "https://cdn.shopify.com/s/files/1/2783/4082/files/health-benefits-of-coffee-black-creek-coffee-blog.jpg?v=1620240785",
       bestSeller: true,
       category: "Organic",
       weightOptions: [250, 500],
@@ -125,7 +125,7 @@ const coffees = [
       weightOptions: [250,1000],
       roastLevel: "Medium",
       region: "Kenya",
-     notes: ["Berry", "Citrus", "Floral", "Bright", "Intense"],
+      notes: ["Berry", "Citrus", "Floral", "Bright", "Intense"],
       slug: "kenyan-aa",
       soldOut: false,
       rating:3.9
@@ -152,7 +152,7 @@ const coffees = [
       description: "This premium blend combines the famous Jamaican Blue Mountain coffee with the smoothness of Central American beans, creating a balanced, smooth cup with mild acidity.",
       longDescription: "The Blue Mountain Blend brings together the best of Jamaican Blue Mountain coffee, known for its mild flavor and smooth body, with Central American beans that provide a gentle acidity. The result is a balanced, luxurious coffee with subtle floral notes, a silky mouthfeel, and a light, fruity finish. It's an ideal choice for those who enjoy premium, smooth coffees with a mild yet complex flavor profile.",
       price: 59.99,
-      imageUrl: "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTN8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+      imageUrl: "https://img.freepik.com/premium-photo/coffee-cup-coffee-beans_78677-5886.jpg?w=900",
       bestSeller: true,
       category: "Premium Blends",
       weightOptions: [250, 1000],
@@ -174,7 +174,7 @@ const coffees = [
       weightOptions: [250, 1000],
       roastLevel: "Medium",
       region: "Colombia & Brazil",
-     notes: ["Caramel", "Chocolate", "Nutty", "Bright Acidity", "Full-bodied"],
+      notes: ["Caramel", "Chocolate", "Nutty", "Bright Acidity", "Full-bodied"],
       slug: "cafe-de-colombia-blend",
       soldOut: false,
       rating: 4.6
@@ -184,7 +184,7 @@ const coffees = [
     description: "A premium espresso blend combining rich Italian beans with a touch of dark-roasted Brazilian coffee, providing a bold, full-bodied espresso with notes of chocolate and caramel.",
     longDescription: "This Italian Espresso Blend combines high-quality beans from Italy with dark-roasted Brazilian coffee to create a bold, full-bodied espresso that has deep, rich flavors. The blend offers notes of chocolate, caramel, and a slightly smoky undertone, making it perfect for espresso lovers who enjoy a strong, flavorful cup. Whether enjoyed as a straight shot or in lattes and cappuccinos, this espresso is a true indulgence.",
     price: 49.99,
-    imageUrl: "https://images.unsplash.com/photo-1596098823457-74e360fcd023?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+    imageUrl: "https://img.freepik.com/free-photo/close-up-delicious-coffee-after-harvest_23-2151913332.jpg?t=st=1746196724~exp=1746200324~hmac=50dca791b87be32e63825efc68db7e76d7c2c1f154ad3da914971ddb658c8cde&w=996",
     bestSeller: true,
     category: "Premium Blends",
     weightOptions: [250, 1000],
@@ -199,7 +199,7 @@ const coffees = [
     name: "Organic Peru Coffee",
     description: "This organic coffee from Peru is known for its smooth, mild flavor with a hint of nutty sweetness and a clean finish.",
     longDescription: "Grown in the highlands of Peru, this organic coffee offers a smooth and well-balanced cup. The mild flavor is complemented by hints of toasted nuts and caramel, with a clean, refreshing finish. Perfect for a calm morning brew.",
-    imageUrl: "https://images.unsplash.com/photo-1556214384-0d5cd609e37a?w=1000&auto=format&fit=crop&q=60&ixid=M3wxMjA3fDB8MHxwaG90by1jb3ZmZWV8MXx8fHx8fHwxNjg3NjA3MDA5&ixlib=rb-4.0.3",
+    imageUrl: "https://img.freepik.com/free-photo/cup-hot-coffee-with-cookies-table-lights_181624-45606.jpg?t=st=1746196831~exp=1746200431~hmac=5062fcc7fa45a10eee79d39bc2adc1f4b872e0cd89b3dab44aaef806cce15554&w=1380",
     price: 42.00,
     category: "Organic",
     region: "Peru",
@@ -208,7 +208,8 @@ const coffees = [
     weightOptions: [250, 1000],
     roastLevel: "Medium",
     notes: ["Nutty", "Caramel", "Smooth", "Clean"],
-    soldOut: false
+    soldOut: false,
+    bestSeller:true
   },
   {
     name: "Organic Ethiopian Sidamo",
@@ -223,7 +224,8 @@ const coffees = [
     weightOptions: [250, 1000],
     roastLevel: "Light",
     notes: ["Floral", "Citrus", "Bright", "Full-bodied"],
-    soldOut: false
+    soldOut: false,
+    bestSeller:false
   },
   {
     name: "Organic Mexican Coffee",
@@ -238,7 +240,8 @@ const coffees = [
     weightOptions: [250, 1000],
     roastLevel: "Medium",
     notes: ["Earthy", "Chocolate", "Smooth", "Balanced"],
-    soldOut: false
+    soldOut: false,
+    bestSeller:true
   },
   {
     name: "Organic Costa Rican Coffee",
@@ -253,7 +256,8 @@ const coffees = [
     weightOptions: [250, 1000],
     roastLevel: "Medium",
     notes: ["Citrus", "Honey", "Creamy", "Bright"],
-    soldOut: false
+    soldOut: false,
+    bestSeller:true,
   },
   {
     name: "Organic Indian Monsooned Malabar",
@@ -268,7 +272,9 @@ const coffees = [
     weightOptions: [250, 1000],
     roastLevel: "Dark",
     notes: ["Earthy", "Spicy", "Bold", "Smooth"],
-    soldOut: false
+    soldOut: false,
+    bestSeller:false,
+
   }
   
   ];
