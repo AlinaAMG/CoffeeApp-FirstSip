@@ -1,31 +1,31 @@
-require('dotenv').config();                    // for .env file.
-const path = require('path')
-const express = require("express")
-const cookieParser = require('cookie-parser')
-const cors = require('cors')                   // Import the cors package
 
-const router = require('./routes/routes.js')
-const route = require("./routes/contactRoute.js")
+require('dotenv').config();                  
+const express = require("express");
+const cors = require('cors'); 
+const cookieParser = require('cookie-parser');
+const path = require('path'); 
+
+const router = require('./routes/routes.js');
+const route = require("./routes/contactRoute.js");                
+
+require("./configs/mongoose.js"); 
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 require("./configs/mongoose.js")     // it makes a connection with mongoose in MongoDB database.
 
-const app = express()
-app.use(cors())                                 // Enable CORS for all routes
-
-app.use(cookieParser())
-
-// app.use(express.static('front-end'));
-app.use(express.static(path.join(__dirname, 'public')))
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-//This will ensure that the request body is parsed correctly and available in req.body. 
-// Therefore these must be before router.
-
-app.use(router) 
+// Routes
+app.use(router); 
 app.use(route);
 
-
+module.exports = app;
 
 // Server
 const APP_PORT= process.env.PORT || 4001;

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 require('dotenv').config()      
 
-const CoffeeModel = require('../models/coffee')
-const coffeeMockData = require('./coffees')
+const CoffeeModel = require('../models/coffee');
+const coffeeMockData = require('./coffees');
 
 /**
  *  Be careful this command line delete all coffee data and add mock data in the DB. 
