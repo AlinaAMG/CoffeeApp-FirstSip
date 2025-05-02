@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link,useParams } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
 import './AllCoffees.css';
 import coffeeImage from './img/coffeeBag.png';
 import coffeeHover from './img/coffeemock.png';
-import { useLocation } from 'react-router-dom';
 
 function AllCoffees() {
   const [coffees, setCoffees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-    const location = useLocation();
-    const { id } = useParams();
+  const location = useLocation();
+   const navigate = useNavigate(); 
 
   useEffect(() => {
     axios
@@ -45,6 +44,12 @@ function AllCoffees() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
+  // Function to handle the redirection
+  const redirectToDetails = (coffeeId) => {
+    // Redirect the user to the coffee details page
+    navigate(`/shop/${coffeeId}`); 
+  };
+
   return (
     <div className="container">
       <h1>Coffee List</h1>
@@ -71,7 +76,7 @@ function AllCoffees() {
               {coffee.category}
             </p>
             <p>
-              <strong>Price:</strong> ${coffee.price}
+              <strong>Price:</strong> &euro;{coffee.price}
             </p>
             <p>
               <strong>Rating:</strong> {coffee.rating} / 5
@@ -81,9 +86,12 @@ function AllCoffees() {
               <strong>Description:</strong>{' '}
               {coffee.description.split(' ').slice(0, 12).join(' ')}
             </p>
-            <Link className="btn-all-coffees" to="/cart">
+            <button
+              className="btn-all-coffees"
+              onClick={() => redirectToDetails(coffee._id)}
+            >
               Add To Cart
-            </Link>
+            </button>
           </div>
         ))}
       </div>

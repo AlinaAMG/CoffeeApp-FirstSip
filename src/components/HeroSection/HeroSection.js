@@ -16,7 +16,7 @@ const HeroSection = () => {
             alt="Coffee Logo"
             className="cta-button-icon"
           />
-         <Link className="shop" to="/shop">Shop Now</Link>
+         <Link className="shop" to="/shop/all-coffees">Shop Now</Link>
          </button>
       
       </div>

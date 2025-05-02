@@ -7,14 +7,20 @@
 
 .our-origins {
 padding: 2rem;
-}
+text-align: center;
+background-color: #d8d7d6;
+width:100%;
+margin: auto;
+border-radius: 20px;
 
+}
 
 .section-title {
  color: #4b2e2a;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
+  text-align: center;
  
 }
 
@@ -27,14 +33,13 @@ padding: 2rem;
   
 }
 
-/* Styling for each coffee card */
+
 .coffee-card {
   display: flex;
   flex-direction: column;
    justify-content: center;
   align-items: start; 
-  width: 100%;
-  padding: 30px;
+  width: 80%;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -54,14 +59,6 @@ padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Add expanded style when the card is open */
- .coffee-card.open {
-   height: 800px;  
-
-}
-
-/* Styling for the coffee title */
- 
 .coffee-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -71,14 +68,15 @@ padding: 2rem;
   margin-bottom: 1rem;
 }
  
- .coffee-image {
+ .coffee-card .coffee-image {
    width: 100%; 
+   
   border-radius: 10px;
-  height: 150%;
+  height: 40vh;
   background-color: #ddd;
   margin-bottom: 1rem;
-} 
 
+ }
  
 .coffee-details {
   display: flex;
@@ -86,13 +84,13 @@ padding: 2rem;
   align-items: center;
   gap: 1rem;
   color: #fff;
-} */
-
- .coffee-description1 {
-  font-size: 0.9rem;
+} 
+ 
+ .coffee-details .coffee-description1 {
+  font-size: 1.1rem;
   line-height: 1.5;
   color: #fff !important;
-  margin-bottom: 1.2rem;
+  margin-top: 2rem;
    font-weight:800; 
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }  
@@ -117,12 +115,16 @@ padding: 2rem;
 .our-origins .section-slogan {
     font-size: 1.2rem;
     font-weight: 600; 
-    margin: 0 0 60px;
+    margin: 30px auto 50px;
     color:#4B2E2A;
     line-height: 1.6;
     max-width: 800px;
 
+
   } 
+  /* .section-slogan{
+    text-align: center;
+  } */
 
   
 @media (max-width: 768px) {

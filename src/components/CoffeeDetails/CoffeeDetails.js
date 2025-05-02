@@ -1,8 +1,8 @@
 import './CoffeeDetail.css';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import axios from 'axios';
-import coffeeImage from './img/coffeedetails.png';
+
 
 function CoffeeDetail() {
   const { id } = useParams();
@@ -29,13 +29,55 @@ function CoffeeDetail() {
   const handleRoastChange = (e) => setSelectedRoast(e.target.value);
   const handleQuantityChange = (e) => setQuantity(e.target.value);
 
+  const getDisplayedPrice = () => {
+    if (!coffee || !coffee.price) return '0.00';
+  
+    let basePrice = coffee.price; // price for 250g
+    let weightMultiplier = 1;
+  
+    if (selectedWeight === '1000g') {
+      weightMultiplier = 4;
+    }
+  
+    const totalPrice = basePrice * weightMultiplier * quantity;
+    return totalPrice.toFixed(2);
+  };
+
+ 
   const handleAddToCart = () => {
-    console.log('Added to cart:', {
-      id: coffee._id,
-      selectedWeight,
-      selectedRoast,
-      quantity,
-    });
+    // Check if the user has selected a weight
+    if (selectedWeight === 'choose') {
+      alert('Please select a weight!');
+      return;
+    }
+
+    const cartItem = { coffee, selectedWeight, quantity };
+
+    // Get current cart from localStorage
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item already exists in the cart
+    const itemIndex = currentCart.findIndex(
+      (item) => item.coffee.id === cartItem.coffee.id && item.selectedWeight === cartItem.selectedWeight
+    );
+
+    if (itemIndex > -1) {
+      // If the item already exists, update the quantity
+      currentCart[itemIndex].quantity += cartItem.quantity;
+    } else {
+      // If the item doesn't exist, add it to the cart
+      currentCart.push(cartItem);
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+
+    // Update cart count in navbar
+    const currentCartCount = currentCart.reduce((acc, item) => acc + item.quantity, 0);
+    localStorage.setItem('cartCount', currentCartCount);
+
+    
+    alert('Item added to the cart!');
   };
 
   if (loading) return <p>Loading...</p>;
@@ -45,8 +87,9 @@ function CoffeeDetail() {
     <div className="coffee-single-wrapper">
       <div className="coffee-single-container">
         <div className="coffee-single-image-box">
+       <Link to ="/shop/all-coffees"><i className="bi bi-arrow-left"></i></Link> 
           <img
-            src={coffeeImage}
+            src={coffee.imageUrl}
             alt={coffee.name}
             className="coffee-single-image"
           />
@@ -58,15 +101,15 @@ function CoffeeDetail() {
           <p>
             <strong>Notes:</strong> {coffee.notes}
           </p>
-          <p>
-            <strong>Price:</strong> ${coffee.price}
-          </p>
+        
           <p>
             <strong>Category:</strong> {coffee.category}
           </p>
           <p>
             <strong>Rating:</strong> {coffee.rating} / 5
           </p>
+
+         
 
           <div className="coffee-single-weight">
             <label>Select Weight: </label>
@@ -96,7 +139,9 @@ function CoffeeDetail() {
               onChange={handleQuantityChange}
             />
           </div>
-
+          <p className="totalPrice">
+            <strong>Total:</strong>&euro;{getDisplayedPrice()}
+          </p>
           <button className="coffee-single-add-btn" onClick={handleAddToCart}>
             Add to Cart
           </button>
@@ -104,6 +149,7 @@ function CoffeeDetail() {
       </div>
 
       <div className="coffee-single-long-description">
+        <h4>Product Description</h4>
         <h5>{coffee.longDescription}</h5>
       </div>
     </div>

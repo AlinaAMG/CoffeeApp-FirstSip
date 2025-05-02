@@ -15,11 +15,6 @@ const ContactForm = () => {
   const [agreePolicy, setAgreePolicy] = useState(false);
   const [error, setError] = useState('');
 
-  const { name, email, message } = {
-    name: formData.name.trim(),
-    email: formData.email.trim(),
-    message: formData.message.trim(),
-  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
