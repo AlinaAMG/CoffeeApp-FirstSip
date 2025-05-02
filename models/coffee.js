@@ -6,13 +6,19 @@ const coffeeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     description: {
       type: String,
       required: true,
     },
 
-    longDescription: { type: String, required: false },
-    notes: { type: String, required: false },
+    longDescription:
+      { type: String, required: false },
+    notes:
+      { type: String, required: false },
+    region: {
+      type: String, required: false 
+    },
     price: {
       type: Number,
       required: true,
