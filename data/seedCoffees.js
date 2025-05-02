@@ -8,7 +8,7 @@ const coffeeMockData = require('./coffees');
  *  Be careful this command line delete all coffee data and add mock data in the DB. 
  *  Therefore only must use to add mock data in DB.
  *
-    node ./data/seed.js
+    node ./data/seedCoffees.js
  */
 async function seedCoffee() {
     try {

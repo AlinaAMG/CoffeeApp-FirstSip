@@ -1,3 +1,4 @@
+
 require('dotenv').config();                  
 const express = require("express");
 const cors = require('cors'); 
@@ -5,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path'); 
 
 const router = require('./routes/routes.js');
-const route = require("./routes/contactRoute.js");
+const route = require("./routes/contactRoute.js");                
 
 require("./configs/mongoose.js"); 
 
@@ -18,13 +19,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+require("./configs/mongoose.js")     // it makes a connection with mongoose in MongoDB database.
+
 // Routes
 app.use(router); 
 app.use(route);
 
 module.exports = app;
-
-
 
 // Server
 const APP_PORT= process.env.PORT || 4001;

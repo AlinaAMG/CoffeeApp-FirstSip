@@ -57,6 +57,8 @@ const addUser = async (req, res) => {
  */
 const login = async (req, res) => {
     const { email, password } = req.body
+    console.log(req.body);
+    
     if (!email || !password) {
         return res.status(400).send({ error: 'Email and password are required' });
     }
@@ -161,7 +163,6 @@ const deleteUser = (req, res) => {
     console.log(req.body);
 
     UserModel.deleteOne({ _id: { $eq: user._id } }).then(resData => {
-        console.log(res);
 
         res.status(200).send(resData)
     })
