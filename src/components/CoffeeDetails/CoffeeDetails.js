@@ -99,7 +99,7 @@ function CoffeeDetail() {
           <h1 className="coffee-single-title">{coffee.name}</h1>
           <p className="coffee-single-description">{coffee.description}</p>
           <p>
-            <strong>Notes:</strong> {coffee.notes}
+          <strong>Notes:</strong> {coffee.notes.join(', ')}
           </p>
         
           <p>
@@ -107,6 +107,9 @@ function CoffeeDetail() {
           </p>
           <p>
             <strong>Rating:</strong> {coffee.rating} / 5
+          </p>
+          <p>
+            <strong>Region:</strong> {coffee.region} 
           </p>
 
          

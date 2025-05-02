@@ -80,11 +80,11 @@ function AllCoffees() {
             </p>
             <p>
               <strong>Rating:</strong> {coffee.rating} / 5
-                </p>
+            </p>
             
             <p className="description">
               <strong>Description:</strong>{' '}
-              {coffee.description.split(' ').slice(0, 12).join(' ')}
+              {coffee.description.split(' ').slice(0, 5).join(' ')}<Link className="read-more" to={`/shop/${coffee._id}`}>Read more</Link>
             </p>
             <button
               className="btn-all-coffees"
