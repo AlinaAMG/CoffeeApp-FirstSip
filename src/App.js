@@ -1,15 +1,16 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Header from './components/Header/Header';
-import Home from './components/Home';
-import Footer from './components/Footer/Footer';
-import CoffeeQuiz from './components/Quiz/Quiz';
-import OurStory from './components/OurStory/OurStory';
-import OurOrigins from './components/OurOrigins/OurOrigins';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Home from "./components/Home";
+import Footer from "./components/Footer/Footer";
+import CoffeeQuiz from "./components/Quiz/Quiz";
+import OurStory from "./components/OurStory/OurStory";
+import OurOrigins from "./components/OurOrigins/OurOrigins";
+import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
 
-import AllCoffees from './components/ShopPage/ShopPage';
-import ContactForm from './components/ContactForm/ContactForm';
+import AllCoffees from "./components/ShopPage/ShopPage";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   return (
@@ -20,14 +21,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<CoffeeQuiz />} />
 
-         <Route path="/shop/all-coffees" element={<AllCoffees />} />
+        <Route path="/shop/all-coffees" element={<AllCoffees />} />
         {/* <Route path="/shop/single-origin" element={<SingleOrigin />} />
         <Route path="/shop/organic" element={<Organic />} />
         <Route path="/shop/premium-blends" element={<PremiumBlends />} /> */}
-        <Route path="/our-origins" element={<OurOrigins />} /> 
-        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
+        <Route path="/our-origins" element={<OurOrigins />} />
+        <Route path="/coffee-box" element={<CoffeeBox />} />
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
-         <Route path="/contact" element={<ContactForm />} />
+        <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
         {/* <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} /> */}
