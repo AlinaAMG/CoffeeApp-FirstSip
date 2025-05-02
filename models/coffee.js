@@ -6,6 +6,19 @@ const coffeeSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
+    region: {
+      type: String,
+        required: false,
+    },
+    notes: {
+      type: [String],
+      required:false
+      
+    },
+    longDescription: {
+      type: String,
+        required: false,
+    },
     description: {
         type: String,
         required: true,
@@ -13,6 +26,11 @@ const coffeeSchema = new mongoose.Schema(
     price: {
         type: Number,
         required: true,
+    },
+    weightOptions: {
+      type: [Number],
+      required: false,
+      default: [250, 1000]
     },
     imageUrl: {
         type: String,
