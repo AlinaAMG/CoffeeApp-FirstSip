@@ -53,9 +53,9 @@ const coffees = [
   {
     name: 'Sumatra Mandheling',
     description:
-      `Sumatra Mandheling coffee is known for its earthy, full-bodied flavor profile with low acidity and notes of chocolate, spice, and tobacco.',
+      `Sumatra Mandheling coffee is known for its earthy, full-bodied flavor profile with low acidity and notes of chocolate, spice, and tobacco.`,
     longDescription:
-    Sumatra Mandheling is a distinctive and beloved coffee from the Indonesian island of Sumatra. Known for its bold, earthy flavors and full-bodied profile, Mandheling coffee has become a staple in the world of specialty coffee, appreciated for its depth and complexity.
+    `Sumatra Mandheling is a distinctive and beloved coffee from the Indonesian island of Sumatra. Known for its bold, earthy flavors and full-bodied profile, Mandheling coffee has become a staple in the world of specialty coffee, appreciated for its depth and complexity.
 
     Grown in the rich volcanic soils of the island's highlands, Mandheling coffee beans are typically harvested at elevations ranging from 1,200 to 1,500 meters above sea level. The beans are handpicked by smallholder farmers who use traditional methods to cultivate and process the coffee, contributing to its unique flavor characteristics.
     
