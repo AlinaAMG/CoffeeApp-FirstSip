@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-const CoffeeModel = require('../models/coffee')
+const CoffeeModel = require('../../models/coffee')
 const coffeeMockData = require('./coffees')  //require('./matrix-final-db.coffees.json')
 
 /**
