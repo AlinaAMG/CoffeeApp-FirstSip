@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
-
 function CoffeeDetail() {
   const { id } = useParams();
   const [coffee, setCoffee] = useState(null);
@@ -58,14 +57,18 @@ function CoffeeDetail() {
     }
 
     const cartItem = { coffee, selectedWeight, quantity };
+    console.log("Adding to cart:", cartItem);
+
 
     // Get current cart from localStorage
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    console.log('Checking for existing item with:');
+    console.log('Coffee ID:', cartItem.coffee.id);
+    console.log('Selected Weight:', cartItem.selectedWeight);
     // Check if the item already exists in the cart
     const itemIndex = currentCart.findIndex(
       (item) =>
-        item.coffee.id === cartItem.coffee.id &&
+        item.coffee.id === cartItem.coffee._id &&
         item.selectedWeight === cartItem.selectedWeight
     );
 
@@ -87,6 +90,10 @@ function CoffeeDetail() {
 
     alert('Item added to the cart!');
   };
+
+
+    
+    
   const handleAddToFavorites = () => {
     const currentFavorites =
       JSON.parse(localStorage.getItem('favorites')) || [];
@@ -102,6 +109,7 @@ function CoffeeDetail() {
         (fav) => fav._id !== coffee._id
       );
       setIsFavorite(false);
+      alert('Removed from favorites!');
     } else {
       updatedFavorites = [
         ...currentFavorites,
@@ -113,6 +121,7 @@ function CoffeeDetail() {
         },
       ];
       setIsFavorite(true);
+      alert('Added to favorites!');
     }
 
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));

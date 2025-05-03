@@ -12,6 +12,7 @@ import AllCoffees from './components/AllCoffees/AllCoffees';
 import ContactForm from './components/ContactForm/ContactForm';
 import CoffeeDetail from "./components/CoffeeDetails/CoffeeDetails";
 import FavoritesPage from './components/Favorites/Favorites';
+import Cart from "./components/CartPage/Cart";
 
 function App() {
   return (
@@ -33,8 +34,8 @@ function App() {
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
-        {/* <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} /> */}
+         <Route path="/cart" element={<Cart />}/> 
+         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
 
       <Footer />
