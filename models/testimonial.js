@@ -4,10 +4,22 @@ const TestimonialSchema = new mongoose.Schema({
   author: {
     type: String,
     required: true,
+    validate: {
+      validator: (value) => {
+        return value.trim().length > 3;
+      },
+      message: "Author field cannot be empty and must be bigger than 3 letters.",
+    },
   },
   text: {
     type: String,
     required: true,
+    validate: {
+      validator: (value) => {
+        return value.trim().length > 40;
+      },
+      message: "Text field cannot be empty and must be bigger than 40 letters.",
+    },
   },
   rating: {
     type: Number,
@@ -25,5 +37,5 @@ const TestimonialSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-const TestimonialModel = mongoose.model("testimonials", TestimonialSchemaSchema) 
+const TestimonialModel = mongoose.model("testimonials", TestimonialSchema)
 module.exports = TestimonialModel

@@ -17,7 +17,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"ilyas\",\r\n    \"email\": \"lhn@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"confirmPassword\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"name\": \"ilyas\",\r\n    \"email\": \"lhn2@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"confirmPassword\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -341,7 +341,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4001/api/coffees/coffee/644f1b2e5f1c2a001c8e4d3a",
+					"raw": "http://localhost:4001/api/coffees/coffee/68134256fd88f34461e89165",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -351,7 +351,7 @@
 						"api",
 						"coffees",
 						"coffee",
-						"644f1b2e5f1c2a001c8e4d3a"
+						"68134256fd88f34461e89165"
 					]
 				}
 			},
@@ -376,6 +376,195 @@
 						"coffees",
 						"category",
 						"Single%20Origin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/coffees/category/Single%20Origin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4001/api/coffees/category/Single%20Origin",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"coffees",
+						"category",
+						"Single%20Origin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/coffee-box/all-coffee-boxes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4001/api/coffee-box/all-coffee-boxes",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"coffee-box",
+						"all-coffee-boxes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4001/api/coffee-box/details/681502b374b2342c87772ae1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/api/coffee-box/details/68150efd47b342939cee9afa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"coffee-box",
+						"details",
+						"68150efd47b342939cee9afa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/testimonials",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4001/api/testimonials",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"testimonials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/testimonials",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"1234\",\r\n    \"text\": \"This product changed my life! erferfergerer erge\",\r\n    \"rating\": 1,\r\n    \"verified\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4001/api/testimonials",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"testimonials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/testimonail/delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"68166988f5f90648d5620b85\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4001/api/testimonail/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"testimonail",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4001/api/testimonail/update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"6816640fa4faef3f1dd12d6f\",\r\n    \"author\": \"1234\",\r\n    \"text\": \"This product changed my life! erferfergerer erge\",\r\n    \"rating\": 1,\r\n    \"verified\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4001/api/testimonail/update",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"testimonail",
+						"update"
 					]
 				}
 			},

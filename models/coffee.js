@@ -5,6 +5,12 @@ const coffeeSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      validate: {
+        validator: (value) => {
+          return value.trim().length > 3;
+        },
+        message: "Name cannot be empty and must be bigger than 3 letters.",
+      }
     },
     region: {
       type: String,
@@ -13,7 +19,6 @@ const coffeeSchema = new mongoose.Schema(
     notes: {
       type: [String],
       required: false
-
     },
     longDescription: {
       type: String,
@@ -22,10 +27,22 @@ const coffeeSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
+      validate: {
+        validator: (value) => {
+          return value.trim().length > 3;
+        },
+        message: "Description cannot be empty and must be bigger than 3 letters.",
+      }
     },
     price: {
       type: Number,
       required: true,
+      validate: {
+        validator: (value) => {
+          return value > 0;
+        },
+        message: "Price must be bigger than 0.",
+      }
     },
     weightOptions: {
       type: [Number],
