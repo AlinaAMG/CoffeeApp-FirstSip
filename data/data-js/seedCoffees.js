@@ -1,18 +1,19 @@
-const mongoose = require('mongoose');
-require('dotenv').config()      
 
-const CoffeeModel = require('../models/coffee');
-const coffeeMockData = require('./coffees');
+const mongoose = require('mongoose');
+require('dotenv').config()
+
+const CoffeeModel = require('../models/coffee')
+const coffeeMockData = require('./coffees')  //require('./matrix-final-db.coffees.json')
 
 /**
- *  Be careful this command line delete all coffee data and add mock data in the DB. 
+ *  Be careful this command line delete all coffee data and add mock data in the DB.
  *  Therefore only must use to add mock data in DB.
  *
     node ./data/seedCoffees.js
  */
 async function seedCoffee() {
     try {
-        await mongoose.connect(process.env.MONGO_URI)    
+        await mongoose.connect(process.env.MONGO_URI)
 
         // Clear existing coffee data
         await CoffeeModel.deleteMany({});

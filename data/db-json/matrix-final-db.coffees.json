@@ -1,0 +1,360 @@
+[{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c07f"
+  },
+  "name": "Blue Mountain",
+  "description": "A smooth, sweet, and balanced coffee from Jamaica with fruity and floral notes.",
+  "price": 18.99,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Jamaica",
+  "tastingNotes": [
+    "Fruity",
+    "Floral",
+    "Smooth"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.726Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c080"
+  },
+  "name": "Ethiopian Yirgacheffe",
+  "description": "A bright and citrusy coffee with hints of jasmine and bergamot.",
+  "price": 14.99,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Light",
+  "region": "Ethiopia",
+  "tastingNotes": [
+    "Citrusy",
+    "Jasmine",
+    "Bergamot"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.726Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c081"
+  },
+  "name": "Colombian Supremo",
+  "description": "Rich, nutty, and smooth coffee with chocolatey undertones.",
+  "price": 15.99,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Colombia",
+  "tastingNotes": [
+    "Nutty",
+    "Chocolatey",
+    "Smooth"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c082"
+  },
+  "name": "Sumatra Mandheling",
+  "description": "Full-bodied and earthy with notes of dark chocolate and spice.",
+  "price": 17.49,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Dark",
+  "region": "Sumatra",
+  "tastingNotes": [
+    "Earthy",
+    "Dark Chocolate",
+    "Spicy"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c083"
+  },
+  "name": "Organic Peru",
+  "description": "Organic, rich coffee with hints of caramel, chocolate, and almonds.",
+  "price": 16.99,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Organic",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Peru",
+  "tastingNotes": [
+    "Caramel",
+    "Chocolate",
+    "Almonds"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c084"
+  },
+  "name": "Brazil Santos",
+  "description": "A nutty and sweet coffee with a mild body and low acidity.",
+  "price": 12.99,
+  "imageUrl": "",
+  "bestSeller": true,
+  "category": "Premium Blends",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Brazil",
+  "tastingNotes": [
+    "Nutty",
+    "Sweet",
+    "Mild"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c085"
+  },
+  "name": "Guatemala Antigua",
+  "description": "A balanced coffee with rich flavor and hints of caramel and  chocolate.",
+  "price": 13.99,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Guatemala",
+  "tastingNotes": [
+    "Caramel",
+    "Chocolate",
+    "Balanced"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c086"
+  },
+  "name": "Costa Rica Tarrazu",
+  "description": "A bright, citrusy coffee with a smooth finish and a hint of berry.",
+  "price": 14.49,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Light",
+  "region": "Costa Rica",
+  "tastingNotes": [
+    "Citrusy",
+    "Berry",
+    "Smooth"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c087"
+  },
+  "name": "Kenya AA",
+  "description": "A rich and intense coffee with fruity and floral notes.",
+  "price": 15.49,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Single Origin",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Kenya",
+  "tastingNotes": [
+    "Fruity",
+    "Floral",
+    "Rich"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c088"
+  },
+  "name": "Organic Rwanda",
+  "description": "A smooth and clean coffee with notes of citrus and chocolate.",
+  "price": 16.99,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Organic",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Rwanda",
+  "tastingNotes": [
+    "Citrusy",
+    "Chocolate",
+    "Smooth"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c089"
+  },
+  "name": "Honduran Marcala",
+  "description": "A balanced coffee with a mild flavor, featuring nutty and caramel notes.",
+  "price": 14.99,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Organic",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Honduras",
+  "tastingNotes": [
+    "Nutty",
+    "Caramel",
+    "Balanced"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150b375c2796e27af4c08a"
+  },
+  "name": "Colombian Coffee Blend",
+  "description": "A flavorful and smooth blend with rich chocolate and caramel notes.",
+  "price": 13.49,
+  "imageUrl": "",
+  "bestSeller": false,
+  "category": "Premium Blends",
+  "weightOptions": [
+    250,
+    1000
+  ],
+  "roastLevel": "Medium",
+  "region": "Colombia",
+  "tastingNotes": [
+    "Chocolate",
+    "Caramel",
+    "Smooth"
+  ],
+  "soldOut": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-02T18:13:11.727Z"
+  }
+}]
