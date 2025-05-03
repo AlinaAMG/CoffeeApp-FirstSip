@@ -107,30 +107,38 @@ function CoffeeBox() {
     }, 500);
   }, []);
 
-  if (loading) return <div className="p-4">Loading...</div>;
+  if (loading) return <div className="loading">Loading...</div>;
 
   const renderCoffeeList = (title, coffees) => (
-    <div className="section">
-      <h2 className="section-title">{title}</h2>
-      <div className="coffee-grid">
+    <div className="coffeeBox-section">
+      <h2 className="coffeeBox-section-title">{title}</h2>
+      <div className="coffeeBox-wrap">
         {coffees.map((coffee, index) => (
-          <div key={index} className="coffee-card">
-            <h3 className="coffee-name">{coffee.name}</h3>
-            <p>
-              <strong>Region:</strong> {coffee.region}
-            </p>
-            <p>
-              <strong>Roast Level:</strong> {coffee.roastLevel}
-            </p>
-            <p>
-              <strong>Weight:</strong> {coffee.weight}
-            </p>
-            <p>
-              <strong>Notes:</strong> {coffee.notes.join(", ")}
-            </p>
-            <p className="price">
-              <strong>Price:</strong> ${coffee.price.toFixed(2)}
-            </p>
+          <div key={index} className="coffeeBox-card">
+            <h3 className="coffeeBox-name">{coffee.name}</h3>
+            <div className="coffeeBox-data">
+              <p>
+                <strong>Region:</strong> {coffee.region}
+              </p>
+              <p>
+                <strong>Roast Level:</strong> {coffee.roastLevel}
+              </p>
+              <p>
+                <strong>Weight:</strong> {coffee.weight}
+              </p>
+              <p>
+                <strong>Notes:</strong> {coffee.notes.join(", ")}
+              </p>
+              <p className="price">
+                <strong>Price:</strong> ${coffee.price.toFixed(2)}
+              </p>
+            </div>
+            <span className="coffeeBox-discount-badge">
+              15% OFF for Subscribers
+            </span>
+            <button className="coffeeBox-button" type="button">
+              Subscribe now
+            </button>
           </div>
         ))}
       </div>
@@ -139,7 +147,15 @@ function CoffeeBox() {
 
   return (
     <div className="container">
-      <h1 className="main-title">Our coffee boxes</h1>
+      <h1 className="coffeeBox-title">Our coffee boxes</h1>
+      <div className="coffeeBox-banner">
+        <h2>☕ Join Our Coffee Subscription Club!</h2>
+        <p>
+          Subscribe today and get <strong>15% off</strong> one coffee box every
+          month. Choose from our premium, organic, or single-origin selections.
+        </p>
+        <button className="coffeeBox-banner-btn">Subscribe Now</button>
+      </div>
       {renderCoffeeList("Organic Coffees", coffee.organicCoffees)}
       {renderCoffeeList("Single Origin Coffees", coffee.SingleOriginCoffees)}
       {renderCoffeeList(

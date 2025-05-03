@@ -27,7 +27,7 @@ function App() {
         <Route path="/shop/organic" element={<Organic />} />
         <Route path="/shop/premium-blends" element={<PremiumBlends />} /> */}
         <Route path="/our-origins" element={<OurOrigins />} />
-        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
+        <Route path="/coffee-box" element={<CoffeeBox />} />
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
