@@ -129,16 +129,17 @@ function CoffeeBox() {
               <p>
                 <strong>Notes:</strong> {coffee.notes.join(", ")}
               </p>
-              <p className="price">
+              <p className="coffeeBox-price">
                 <strong>Price:</strong> ${coffee.price.toFixed(2)}
               </p>
             </div>
-            <span className="coffeeBox-discount-badge">
-              15% OFF for Subscribers
-            </span>
+
             <button className="coffeeBox-button" type="button">
               Subscribe now
             </button>
+            <div className="coffeeBox-ribbon">
+              <span>15% OFF</span>
+            </div>
           </div>
         ))}
       </div>
