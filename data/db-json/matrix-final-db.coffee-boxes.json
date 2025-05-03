@@ -8,10 +8,10 @@
   "discountForSubscription": 10,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c07f"
+      "$oid": "681624aa990b82c5e510147c"
     },
     {
-      "$oid": "68150b375c2796e27af4c080"
+      "$oid": "681624aa990b82c5e510147e"
     }
   ],
   "weight": "250",
@@ -20,10 +20,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.690Z"
+    "$date": "2025-05-03T06:57:10.909Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.690Z"
+    "$date": "2025-05-03T06:57:10.909Z"
   }
 },
 {
@@ -36,7 +36,7 @@
   "discountForSubscription": 12,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c081"
+      "$oid": "681624aa990b82c5e510147f"
     }
   ],
   "weight": "250",
@@ -45,10 +45,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -61,10 +61,10 @@
   "discountForSubscription": 8,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c082"
+      "$oid": "681624aa990b82c5e510147f"
     },
     {
-      "$oid": "68150b375c2796e27af4c083"
+      "$oid": "681624aa990b82c5e5101480"
     }
   ],
   "weight": "1000",
@@ -73,10 +73,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -89,7 +89,7 @@
   "discountForSubscription": 15,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c084"
+      "$oid": "681624aa990b82c5e5101483"
     }
   ],
   "weight": "250",
@@ -98,10 +98,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -114,7 +114,7 @@
   "discountForSubscription": 5,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c085"
+      "$oid": "681624aa990b82c5e5101484"
     }
   ],
   "weight": "250",
@@ -123,10 +123,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -139,7 +139,7 @@
   "discountForSubscription": 20,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c086"
+      "$oid": "681624aa990b82c5e5101482"
     },
     {
       "$oid": "68150b375c2796e27af4c087"
@@ -151,10 +151,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -167,7 +167,7 @@
   "discountForSubscription": 18,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c088"
+      "$oid": "681624aa990b82c5e5101485"
     }
   ],
   "weight": "250",
@@ -176,10 +176,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -192,10 +192,10 @@
   "discountForSubscription": 25,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c089"
+      "$oid": "681624aa990b82c5e5101486"
     },
     {
-      "$oid": "68150b375c2796e27af4c08a"
+      "$oid": "681624aa990b82c5e5101487"
     }
   ],
   "weight": "1000",
@@ -204,10 +204,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -220,7 +220,7 @@
   "discountForSubscription": 10,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c089"
+      "$oid": "681624aa990b82c5e5101489"
     }
   ],
   "weight": "250",
@@ -229,10 +229,10 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 },
 {
@@ -245,7 +245,7 @@
   "discountForSubscription": 22,
   "coffeeSelection": [
     {
-      "$oid": "68150b375c2796e27af4c089"
+      "$oid": "681624aa990b82c5e5101484"
     }
   ],
   "weight": "250",
@@ -254,9 +254,9 @@
   "active": true,
   "__v": 0,
   "createdAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   },
   "updatedAt": {
-    "$date": "2025-05-02T18:29:17.691Z"
+    "$date": "2025-05-03T06:57:10.910Z"
   }
 }]
