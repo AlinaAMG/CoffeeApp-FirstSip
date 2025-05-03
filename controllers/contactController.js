@@ -1,5 +1,6 @@
 const ContactModel = require("../models/contactModel");
-const  sendEmail  = require('../sendEmail');
+const sendEmail = require('../sendEmail');
+const axios = require("axios");
 
 // Define the addContact function
 const addContact = async (req, res) => {
@@ -32,11 +33,37 @@ const addContact = async (req, res) => {
   }
 };
 
+const quizController = async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    const response = await axios.post(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: prompt }],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // OpenAI API key here
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    console.log('OpenAI response:', response.data);
+    res.json(response.data);
+  } catch (error) {
+    console.error('OpenAI error:', error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to connect to OpenAI' });
+  }
+};
+
 
 const notFoundPage = (req, res) => {
     res.status(404).render('404', { title: '404' });
   };
 module.exports = {
-    addContact, 
+  addContact, 
+  quizController,
    notFoundPage
  }  

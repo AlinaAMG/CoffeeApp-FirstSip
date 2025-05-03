@@ -5,6 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path'); 
 
+
 const router = require('./routes/routes.js');
 const route = require("./routes/contactRoute.js");                
 
@@ -19,7 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-require("./configs/mongoose.js")     // it makes a connection with mongoose in MongoDB database.
+require("./configs/mongoose.js")   
+
+
+
 
 // Routes
 app.use(router); 
