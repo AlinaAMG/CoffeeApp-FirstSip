@@ -12,6 +12,8 @@ import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
 import AllCoffees from "./components/AllCoffees/AllCoffees";
 import ContactForm from "./components/ContactForm/ContactForm";
 import CoffeeDetail from "./components/CoffeeDetails/CoffeeDetails";
+import FavoritesPage from "./components/Favorites/Favorites";
+import Cart from "./components/CartPage/Cart";
 
 function App() {
   return (
@@ -27,12 +29,14 @@ function App() {
         <Route path="/shop/organic" element={<Organic />} />
         <Route path="/shop/premium-blends" element={<PremiumBlends />} /> */}
         <Route path="/our-origins" element={<OurOrigins />} />
-        <Route path="/coffee-box" element={<CoffeeBox />} />
+        <Route path="/shop/:id" element={<CoffeeDetail />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
-        {/* <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} /> */}
+        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
 
       <Footer />

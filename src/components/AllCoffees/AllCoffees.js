@@ -84,7 +84,7 @@ function AllCoffees() {
             
             <p className="description">
               <strong>Description:</strong>{' '}
-              {coffee.description.split(' ').slice(0, 5).join(' ')}<Link className="read-more" to={`/shop/${coffee._id}`}>Read more</Link>
+              {coffee.description.split(' ').slice(0, 5).join(' ')}<Link className="read-more" to={`/shop/${coffee._id}`}><i className="bi bi-arrow-right"></i></Link>
             </p>
             <button
               className="btn-all-coffees"

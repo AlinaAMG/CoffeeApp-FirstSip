@@ -48,7 +48,7 @@
   border-radius: 8px;
 }
 .btn-all-coffees {
-  color: bisque;
+ color: bisque;  
   background-color: #4b2e2a;
   border-radius: 20px;
   padding: 10px;
@@ -105,21 +105,86 @@
   margin: 5px 0;
   overflow: hidden;
 }
-
-@media (max-width: 1024px) {
-  .coffee-card {
-    width: calc(33.33% - 20px);
-  }
+.bi-arrow-right{
+  font-size:20px;
+  color:#4b2e2a;
 }
+
 
 @media (max-width: 768px) {
+  .container {
+    margin: 10px 20px 50px 20px;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+    margin: 30px auto;
+  }
+
+  .coffee-cards {
+    justify-content: center;
+    gap: 16px;
+  }
+
   .coffee-card {
-    width: calc(50% - 20px);
+    flex: 0 1 80%;
+    padding: 14px;
+  }
+
+  .coffee-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn-all-coffees {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .image-container {
+    height: 300px;
+  }
+
+  .bi-arrow-right {
+    font-size: 18px;
   }
 }
 
+
 @media (max-width: 480px) {
+  .coffee-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .coffee-card {
-    width: 100%; /* 1 card per row on mobile */
+    width: 100%;
+    flex: 0 1 100%;
+    padding: 12px;
+  }
+
+  .coffee-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .coffee-card p {
+    font-size: 0.95rem;
+  }
+
+  .btn-all-coffees {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .read-more {
+    margin-left: 6px;
+    font-size: 0.95rem;
+  }
+
+  .bi-arrow-right {
+    font-size: 16px;
+  }
+
+  .image-container {
+    height: 240px;
   }
 }

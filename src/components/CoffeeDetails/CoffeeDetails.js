@@ -1,9 +1,8 @@
 import './CoffeeDetail.css';
 import { useState, useEffect } from 'react';
-import { useParams,Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-
-
+import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
 function CoffeeDetail() {
   const { id } = useParams();
   const [coffee, setCoffee] = useState(null);
@@ -11,13 +10,20 @@ function CoffeeDetail() {
   const [selectedWeight, setSelectedWeight] = useState('250g');
   const [selectedRoast, setSelectedRoast] = useState('Light');
   const [quantity, setQuantity] = useState(1);
+  const [isFavorite, setIsFavorite] = useState(false); // State for favorite status
 
   useEffect(() => {
+    // Fetch coffee details
     axios
       .get(`http://localhost:4001/api/coffees/coffee/${id}`)
       .then((res) => {
         setCoffee(res.data);
         setLoading(false);
+
+        // Check if this coffee is a favorite in localStorage
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const isFavoriteCoffee = favorites.some((fav) => fav.id === id);
+        setIsFavorite(isFavoriteCoffee); // Update the favorite status
       })
       .catch((err) => {
         console.error('Error fetching coffee details:', err);
@@ -31,19 +37,18 @@ function CoffeeDetail() {
 
   const getDisplayedPrice = () => {
     if (!coffee || !coffee.price) return '0.00';
-  
+
     let basePrice = coffee.price; // price for 250g
     let weightMultiplier = 1;
-  
+
     if (selectedWeight === '1000g') {
       weightMultiplier = 4;
     }
-  
+
     const totalPrice = basePrice * weightMultiplier * quantity;
     return totalPrice.toFixed(2);
   };
 
- 
   const handleAddToCart = () => {
     // Check if the user has selected a weight
     if (selectedWeight === 'choose') {
@@ -52,20 +57,24 @@ function CoffeeDetail() {
     }
 
     const cartItem = { coffee, selectedWeight, quantity };
+    console.log("Adding to cart:", cartItem);
+
 
     // Get current cart from localStorage
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    console.log('Checking for existing item with:');
+    console.log('Coffee ID:', cartItem.coffee.id);
+    console.log('Selected Weight:', cartItem.selectedWeight);
     // Check if the item already exists in the cart
     const itemIndex = currentCart.findIndex(
-      (item) => item.coffee.id === cartItem.coffee.id && item.selectedWeight === cartItem.selectedWeight
+      (item) =>
+        item.coffee.id === cartItem.coffee._id &&
+        item.selectedWeight === cartItem.selectedWeight
     );
 
     if (itemIndex > -1) {
-      // If the item already exists, update the quantity
       currentCart[itemIndex].quantity += cartItem.quantity;
     } else {
-      // If the item doesn't exist, add it to the cart
       currentCart.push(cartItem);
     }
 
@@ -73,11 +82,50 @@ function CoffeeDetail() {
     localStorage.setItem('cart', JSON.stringify(currentCart));
 
     // Update cart count in navbar
-    const currentCartCount = currentCart.reduce((acc, item) => acc + item.quantity, 0);
+    const currentCartCount = currentCart.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
     localStorage.setItem('cartCount', currentCartCount);
 
-    
     alert('Item added to the cart!');
+  };
+
+
+    
+    
+  const handleAddToFavorites = () => {
+    const currentFavorites =
+      JSON.parse(localStorage.getItem('favorites')) || [];
+
+    const isAlreadyFavorite = currentFavorites.some(
+      (fav) => fav._id === coffee._id
+    );
+
+    let updatedFavorites;
+
+    if (isAlreadyFavorite) {
+      updatedFavorites = currentFavorites.filter(
+        (fav) => fav._id !== coffee._id
+      );
+      setIsFavorite(false);
+      alert('Removed from favorites!');
+    } else {
+      updatedFavorites = [
+        ...currentFavorites,
+        {
+          _id: coffee._id,
+          name: coffee.name,
+          imageUrl: coffee.imageUrl,
+          price: coffee.price,
+        },
+      ];
+      setIsFavorite(true);
+      alert('Added to favorites!');
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    window.dispatchEvent(new Event('favoritesUpdated'));
   };
 
   if (loading) return <p>Loading...</p>;
@@ -87,7 +135,9 @@ function CoffeeDetail() {
     <div className="coffee-single-wrapper">
       <div className="coffee-single-container">
         <div className="coffee-single-image-box">
-       <Link to ="/shop/all-coffees"><i className="bi bi-arrow-left"></i></Link> 
+          <Link to="/shop/all-coffees">
+            <i className="bi bi-arrow-left"></i>
+          </Link>
           <img
             src={coffee.imageUrl}
             alt={coffee.name}
@@ -97,11 +147,27 @@ function CoffeeDetail() {
 
         <div className="coffee-single-info">
           <h1 className="coffee-single-title">{coffee.name}</h1>
+
+          <div
+            className="favorite-icon"
+            onClick={handleAddToFavorites}
+            style={{
+              cursor: 'pointer',
+              fontSize: '2rem',
+              marginBottom: '20px',
+            }}
+          >
+            {isFavorite ? (
+              <FaHeart className="text-danger" />
+            ) : (
+              <FaRegHeart className="text-secondary" />
+            )}
+          </div>
+
           <p className="coffee-single-description">{coffee.description}</p>
           <p>
-          <strong>Notes:</strong> {coffee.notes.join(', ')}
+            <strong>Notes:</strong> {coffee.notes.join(', ')}
           </p>
-        
           <p>
             <strong>Category:</strong> {coffee.category}
           </p>
@@ -109,10 +175,8 @@ function CoffeeDetail() {
             <strong>Rating:</strong> {coffee.rating} / 5
           </p>
           <p>
-            <strong>Region:</strong> {coffee.region} 
+            <strong>Region:</strong> {coffee.region}
           </p>
-
-         
 
           <div className="coffee-single-weight">
             <label>Select Weight: </label>
@@ -151,9 +215,17 @@ function CoffeeDetail() {
         </div>
       </div>
 
-      <div className="coffee-single-long-description">
+      {/* <div className="coffee-single-long-description">
         <h4>Product Description</h4>
         <h5>{coffee.longDescription}</h5>
+      </div> */}
+
+      <div className="coffee-single-long-description">
+        <h4>Product Description</h4>
+        {/* Split the longDescription into paragraphs */}
+        {coffee.longDescription.split('\n\n').map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
       </div>
     </div>
   );

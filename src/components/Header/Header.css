@@ -172,6 +172,19 @@ nav {
   gap: 4px; 
    align-items: center; 
 } 
+.icon-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px; 
+ 
+ 
+}
+
+.favorites-icon{
+  margin-right:20px;
+  
+}
 
    
   
