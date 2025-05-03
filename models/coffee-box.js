@@ -4,15 +4,33 @@ const coffeeBoxSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true
+            required: true,
+            validate: {
+                validator: (value) => {
+                    return value.trim().length > 3;
+                },
+                message: "Name cannot be empty and must be bigger than 3 letters.",
+            }
         },
         description: {
             type: String,
-            required: true
+            required: true,
+            validate: {
+                validator: (value) => {
+                    return value.trim().length > 3;
+                },
+                message: "Description cannot be empty and must be bigger than 3 letters.",
+            }
         },
         pricePerMonth: {
             type: Number,
-            required: true
+            required: true,
+            validate: {
+                validator: (value) => {
+                    return value > 0;
+                },
+                message: "Price per month must be bigger than 0.",
+            }
         },
         discountForSubscription: {
             type: Number,
