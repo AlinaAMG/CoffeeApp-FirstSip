@@ -1,0 +1,263 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+   .cart-wrapper {
+    margin: 30px auto;
+    color:#4b2e2a;
+    font-family: 'Open Sans', sans-serif;
+   
+    display:flex;
+    flex-direction: column;
+    justify-content: space-arround;
+    align-items: center;
+   }
+
+   h2{
+     text-align: center;
+     margin:30px;
+     color:#4b2e2a;
+   }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+     align-items:center ; 
+    padding: 40px 70px;
+    border-radius:10px;
+    border: 2px solid bisque;
+  }
+  
+  .cart-item-img {
+    width: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item-info {
+    display:flex;
+    gap:100px;
+    align-items: center;
+     margin-left: 20px;
+     color:#4b2e2a;
+  }
+  
+  .cart-item-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+    
+  }
+  
+  .cart-item-info p {
+    margin: 5px 0;
+    color:#4b2e2a;
+  }
+  
+  .cart-summary {
+    background-color: #f9f9f9;
+    padding: 30px;
+     width:70%;
+     border-radius:10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: right;
+    margin-top: 40px;
+  }
+  
+  .cart-summary h3,
+   .shipping h4,
+   .total h4{
+    font-size: 24px;
+    margin-bottom: 30px;
+    color:#8c6239
+   
+  }
+  .price{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 2px solid bisque;
+    margin-bottom:20px;
+    color:#8c6239
+  
+  }
+  
+  .btn-purchase {
+    background-color: #4b2e2a;
+    color: bisque;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-purchase:hover {
+    background-color: #8c6239;
+  }
+  .delete-btn{
+    color: #8c6239;
+    border:none;
+  }
+  .btn-back{
+    
+    color: #8c6239;
+    font-size:18px;
+   
+  }
+  .btn-back:hover{
+    color:#4b2e2a;
+  }
+  .cart-actions{
+    display:flex;
+    justify-content: space-between;
+    margin-top:30px;
+   
+  }
+  select {
+    border:none;
+    border:1px solid #8c6239;
+  }
+  
+  .cart-empty{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .shipping,
+  .total{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid bisque;
+    margin-bottom:10px;
+    color: #8c6239;
+   
+  }
+  
+
+  
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Cart Wrapper */
+    .cart-wrapper {
+      padding: 15px;
+    }
+  
+    /* Cart Items */
+    .cart-item {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+  
+    .cart-item-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .cart-item-info h4 {
+      font-size: 16px;
+    }
+  
+    .cart-item-info p {
+      font-size: 14px;
+    }
+  
+    /* Cart Summary */
+    .cart-summary {
+      width: 90%;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  
+    .cart-summary h3,
+    .shipping h4,
+    .total h4 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .price {
+      margin-bottom: 15px;
+    }
+  
+    .cart-actions {
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+  
+    .btn-purchase {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+    }
+  
+    .btn-back {
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Cart Wrapper */
+    .cart-wrapper {
+      padding: 10px;
+    }
+  
+    /* Cart Items */
+    .cart-item {
+      padding: 15px;
+      gap: 15px;
+    }
+  
+    .cart-item-info {
+      gap: 8px;
+    }
+  
+    .cart-item-info h4 {
+      font-size: 14px;
+    }
+  
+    .cart-item-info p {
+      font-size: 12px;
+    }
+  
+    /* Cart Summary */
+    .cart-summary {
+      padding: 15px;
+    }
+  
+    .cart-summary h3,
+    .shipping h4,
+    .total h4 {
+      font-size: 18px;
+    }
+  
+    .price {
+      margin-bottom: 10px;
+    }
+  
+    .cart-actions {
+      gap: 10px;
+    }
+  
+    .btn-purchase {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+    }
+  
+    .btn-back {
+      width: 100%;
+      padding: 12px;
+    }
+  }
