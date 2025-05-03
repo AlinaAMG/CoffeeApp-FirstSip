@@ -1,0 +1,262 @@
+[{
+  "_id": {
+    "$oid": "68150efd47b342939cee9afa"
+  },
+  "name": "Starter Box",
+  "description": "Perfect for new coffee lovers.",
+  "pricePerMonth": 12.99,
+  "discountForSubscription": 10,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e510147c"
+    },
+    {
+      "$oid": "681624aa990b82c5e510147e"
+    }
+  ],
+  "weight": "250",
+  "surprise": false,
+  "slug": "starter-box",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.909Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.909Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9afb"
+  },
+  "name": "Espresso Enthusiast",
+  "description": "Hand-picked beans for espresso fans.",
+  "pricePerMonth": 15.99,
+  "discountForSubscription": 12,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e510147f"
+    }
+  ],
+  "weight": "250",
+  "surprise": true,
+  "slug": "espresso-enthusiast",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9afc"
+  },
+  "name": "Filter Finesse",
+  "description": "Ideal for filter coffee brewers.",
+  "pricePerMonth": 13.49,
+  "discountForSubscription": 8,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e510147f"
+    },
+    {
+      "$oid": "681624aa990b82c5e5101480"
+    }
+  ],
+  "weight": "1000",
+  "surprise": false,
+  "slug": "filter-finesse",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9afd"
+  },
+  "name": "Dark Roast Box",
+  "description": "Bold and strong flavor selection.",
+  "pricePerMonth": 14.99,
+  "discountForSubscription": 15,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101483"
+    }
+  ],
+  "weight": "250",
+  "surprise": true,
+  "slug": "dark-roast-box",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9afe"
+  },
+  "name": "Light Roast Sampler",
+  "description": "Explore light roast profiles.",
+  "pricePerMonth": 11.99,
+  "discountForSubscription": 5,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101484"
+    }
+  ],
+  "weight": "250",
+  "surprise": false,
+  "slug": "light-roast-sampler",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9aff"
+  },
+  "name": "World Tour Box",
+  "description": "Coffees from 5 continents.",
+  "pricePerMonth": 19.99,
+  "discountForSubscription": 20,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101482"
+    },
+    {
+      "$oid": "68150b375c2796e27af4c087"
+    }
+  ],
+  "weight": "1000",
+  "surprise": true,
+  "slug": "world-tour-box",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9b00"
+  },
+  "name": "Surprise Box",
+  "description": "A mystery selection every month.",
+  "pricePerMonth": 16.99,
+  "discountForSubscription": 18,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101485"
+    }
+  ],
+  "weight": "250",
+  "surprise": true,
+  "slug": "surprise-box",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9b01"
+  },
+  "name": "Office Box",
+  "description": "Large pack for the whole team.",
+  "pricePerMonth": 25,
+  "discountForSubscription": 25,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101486"
+    },
+    {
+      "$oid": "681624aa990b82c5e5101487"
+    }
+  ],
+  "weight": "1000",
+  "surprise": false,
+  "slug": "office-box",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9b02"
+  },
+  "name": "Decaf Delight",
+  "description": "Delicious without the buzz.",
+  "pricePerMonth": 13,
+  "discountForSubscription": 10,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101489"
+    }
+  ],
+  "weight": "250",
+  "surprise": false,
+  "slug": "decaf-delight",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68150efd47b342939cee9b03"
+  },
+  "name": "Barista Choice",
+  "description": "Curated by top baristas monthly.",
+  "pricePerMonth": 17.99,
+  "discountForSubscription": 22,
+  "coffeeSelection": [
+    {
+      "$oid": "681624aa990b82c5e5101484"
+    }
+  ],
+  "weight": "250",
+  "surprise": true,
+  "slug": "barista-choice",
+  "active": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-03T06:57:10.910Z"
+  }
+}]

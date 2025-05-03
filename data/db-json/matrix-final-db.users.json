@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "6810cfb5ef4b79804ab6293b"
+  },
+  "name": "ilyas",
+  "email": "lhn@gmail.com",
+  "password": "$2b$10$Ccvmd.LdW7VYYOACVxSk/e/JIZshdwWq.a8zOivuHL9NlB5KJ88UG",
+  "confirmPassword": "123456",
+  "createdAt": {
+    "$date": "2025-04-29T13:10:13.173Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-29T13:10:13.173Z"
+  },
+  "__v": 0
+}]
