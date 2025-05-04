@@ -57,13 +57,13 @@ const Header = () => {
                 <li>
                   <Link to="/shop/premium-blends">Premium Blends</Link>
                 </li>
+                <li>
+                  <Link to="/coffee-box">Coffee Box</Link>
+                </li>
               </ul>
             )}
           </li>
 
-          <li>
-            <Link to="/coffee-box">Coffee Box</Link>
-          </li>
           <li>
             <Link to="/our-origins">Our Origins</Link>
           </li>
@@ -71,7 +71,7 @@ const Header = () => {
             <Link to="/quiz">Coffee Quiz</Link>
           </li>
           <li>
-            <Link to="/testimonials">Testimonials</Link>
+            <Link to="/testimonials">Customer Stories</Link>
           </li>
           <li>
             <Link to="/about">Our Story</Link>

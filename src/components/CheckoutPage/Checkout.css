@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  
+}  
+ div .container-payment {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+   ;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color:#444;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .primary-button {
+    width: 100%;
+    padding: 0.75rem;
+   
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .btn-payment{
+    display:flex;
+    justify-content: center;
+  }
+  
+  .primary-button {
+    background-color:#d2b48c;
+  
+  }
+  .container-pay{
+    display:flex;
+    justify-content: space-between;
+    margin-top:30px;
+    align-items: center;
+  
+  }
+  .return{
+    font-size:20px;
+   
+  }
+  .return,
+  .bi-arrow-left
+  {
+    margin-top:10px;
+    color:#4b2e2a;
+  }
+  .return:hover,
+  .bi-arrow-left
+  {
+    color:#966f3b
+  }
+  
+  .secondary-button {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .secondary-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .login-redirect {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .card-icons {
+    display: flex;
+    gap: 12px;
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  .card-icons svg:hover {
+    color: #0070f3;
+  }
+  /* Mobile Styles */
+   @media (max-width: 600px) {
+    .container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    input, button {
+      font-size: 1rem;
+    }
+  } 
+   

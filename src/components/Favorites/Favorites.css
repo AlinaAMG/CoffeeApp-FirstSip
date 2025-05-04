@@ -93,6 +93,7 @@
   .no-coffees{
     margin-left:40px;
     font-size:22px;
+    text-align:center;
   }
 
   @media (max-width: 768px) {

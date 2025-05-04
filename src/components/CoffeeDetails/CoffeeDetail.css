@@ -17,12 +17,31 @@
     gap: 2rem;
     margin-bottom: 2rem;
   }
+  .icons-container{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    width:20%;
+    margin-bottom:20px;
+ 
+    
+  }
+  .bi-share-fill{
+    font-size:24px;
+    color: #4b2e2a;
+    cursor:pointer;
+  }
   
   .coffee-single-image-box {
     flex: 1;
-     min-width: 300px; 
-      max-width: 500px; 
+     min-width: 500px; 
+    max-width: 500px; 
   }  
+ 
+   .heart{
+    color: #4b2e2a;
+    margin-bottom: 10px,
+   }
   
   .coffee-single-image {
     width: 100%;
@@ -48,7 +67,7 @@
   .coffee-single-description {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #555;
+    color: #333;
   }
   
   .coffee-single-info p {
@@ -119,9 +138,9 @@
     margin:20px 0;
   }
   .bi-arrow-left{
-    font-size:30px;
+    font-size:26px;
     cursor: pointer;
-    color: #4b2e2a;
+  
     margin-bottom:20px;
      display:inline-block;
   }
