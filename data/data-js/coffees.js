@@ -38,7 +38,7 @@ const coffees = [
     Yirgacheffe coffee is often processed using the washed (wet) method, which highlights the clean, bright flavors and enhances its clarity. The beans are carefully harvested and processed by the local farmers, who meticulously wash the coffee cherries to remove any impurities. This attention to detail is reflected in the exceptional quality of the coffee.`,
     price: 29.99,
     imageUrl:
-      'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlfGVufDB8fDB8fHww',
+      'https://frontiercoffeeroasters.com/cdn/shop/articles/ethiopian_yirgacheffe_coffee_being_poured_in_a_cup.png?v=1739973719',
     bestSeller: true,
     category: 'Premium Blends',
     weightOptions: [250, 1000],
@@ -110,7 +110,7 @@ const coffees = [
     The flavor profile of Brazilian Santos is soft and approachable, with a medium body and a mellow, nutty sweetness that makes it an excellent choice for those who prefer a gentler cup of coffee. The coffee typically has a mild acidity, often described as round or smooth, which gives it a balanced and easy-drinking character. Notes of chocolate, hazelnut, and almond are common, with a subtle sweetness that lingers in the aftertaste. Some variations of Brazilian Santos may also exhibit a hint of caramel or toffee, adding richness to its flavor profile.`,
     price: 18.99,
     imageUrl:
-      'https://cdn.shopify.com/s/files/1/2783/4082/files/health-benefits-of-coffee-black-creek-coffee-blog.jpg?v=1620240785',
+      'https://down-my.img.susercontent.com/file/my-11134207-7r990-lxoieee6w5m299',
     bestSeller: true,
     category: 'Organic',
     weightOptions: [250, 500],
@@ -372,7 +372,7 @@ const coffees = [
     longDescription:
       'Organic Indian Monsooned Malabar is processed using a unique method where the beans are exposed to the monsoon winds, giving the coffee a smooth, earthy flavor. It has a bold body with subtle hints of spice and a complex aftertaste.',
     imageUrl:
-      'https://images.unsplash.com/photo-1517476950322-6251d142eddf?w=1000&auto=format&fit=crop&q=60&ixid=M3wxMjA3fDB8MHxwaG90by1jb3ZmZWV8MjF8fHx8fHwxNjg3NjA3MDA5&ixlib=rb-4.0.3',
+      'https://www.mycuppa.com.au/cdn/shop/collections/mycuppa_India_Collection.jpg?v=1720424974&width=1296',
     price: 55.0,
     category: 'Organic',
     region: 'India',
