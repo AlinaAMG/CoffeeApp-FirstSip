@@ -39,14 +39,10 @@ function CoffeeBoxDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:4001/api/coffee-box/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(`http://localhost:4001/api/coffee-box/details/${id}`)
       .then((res) => {
+        console.log(res.data);
         setCoffee(res.data);
         setLoading(false);
       })
