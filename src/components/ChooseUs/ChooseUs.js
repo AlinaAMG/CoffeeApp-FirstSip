@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
   return (
     <section className="why-choose-us py-5">
       <div className="container text-center">
-        <h2 className="mb-4">Why People Choose Us</h2>
+        <h3 className="mb-4">Why People Choose Us</h3>
         <div className="row">
           <div className="col-md-4 mb-4">
             <FaShippingFast size={40} className="mb-2 icon" />

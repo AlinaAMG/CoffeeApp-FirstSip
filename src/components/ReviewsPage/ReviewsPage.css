@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.testimonials-page {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+ 
+}
+
+.testimonial-form-section {
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(to right, #f7f2e6, #e8d1a3); 
+ 
+ 
+}
+.testimonial-form-section input,
+.testimonial-form-section textarea {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.testimonial-form-section input:focus,
+.testimonial-form-section textarea:focus {
+  border: none;
+  outline: none;
+}
+.testimonial-form-section input::placeholder,
+.testimonial-form-section textarea::placeholder {
+    margin-left: 10px; 
+    color: #999; 
+    font-style: italic; 
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  border:1px solid rgb(172, 170, 170);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6c4f3d; 
+}
+
+.rating-section select {
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.submit-btn {
+  background-color: #6c4f3d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.rating-select:focus {
+  border-color: #6c4f3d;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color: #5c4532;
+}
+
+.testimonials-grid {
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.testimonial-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  color: #555;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.star {
+  color: #ffcc00;
+}
+
+.star.filled {
+  color: #ffcc00;
+}
+
+.date {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+.testimonial-card.even {
+  background-color: #fafafa;
+}
+
+.testimonial-card.odd {
+  background-color: #f0f0f0;
+}
+.success-message {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }

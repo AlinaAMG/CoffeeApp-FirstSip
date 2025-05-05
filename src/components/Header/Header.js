@@ -1,10 +1,27 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = ({ cartCount }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For the mobile menu toggle
+
+  const [hasFavorites, setHasFavorites] = useState(false);
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setHasFavorites(storedFavorites.length > 0);
+
+    // Optional: update if other tabs change
+    const handleStorageChange = () => {
+      const updated = JSON.parse(localStorage.getItem('favorites')) || [];
+      setHasFavorites(updated.length > 0);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -71,7 +88,7 @@ const Header = ({ cartCount }) => {
             <Link to="/quiz">Coffee Quiz</Link>
           </li>
           <li>
-            <Link to="/testimonials">Customer Stories</Link>
+            <Link to="/reviews">Customer Stories</Link>
           </li>
           <li>
             <Link to="/about">Our Story</Link>
@@ -87,10 +104,11 @@ const Header = ({ cartCount }) => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill={hasFavorites ? 'rgb(230, 207, 53)' : 'currentColor'}
                 >
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
+                
               </span>
             </Link>
             <Link to="/login">
@@ -108,35 +126,20 @@ const Header = ({ cartCount }) => {
           </li>
           <li>
             <Link to="/cart">
-              {/* Conditionally render the cart icon only if cartCount > 0 */}
-              {cartCount > 0 ? (
-                <span className="cart-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72 0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0 00-.86-1.49H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7.16 16z" />
-                  </svg>
-                  <span className="cart-count">{cartCount}</span>{' '}
-                  {/* Display cart count */}
-                </span>
-              ) : (
-                // Optionally, you can render a different icon or text if there are no items in the cart
-                <span className="cart-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72 0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0 00-.86-1.49H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7.16 16z" />
-                  </svg>
-                  <span className="cart-count">0</span>{' '}
-                  {/* Display '0' if no items in the cart */}
-                </span>
-              )}
+              <span className="cart-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72 0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0 00-.86-1.49H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7.16 16z" />
+                </svg>
+                {cartCount > 0 && (
+                  <span className="cart-count">{cartCount}</span>
+                )}{' '}
+                {/* Only render count if cartCount > 0 */}
+              </span>
             </Link>
           </li>
         </ul>
@@ -146,3 +149,4 @@ const Header = ({ cartCount }) => {
 };
 
 export default Header;
+

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Favorites.css';
+import { FaRegHeart} from 'react-icons/fa';
+
 
 function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
@@ -23,13 +25,16 @@ function FavoritesPage() {
     };
   }, []);
 
-  //  Remove a coffee from favorites
-  const handleRemoveFavorite = (coffeeId) => {
+  // Remove a coffee from favorites
+  const handleRemoveFavorite = (_id) => { // Use _id here
     const updatedFavorites = favorites.filter(
-      (coffee) => coffee._id !== coffeeId
+      (coffee) => coffee._id !== _id // Filter by _id
     );
     setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); // update localStorage too
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); // Update localStorage too
+
+    // Dispatch an event to notify other components of the favorites update
+    window.dispatchEvent(new Event('favoritesUpdated'));
   };
 
   return (
@@ -40,7 +45,7 @@ function FavoritesPage() {
       {favorites.length > 0 ? (
         <div className="favorites-grid">
           {favorites.map((coffee) => (
-            <div key={coffee.id} className="favorite-card">
+            <div key={coffee._id} className="favorite-card"> {/* Use _id here */}
               <img
                 src={coffee.imageUrl}
                 alt={coffee.name}
@@ -54,13 +59,13 @@ function FavoritesPage() {
                 <p>
                   <strong>Price:</strong> €{coffee.price}
                 </p>
-                <Link to={`/shop/${coffee._id}`} className="favorite-card-link">
+                <Link to={`/shop/${coffee._id}`} className="favorite-card-link"> {/* Use _id here */}
                   View Details
                 </Link>
 
                 <button
                   className="remove-favorite-button"
-                  onClick={() => handleRemoveFavorite(coffee._id)} 
+                  onClick={() => handleRemoveFavorite(coffee._id)}
                 >
                   Remove from Favorites
                 </button>
@@ -69,10 +74,14 @@ function FavoritesPage() {
           ))}
         </div>
       ) : (
-        <p className='no-coffees'>No favorites yet. Add some to your list!</p>
+        <div className="empty-favorites">
+          <FaRegHeart style={{ fontSize: '6rem', color: '#ccc' }} />
+          <p className="no-coffees">No favorites yet. Add some to your list!</p>
+        </div>
       )}
     </div>
   );
 }
 
 export default FavoritesPage;
+

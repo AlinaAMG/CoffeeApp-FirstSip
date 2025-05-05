@@ -21,7 +21,6 @@ function CartPage() {
   };
 
   const handleDelete = (index) => {
-    // Remove the item from the cart (just like deleting)
     const updatedCart = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedCart);
   

@@ -93,20 +93,21 @@ function CoffeeDetail() {
     alert('Item added to the cart!');
   };
 
+  useEffect(() => {
+    if (!coffee) return;
+  
+    const stored = JSON.parse(localStorage.getItem('favorites')) || [];
+    const exists = stored.some((fav) => fav._id === coffee._id);
+    setIsFavorite(exists);
+  }, [coffee]);
+
   const handleAddToFavorites = () => {
-    const currentFavorites =
-      JSON.parse(localStorage.getItem('favorites')) || [];
-
-    const isAlreadyFavorite = currentFavorites.some(
-      (fav) => fav._id === coffee._id
-    );
-
+    const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isAlreadyFavorite = currentFavorites.some((fav) => fav._id === coffee._id);
     let updatedFavorites;
-
+  
     if (isAlreadyFavorite) {
-      updatedFavorites = currentFavorites.filter(
-        (fav) => fav._id !== coffee._id
-      );
+      updatedFavorites = currentFavorites.filter((fav) => fav._id !== coffee._id);
       setIsFavorite(false);
       alert('Removed from favorites!');
     } else {
@@ -122,9 +123,9 @@ function CoffeeDetail() {
       setIsFavorite(true);
       alert('Added to favorites!');
     }
-
+  
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    window.dispatchEvent(new Event('favoritesUpdated'));
+    window.dispatchEvent(new Event('favoritesUpdated'));  // Notify other components of the update
   };
 
   if (loading) return <p>Loading...</p>;
@@ -159,7 +160,8 @@ function CoffeeDetail() {
               }}
             >
               {isFavorite ? (
-                <FaHeart className="text-danger" />
+                <FaHeart style={{ color: "rgb(230, 207, 53)" }} />
+                
               ) : (
                 <FaRegHeart className="heart" />
               )}

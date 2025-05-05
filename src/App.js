@@ -15,6 +15,7 @@ import FavoritesPage from './components/Favorites/Favorites';
 import Cart from "./components/CartPage/Cart";
 import CheckoutPage from './components/CheckoutPage/CheckoutPage';
 import NotFoundPage from './components/404Page/404';
+import ReviewsPage from './components/ReviewsPage/ReviewsPage';
 
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -59,9 +60,10 @@ const App = () => {
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/check-out" element={<CheckoutPage/>}/>
+        <Route path="/check-out" element={<CheckoutPage />} />
+        
         {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
-        {/* <Route path="/testimonials" element={<Testimonials />} /> */}
+         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
          <Route path="/cart" element={<Cart />}/> 
