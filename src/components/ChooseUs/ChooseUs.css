@@ -9,10 +9,11 @@
     background-color: #f5f0e6;
     color: #4b2e2a;
     width:80%;
-    margin:60px auto 0;
+    margin:60px auto 50px;
     border-top:1px solid #8b5e3c; 
-  }
-  
+    box-shadow:4px 4px 8px rgba(75, 46, 42,0.1);
+    border-radius:20px;
+}
   .why-choose-us h2 {
     font-weight: 600;
   }

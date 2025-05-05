@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ cartCount }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For the mobile menu toggle
 
@@ -108,23 +108,35 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">
-              <span className="cart-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10
-                    0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72
-                    0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0
-                    00-.86-1.49H5.21L4.27 2H1v2h2l3.6
-                    7.59-1.35 2.44C4.52 14.37 5.48 16
-                    7.16 16z"
-                  />
-                </svg>
-              </span>
+              {/* Conditionally render the cart icon only if cartCount > 0 */}
+              {cartCount > 0 ? (
+                <span className="cart-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72 0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0 00-.86-1.49H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7.16 16z" />
+                  </svg>
+                  <span className="cart-count">{cartCount}</span>{' '}
+                  {/* Display cart count */}
+                </span>
+              ) : (
+                // Optionally, you can render a different icon or text if there are no items in the cart
+                <span className="cart-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.19c.72 0 1.36-.38 1.72-.97l3.58-6.49a.996.996 0 00-.86-1.49H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7.16 16z" />
+                  </svg>
+                  <span className="cart-count">0</span>{' '}
+                  {/* Display '0' if no items in the cart */}
+                </span>
+              )}
             </Link>
           </li>
         </ul>

@@ -1,16 +1,13 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .quiz-container {
-  max-width: 1200px;
-  margin: 60px auto;
+  background-color: #f5f2eb;
   padding: 40px;
-  
-  
-  background-color: #f8f4e6; 
+  width: 100%;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
@@ -19,33 +16,36 @@
 /* Title styling */
 .quiz-title {
   text-align: center;
-  color: #4B2E2A;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  color: #4b2e2a;
+  font-size: 2rem;
+  margin: 30px;
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
-/* Form styling */
+
 .quiz-form {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin: 20px auto;
   gap: 25px;
 }
 
-/* Question styling */
+
 .question {
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  display:flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
-.radio-links{
-  display:flex;
-  gap:15px;
-  margin:30px;
+.radio-links {
+  display: flex;
+  gap: 15px;
+  margin: 30px;
 }
 
 .question h3 {
@@ -64,18 +64,18 @@
   transition: color 0.3s;
 }
 
-.question input[type="radio"] {
+.question input[type='radio'] {
   margin-right: 15px;
 }
 
 .question label:hover {
-  color: #4B2E2A;
+  color: #4b2e2a;
 }
 
-/* Submit button styling */
+
 .submit-btn {
   padding: 12px 30px;
-  background-color: #4B2E2A;
+  background-color: #4b2e2a;
   color: white;
   border: none;
   border-radius: 25px;
@@ -95,10 +95,12 @@
   background-color: #6f3d35;
 }
 
-/* Result styling */
+
 .result {
   margin-top: 30px;
+  width:70%;
   padding: 30px;
+  margin:20px auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -106,7 +108,7 @@
 
 .result h3 {
   font-size: 1.75rem;
-  color: #4B2E2A;
+  color: #4b2e2a;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -115,12 +117,20 @@
   font-size: 1.2rem;
   color: #444;
   line-height: 1.6;
+  margin-bottom:30px;
+ 
+ 
 }
-.quiz-link{
-  margin-top:20px;
-  color:#4B2E2A;
+.quiz-link {
+ width:100%;
+ margin:20px auto;
+ text-align:center;
+ 
+ 
 }
-
+.quiz-link a {
+  color: #4b2e2a;
+}
 
 @media (max-width: 768px) {
   .quiz-container {

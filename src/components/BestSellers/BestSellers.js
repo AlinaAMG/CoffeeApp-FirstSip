@@ -50,7 +50,7 @@ function BestSellers() {
 
   return (
     <div className="carousel-container">
-      <h1>Our Best Sellers</h1>
+      <h2>Our Best Sellers</h2>
       <p className="carousel-subtext">
         Discover our handpicked best-selling coffees, freshly roasted and
         delivered to your door.

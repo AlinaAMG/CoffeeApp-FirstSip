@@ -39,15 +39,16 @@ border-radius: 20px;
   flex-direction: column;
    justify-content: center;
   align-items: start; 
-  width: 80%;
+  width: 90%;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition:all 0.5s ease-in-out;
- 
+  gap:10px;
  
 }
+
 .ln{
   color: #4b2e2a;
   text-decoration: none;
@@ -58,20 +59,19 @@ border-radius: 20px;
   transform: scale(1.02);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-.coffee-title {
-  font-size: 1.5rem;
+ .coffee-title {
+ 
   font-weight: bold;
   color: #fff;
-  text-align: left;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
  
  .coffee-card .coffee-image {
-   width: 100%; 
-   
-  border-radius: 10px;
+   width: 80%; 
+  display:block;
+  margin:0 auto;
+  border-radius: 20px;
   height: 40vh;
   background-color: #ddd;
   margin-bottom: 1rem;
@@ -82,16 +82,18 @@ border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
   color: #fff;
+ 
 } 
  
  .coffee-details .coffee-description1 {
   font-size: 1.1rem;
   line-height: 1.5;
-  color: #fff !important;
-  margin-top: 2rem;
-   font-weight:800; 
+  color: #2b2a2a;
+  margin:20px auto;
+  width:90%;
+  font-weight:800; 
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }  
 
@@ -100,7 +102,7 @@ border-radius: 20px;
  color:#4B2E2A;
   background-color:  #d2b48c;
   font-weight: bold;
-   padding: 15px 20px; 
+  padding: 15px 20px; 
   width:100%;
   border: none;
   border-radius: 20px;
@@ -122,9 +124,7 @@ border-radius: 20px;
 
 
   } 
-  /* .section-slogan{
-    text-align: center;
-  } */
+  
 
   
 @media (max-width: 768px) {

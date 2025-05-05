@@ -36,7 +36,7 @@ function OurOrigins() {
         'Sumatra Mandheling is a bold, full-bodied coffee known for its distinctive earthy flavors and rich, dark notes. Grown on the Indonesian island of Sumatra, this coffee is processed using the wet-hulling method, a unique technique that imparts a signature flavor profile with deep, complex characteristics.With a low acidity, Sumatra Mandheling is smooth and syrupy, making it a perfect choice for those who enjoy a coffee with more robust and earthy flavors. It features a rich combination of dark chocolate, spice, and a hint of tobacco, complemented by subtle undertones of dried fruit and earthy woodiness. Its lingering finish is rich and slightly smoky, making it a favorite among those who love dark roasts with earthy undertones and complexity.',
         slug: 'sumatra-mandheling',
         backgroundImage: "https://cdn.shopify.com/s/files/1/1186/7382/products/ezgif.com-gif-maker_2.jpg?v=1719451604",
-      color:"#4B3621"
+      color:"#6a94"
     },
     {
       name: 'Organic Peru',
@@ -76,7 +76,7 @@ function OurOrigins() {
       description:
         "Kenya AA is one of the most sought-after coffees in the world, known for its bold, vibrant, and full-bodied flavor profile. Grown at high altitudes in the rich volcanic soils of Kenya’s central highlands, the 'AA' grade refers to the large size and high quality of the beans, which are handpicked and carefully processed.This coffee has a distinct, bright acidity that is complemented by deep, fruity flavors, with notes of black currant, berry, and citrus. Its flavor complexity is balanced by a smooth, silky body, and a lingering, clean finish. The rich, wine-like quality of Kenya AA makes it an exceptional choice for coffee enthusiasts who enjoy a coffee that’s both bold and nuanced.Kenya AA is famous for its clean and crisp finish, which leaves a pleasant aftertaste that lingers long after you’ve finished your cup. The beans are handpicked, ensuring that only the best beans are selected for processing, further elevating the overall quality of the coffee.This coffee is also known for its intensity and complexity, offering a multi-layered experience for those who love rich and nuanced coffee.",
         slug: 'kenya-AA',
-        color: ' #B22222',
+        color: ' #e2d3c1',
       backgroundImage:"https://seaislandcoffee.com/cdn/shop/products/1st_c5515ac1-63c5-4f60-ae81-f2a1ef9bdafb_400x400@2x.jpg?v=1738248090"
     },
     {

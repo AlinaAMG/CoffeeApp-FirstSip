@@ -51,8 +51,8 @@ function AllCoffees() {
   };
 
   return (
-    <div className="container">
-      <h1>Coffee List</h1>
+    <div className="container" >
+      <h2>Coffee List</h2>
       <div className="coffee-cards">
         {filteredCoffees.map((coffee) => (
           <div key={coffee._id} className="coffee-card">

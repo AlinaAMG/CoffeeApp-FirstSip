@@ -21,11 +21,23 @@ function CartPage() {
   };
 
   const handleDelete = (index) => {
+    // Remove the item from the cart (just like deleting)
     const updatedCart = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedCart);
+  
+    // Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+  
+    // Update the cart count in localStorage after deleting the item
+    const updatedCartCount = updatedCart.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+    localStorage.setItem('cartCount', updatedCartCount);
+  
+    // Dispatch the event to notify that the cart has been updated
+    window.dispatchEvent(new Event('cartUpdated'));
   };
-
   const getTotalPrice = () => {
     return cartItems
       .reduce((total, item) => {

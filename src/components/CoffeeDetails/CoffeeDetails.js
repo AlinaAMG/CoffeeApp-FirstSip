@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
 import ShareIcon from './ShareIcon';
+
 function CoffeeDetail() {
   const { id } = useParams();
   const [coffee, setCoffee] = useState(null);
@@ -63,12 +64,12 @@ function CoffeeDetail() {
     // Get current cart from localStorage
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
     console.log('Checking for existing item with:');
-    console.log('Coffee ID:', cartItem.coffee.id);
+    console.log('Coffee ID:', cartItem.coffee._id);
     console.log('Selected Weight:', cartItem.selectedWeight);
     // Check if the item already exists in the cart
     const itemIndex = currentCart.findIndex(
       (item) =>
-        item.coffee.id === cartItem.coffee._id &&
+        item.coffee._id === cartItem.coffee._id &&
         item.selectedWeight === cartItem.selectedWeight
     );
 
@@ -87,6 +88,7 @@ function CoffeeDetail() {
       0
     );
     localStorage.setItem('cartCount', currentCartCount);
+    window.dispatchEvent(new Event('cartUpdated'));
 
     alert('Item added to the cart!');
   };
@@ -130,11 +132,13 @@ function CoffeeDetail() {
 
   return (
     <div className="coffee-single-wrapper">
-      <div className="coffee-single-container">
-        <div className="coffee-single-image-box">
-          <Link to="/shop/all-coffees">
+      <Link to="/shop/all-coffees">
           <i className="bi bi-arrow-left" style={{ color: "#4b2e2a" }}></i>
           </Link>
+      <div className="coffee-single-container">
+      
+        <div className="coffee-single-image-box">
+          
           <img
             src={coffee.imageUrl}
             alt={coffee.name}
@@ -214,10 +218,6 @@ function CoffeeDetail() {
         </div>
       </div>
 
-      {/* <div className="coffee-single-long-description">
-        <h4>Product Description</h4>
-        <h5>{coffee.longDescription}</h5>
-      </div> */}
 
       <div className="coffee-single-long-description">
         <h4>Product Description</h4>

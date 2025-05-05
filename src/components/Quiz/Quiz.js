@@ -238,15 +238,19 @@ Please recommend a specific coffee type (like "Ethiopian light roast" or "Colomb
         <button type="submit" disabled={loading} className="submit-btn">
           {loading ? 'Loading...' : 'Submit'}
         </button>
+        
       </form>
 
       {result && (
         <div className="result">
           <h3>Recommended Coffee:</h3>
           <p>{result}</p>
+          
         </div>
       )}
-      <Link className="quiz-link" to ="/shop/all-coffees">Back to Shop</Link>
+      <div className="quiz-link">
+        <Link  to="/shop/all-coffees">Back to Shop</Link>
+        </div>
     </div>
   );
 };
