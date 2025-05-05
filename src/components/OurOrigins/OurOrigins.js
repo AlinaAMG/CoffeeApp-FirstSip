@@ -106,13 +106,13 @@ function OurOrigins() {
         {coffeeOrigins.map((origin, index) => (
           <div
             key={origin.slug}
-            className={`coffee-card ${openIndex === index ? 'open' : ''}`}
+            className={`coffee-card-origins ${openIndex === index ? 'open' : ''}`}
             style={{ backgroundColor: origin.color }}
             onClick={() => toggleOrigin(index)}
           >
             <h2 className="coffee-title">{origin.name}</h2>
             <div
-              className="coffee-image"
+              className="coffee-image-origins"
               style={{
                 backgroundImage: `url(${origin.backgroundImage})`,
                 backgroundSize: 'cover',

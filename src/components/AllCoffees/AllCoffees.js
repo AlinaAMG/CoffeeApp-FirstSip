@@ -1,58 +1,76 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link,useLocation,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AllCoffees.css';
 import coffeeImage from './img/coffeeBag.png';
 import coffeeHover from './img/coffeemock.png';
 
 function AllCoffees() {
+  console.log("AllCoffees component loaded");
   const [coffees, setCoffees] = useState([]);
+  const [filteredCoffees, setFilteredCoffees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const location = useLocation();
-   const navigate = useNavigate(); 
+  const [selectedCategory, setSelectedCategory] = useState(""); 
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:4001/api/coffees/all-coffees')
-      .then((res) => {
-        console.log(res.data);
-        setCoffees(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log('Error fetching coffee data:', err);
-        setError('Error fetching coffee data');
-        setLoading(false);
-      });
-  }, []);
+// Fetch all coffees on component mount
+useEffect(() => {
+  console.log("Fetching coffee data...");
 
-  const getCoffeeByCategory = (coffee) => {
-    if (coffee.includes('single-origin')) return 'Single Origin';
-    if (coffee.includes('organic')) return 'Organic';
-    if (coffee.includes('premium-blends')) return 'Premium Blends';
-    return 'All Coffees';
-  };
+  setLoading(true);
+  axios
+    .get("http://localhost:4001/api/coffees/all-coffees") // Fetch all coffees
+    .then((res) => {
+      console.log(res.data);
+      setCoffees(res.data); 
+      setFilteredCoffees(res.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error fetching coffee data:", err);
+      setError("Error fetching coffee data");
+      setLoading(false);
+    });
+}, []);
 
-  const category = getCoffeeByCategory(location.pathname);
+// Handle category selection
+const handleCategoryChange = (e) => {
+  const selected = e.target.value;
+  setSelectedCategory(selected);
 
-  const filteredCoffees =
-    category === 'All Coffees'
-      ? coffees
-      : coffees.filter((coffee) => coffee.category === category);
+  // Filter coffees based on the selected category
+  if (selected === "") {
+    setFilteredCoffees(coffees); 
+  } else {
+    const filtered = coffees.filter((coffee) => coffee.category === selected);
+    setFilteredCoffees(filtered);
+  }
+};
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+if (loading) return <p>Loading...</p>;
+if (error) return <p>{error}</p>;
 
-  // Function to handle the redirection
-  const redirectToDetails = (coffeeId) => {
-    // Redirect the user to the coffee details page
-    navigate(`/shop/${coffeeId}`); 
-  };
+// Function to handle the redirection to coffee details
+const redirectToDetails = (coffeeId) => {
+  navigate(`/shop/${coffeeId}`);
+};
+
 
   return (
-    <div className="container" >
+    <div className="container">
       <h2>Coffee List</h2>
+      
+      {/* Category Dropdown */}
+      <div className='filter-container'>
+        <label className='label'>Filter by Category: </label>
+        <select id="category-filter" onChange={handleCategoryChange}>
+          <option value="">All Categories</option>
+          <option value="Single Origin">Single Origin</option>
+          <option value="Organic">Organic</option>
+          <option value="Premium Blends">Premium Blends</option>
+        </select>
+      </div>
       <div className="coffee-cards">
         {filteredCoffees.map((coffee) => (
           <div key={coffee._id} className="coffee-card">
@@ -81,10 +99,13 @@ function AllCoffees() {
             <p>
               <strong>Rating:</strong> {coffee.rating} / 5
             </p>
-            
+
             <p className="description">
               <strong>Description:</strong>{' '}
-              {coffee.description.split(' ').slice(0, 5).join(' ')}<Link className="read-more" to={`/shop/${coffee._id}`}><i className="bi bi-arrow-right"></i></Link>
+              {coffee.description.split(' ').slice(0, 5).join(' ')}
+              <Link className="read-more" to={`/shop/${coffee._id}`}>
+                <i className="bi bi-arrow-right"></i>
+              </Link>
             </p>
             <button
               className="btn-all-coffees"

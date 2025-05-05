@@ -65,21 +65,14 @@ const Header = ({ cartCount }) => {
                 <li>
                   <Link to="/shop/all-coffees">All Coffees</Link>
                 </li>
-                <li>
-                  <Link to="/shop/single-origin">Single Origin</Link>
-                </li>
-                <li>
-                  <Link to="/shop/organic">Organic</Link>
-                </li>
-                <li>
-                  <Link to="/shop/premium-blends">Premium Blends</Link>
-                </li>
+               
                 <li>
                   <Link to="/coffee-box">Coffee Box</Link>
                 </li>
               </ul>
             )}
           </li>
+          
 
           <li>
             <Link to="/our-origins">Our Origins</Link>
