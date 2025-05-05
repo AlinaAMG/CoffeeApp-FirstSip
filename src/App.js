@@ -14,6 +14,8 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import CoffeeDetail from "./components/CoffeeDetails/CoffeeDetails";
 import FavoritesPage from "./components/Favorites/Favorites";
 import Cart from "./components/CartPage/Cart";
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+import NotFoundPage from "./components/404Page/404";
 
 function App() {
   return (
@@ -31,12 +33,15 @@ function App() {
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/coffee-box" element={<CoffeeBox />} />
+        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <Footer />

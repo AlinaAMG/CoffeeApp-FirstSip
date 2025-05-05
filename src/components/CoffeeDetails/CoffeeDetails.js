@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
+import ShareIcon from './ShareIcon';
 function CoffeeDetail() {
   const { id } = useParams();
   const [coffee, setCoffee] = useState(null);
@@ -57,8 +58,7 @@ function CoffeeDetail() {
     }
 
     const cartItem = { coffee, selectedWeight, quantity };
-    console.log("Adding to cart:", cartItem);
-
+    console.log('Adding to cart:', cartItem);
 
     // Get current cart from localStorage
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -91,9 +91,6 @@ function CoffeeDetail() {
     alert('Item added to the cart!');
   };
 
-
-    
-    
   const handleAddToFavorites = () => {
     const currentFavorites =
       JSON.parse(localStorage.getItem('favorites')) || [];
@@ -136,7 +133,7 @@ function CoffeeDetail() {
       <div className="coffee-single-container">
         <div className="coffee-single-image-box">
           <Link to="/shop/all-coffees">
-            <i className="bi bi-arrow-left"></i>
+          <i className="bi bi-arrow-left" style={{ color: "#4b2e2a" }}></i>
           </Link>
           <img
             src={coffee.imageUrl}
@@ -147,35 +144,37 @@ function CoffeeDetail() {
 
         <div className="coffee-single-info">
           <h1 className="coffee-single-title">{coffee.name}</h1>
-
-          <div
-            className="favorite-icon"
-            onClick={handleAddToFavorites}
-            style={{
-              cursor: 'pointer',
-              fontSize: '2rem',
-              marginBottom: '20px',
-            }}
-          >
-            {isFavorite ? (
-              <FaHeart className="text-danger" />
-            ) : (
-              <FaRegHeart className="text-secondary" />
-            )}
+          <div className="icons-container">
+            <div
+              className="favorite-icon"
+              onClick={handleAddToFavorites}
+              style={{
+                cursor: 'pointer',
+                fontSize: '2rem',
+               
+              }}
+            >
+              {isFavorite ? (
+                <FaHeart className="text-danger" />
+              ) : (
+                <FaRegHeart className="heart" />
+              )}
+            </div>
+           <ShareIcon/>
           </div>
 
           <p className="coffee-single-description">{coffee.description}</p>
           <p>
-            <strong>Notes:</strong> {coffee.notes.join(', ')}
+            <strong style={{color:"#444"}}>Notes:</strong> {coffee.notes.join(', ')}
           </p>
           <p>
-            <strong>Category:</strong> {coffee.category}
+            <strong style={{color:"#444"}}>Category:</strong> {coffee.category}
           </p>
           <p>
-            <strong>Rating:</strong> {coffee.rating} / 5
+            <strong style={{color:"#444"}}>Rating:</strong> {coffee.rating} / 5
           </p>
           <p>
-            <strong>Region:</strong> {coffee.region}
+            <strong style={{color:"#444"}}>Region:</strong> {coffee.region}
           </p>
 
           <div className="coffee-single-weight">
@@ -207,7 +206,7 @@ function CoffeeDetail() {
             />
           </div>
           <p className="totalPrice">
-            <strong>Total:</strong>&euro;{getDisplayedPrice()}
+            <strong style={{color:"#444"}}>Total:</strong>&euro;{getDisplayedPrice()}
           </p>
           <button className="coffee-single-add-btn" onClick={handleAddToCart}>
             Add to Cart
