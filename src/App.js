@@ -1,21 +1,30 @@
-import React,{useState,useEffect} from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Header from './components/Header/Header';
-import Home from './components/Home';
-import Footer from './components/Footer/Footer';
-import CoffeeQuiz from './components/Quiz/Quiz';
-import OurStory from './components/OurStory/OurStory';
-import OurOrigins from './components/OurOrigins/OurOrigins';
 
-import AllCoffees from './components/AllCoffees/AllCoffees';
-import ContactForm from './components/ContactForm/ContactForm';
+
+
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Home from "./components/Home";
+import Footer from "./components/Footer/Footer";
+import CoffeeQuiz from "./components/Quiz/Quiz";
+import OurStory from "./components/OurStory/OurStory";
+import OurOrigins from "./components/OurOrigins/OurOrigins";
+import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
+import CoffeeBoxDetails from "./components/CoffeeBoxDetails/CoffeeBoxDetails";
+
+
+import AllCoffees from "./components/AllCoffees/AllCoffees";
+import ContactForm from "./components/ContactForm/ContactForm";
 import CoffeeDetail from "./components/CoffeeDetails/CoffeeDetails";
-import FavoritesPage from './components/Favorites/Favorites';
+import FavoritesPage from "./components/Favorites/Favorites";
 import Cart from "./components/CartPage/Cart";
-import CheckoutPage from './components/CheckoutPage/CheckoutPage';
-import NotFoundPage from './components/404Page/404';
+
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+
 import ReviewsPage from './components/ReviewsPage/ReviewsPage';
+import NotFoundPage from "./components/404Page/404";
+
 
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -45,6 +54,8 @@ const App = () => {
   }, []);
 
 
+
+
   return (
     <BrowserRouter>
       <Header cartCount={cartCount} />
@@ -54,21 +65,27 @@ const App = () => {
         <Route path="/quiz" element={<CoffeeQuiz />} />
 
         <Route path="/shop/all-coffees" element={<AllCoffees />} />
-        <Route path="/shop/single-origin" element={<AllCoffees />} />
-        <Route path="/shop/organic" element={<AllCoffees />} />
-        <Route path="/shop/premium-blends" element={<AllCoffees />} />
+        {/* <Route path="/shop/single-origin" element={<SingleOrigin />} />
+        <Route path="/shop/organic" element={<Organic />} />
+        <Route path="/shop/premium-blends" element={<PremiumBlends />} /> */}
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+
         <Route path="/check-out" element={<CheckoutPage />} />
         
         {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
          <Route path="/reviews" element={<ReviewsPage />} />
+
+        <Route path="/coffee-box" element={<CoffeeBox />} />
+        <Route path="/coffee-box/details/:id" element={<CoffeeBoxDetails />} />
+        {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
-         <Route path="/cart" element={<Cart />}/> 
+        <Route path="/cart" element={<Cart />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path = "*" element={<NotFoundPage/>}/>
+       
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
