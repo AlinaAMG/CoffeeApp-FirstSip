@@ -1,4 +1,7 @@
-import React from "react";
+
+
+import React,{useState,useEffect} from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -10,18 +13,52 @@ import OurOrigins from "./components/OurOrigins/OurOrigins";
 import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
 import CoffeeBoxDetails from "./components/CoffeeBoxDetails/CoffeeBoxDetails";
 
+
 import AllCoffees from "./components/AllCoffees/AllCoffees";
 import ContactForm from "./components/ContactForm/ContactForm";
 import CoffeeDetail from "./components/CoffeeDetails/CoffeeDetails";
 import FavoritesPage from "./components/Favorites/Favorites";
 import Cart from "./components/CartPage/Cart";
+
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+
+import ReviewsPage from './components/ReviewsPage/ReviewsPage';
 import NotFoundPage from "./components/404Page/404";
 
-function App() {
+
+const App = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Function to retrieve and set the cart count from localStorage
+    const updateCartCount = () => {
+      const storedCartCount = localStorage.getItem('cartCount');
+      const count = storedCartCount ? parseInt(storedCartCount, 10) : 0;
+      setCartCount(count);
+    };
+
+    // Initial update when the component mounts
+    updateCartCount();
+
+    // Event listener to update cart count whenever it's updated
+    const handleCartUpdate = () => {
+      updateCartCount(); // Update cart count when event fires
+    };
+
+    window.addEventListener('cartUpdated', handleCartUpdate);
+
+    return () => {
+      // Clean up the event listener when the component unmounts
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
+  }, []);
+
+
+
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header cartCount={cartCount} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,6 +71,12 @@ function App() {
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="/check-out" element={<CheckoutPage />} />
+        
+        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
+         <Route path="/reviews" element={<ReviewsPage />} />
+
         <Route path="/coffee-box" element={<CoffeeBox />} />
         <Route path="/coffee-box/details/:id" element={<CoffeeBoxDetails />} />
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
@@ -41,8 +84,7 @@ function App() {
         <Route path="/about" element={<OurStory />} />
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/login" element={<Login />} /> */}
+       
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './BestSellers.css';
 import { Link } from 'react-router-dom';
 
+
 function BestSellers() {
   const [coffees, setCoffees] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,16 +22,7 @@ function BestSellers() {
         setLoading(false);
       });
   }, []);
-    
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === coffees.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); 
-  
-    return () => clearInterval(interval); // cleanup when unmounted
-  }, [coffees.length]);
+
   
 
   const nextSlide = () => {
@@ -50,7 +42,7 @@ function BestSellers() {
 
   return (
     <div className="carousel-container">
-      <h1>Our Best Sellers</h1>
+      <h2>Our Best Sellers</h2>
       <p className="carousel-subtext">
         Discover our handpicked best-selling coffees, freshly roasted and
         delivered to your door.
@@ -73,8 +65,8 @@ function BestSellers() {
         &gt;
       </button>
       <Link to={`/shop/${currentCoffee._id}`}>
-      <button className="details-button">View Details</button>
-    </Link>
+        <button className="details-button">View Details</button>
+      </Link>
     </div>
   );
 }
