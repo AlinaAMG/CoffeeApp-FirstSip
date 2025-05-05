@@ -8,6 +8,7 @@ import CoffeeQuiz from "./components/Quiz/Quiz";
 import OurStory from "./components/OurStory/OurStory";
 import OurOrigins from "./components/OurOrigins/OurOrigins";
 import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
+import CoffeeBoxDetails from "./components/CoffeeBoxDetails/CoffeeBoxDetails";
 
 import AllCoffees from "./components/AllCoffees/AllCoffees";
 import ContactForm from "./components/ContactForm/ContactForm";
@@ -33,7 +34,8 @@ function App() {
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
+        <Route path="/coffee-box" element={<CoffeeBox />} />
+        <Route path="/coffee-box/:id" element={<CoffeeBoxDetails />} />
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
