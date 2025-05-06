@@ -3,22 +3,26 @@ require('dotenv').config();
 
 // Create a transporter using Yahoo's SMTP settings
 let transporter = nodemailer.createTransport({
-  service: 'yahoo',  // Yahoo email service
+  host: 'smtp.mail.yahoo.com',
+  port: 465,  // Use SSL port
+  secure: true,  // True for 465, false for other ports
   auth: {
-    user: process.env.YAHOO_EMAIL,    
-    pass: process.env.YAHOO_APP_PASSWORD  
-  }
+    user: process.env.EMAIL_USER,  // Your Yahoo email
+    pass: process.env.EMAIL_PASS   // Your app password
+  },
+  debug: true  // Optional: enable debugging to see detailed output
 });
 
 // Define the sendEmail function
 const sendEmail = async (name, email, message) => {
   // Set up email data
   const mailOptions = {
-    from: email,  
-    to:process.env.YAHOO_EMAIL,                
-    subject: 'Contact Form Submission',
-    text: `Message from ${name}:\n\n${message}`,
-    html: `<p>Message from ${name}:</p><p>${message}</p>`,
+    from: process.env.EMAIL_USER,  // You (the owner of the Yahoo email)
+    to: process.env.EMAIL_USER,    // You (the recipient of the contact form)
+    subject: `Contact Form Submission from ${name}`,  // Email subject line
+    text: `Message from ${name} (${email}):\n\n${message}`,  // Plain text message
+    html: `<p>Message from ${name} (${email}):</p><p>${message}</p>`,  // HTML formatted message
+    replyTo: email  // Add the user email for replies
   };
 
   // Send the email
@@ -30,6 +34,5 @@ const sendEmail = async (name, email, message) => {
     throw new Error('Error sending email');
   }
 };
-
 
 module.exports = sendEmail;

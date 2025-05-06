@@ -98,15 +98,37 @@ const updateCoffee = (req, res) => {
         });
 };
 
+// const getCategoryCoffees = (req, res) => {
+//     const { category } = req.params; // Extract the category from the request parameters
+
+//     console.log(req.params);
+
+//     CoffeeModel.find({ category })
+//         .then(data => {
+//             if (data.length > 0) {
+//                 res.status(200).send(data);
+//             } else {
+//                 res.status(404).send({ message: 'No coffees found for this category.' });
+//             }
+//         })
+//         .catch(err => {
+//             res.status(500).send({ error: 'Error retrieving coffees by category', details: err });
+//         });
+// };
+
 const getCategoryCoffees = (req, res) => {
-    const { category } = req.params; // Extract the category from the request parameters
+    const { category } = req.params;  // Use req.params to extract category from URL path
 
-    console.log(req.params);
+    console.log("Category received:", category);  // Logging to debug
 
-    CoffeeModel.find({ category })
+    if (!category) {
+        return res.status(400).send({ message: "Category is required." });
+    }
+
+    CoffeeModel.find({ category })  // Use category to find matching coffees
         .then(data => {
             if (data.length > 0) {
-                res.status(200).send(data);
+                res.status(200).send(data);  // Send the found data
             } else {
                 res.status(404).send({ message: 'No coffees found for this category.' });
             }
@@ -115,6 +137,7 @@ const getCategoryCoffees = (req, res) => {
             res.status(500).send({ error: 'Error retrieving coffees by category', details: err });
         });
 };
+
 
 const getCoffee = (req, res) => {
     const { _id } = req.params; // Extract the category from the request parameters
