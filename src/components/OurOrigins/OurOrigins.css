@@ -123,6 +123,15 @@ border-radius: 20px;
 
 
   } 
+  .coffee-extra-details {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  .coffee-extra-details li {
+    margin-bottom: 0.3rem;
+  }
   
 
   

@@ -22,6 +22,7 @@
 .testimonial-form-section textarea {
   width: 100%;
   margin-bottom: 20px;
+  padding-left:10px;
 }
 
 .testimonial-form-section input:focus,
@@ -48,7 +49,16 @@
   color: #6c4f3d; 
   box-shadow: 2px 2px 7px rgba(108, 79, 61, 0.5); 
 }
-
+.toggle-button {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #4b2e2a;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  
+}
 .rating-section select {
   padding: 8px;
   margin-top: 10px;

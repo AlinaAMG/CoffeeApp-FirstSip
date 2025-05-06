@@ -4,6 +4,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
 import ShareIcon from './ShareIcon';
+import StarRating from '../StarRating/StarRating';
+
 
 function CoffeeDetail() {
   const { id } = useParams();
@@ -13,6 +15,7 @@ function CoffeeDetail() {
   const [selectedRoast, setSelectedRoast] = useState('Light');
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false); // State for favorite status
+ 
 
   useEffect(() => {
     // Fetch coffee details
@@ -32,6 +35,7 @@ function CoffeeDetail() {
         setLoading(false);
       });
   }, [id]);
+ 
 
   const handleWeightChange = (e) => setSelectedWeight(e.target.value);
   const handleRoastChange = (e) => setSelectedRoast(e.target.value);
@@ -95,19 +99,24 @@ function CoffeeDetail() {
 
   useEffect(() => {
     if (!coffee) return;
-  
+
     const stored = JSON.parse(localStorage.getItem('favorites')) || [];
     const exists = stored.some((fav) => fav._id === coffee._id);
     setIsFavorite(exists);
   }, [coffee]);
 
   const handleAddToFavorites = () => {
-    const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const isAlreadyFavorite = currentFavorites.some((fav) => fav._id === coffee._id);
+    const currentFavorites =
+      JSON.parse(localStorage.getItem('favorites')) || [];
+    const isAlreadyFavorite = currentFavorites.some(
+      (fav) => fav._id === coffee._id
+    );
     let updatedFavorites;
-  
+
     if (isAlreadyFavorite) {
-      updatedFavorites = currentFavorites.filter((fav) => fav._id !== coffee._id);
+      updatedFavorites = currentFavorites.filter(
+        (fav) => fav._id !== coffee._id
+      );
       setIsFavorite(false);
       alert('Removed from favorites!');
     } else {
@@ -123,9 +132,9 @@ function CoffeeDetail() {
       setIsFavorite(true);
       alert('Added to favorites!');
     }
-  
+
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    window.dispatchEvent(new Event('favoritesUpdated'));  // Notify other components of the update
+    window.dispatchEvent(new Event('favoritesUpdated')); // Notify other components of the update
   };
 
   if (loading) return <p>Loading...</p>;
@@ -134,12 +143,10 @@ function CoffeeDetail() {
   return (
     <div className="coffee-single-wrapper">
       <Link to="/shop/all-coffees">
-          <i className="bi bi-arrow-left" style={{ color: "#4b2e2a" }}></i>
-          </Link>
+        <i className="bi bi-arrow-left" style={{ color: '#4b2e2a' }}></i>
+      </Link>
       <div className="coffee-single-container">
-      
         <div className="coffee-single-image-box">
-          
           <img
             src={coffee.imageUrl}
             alt={coffee.name}
@@ -156,70 +163,75 @@ function CoffeeDetail() {
               style={{
                 cursor: 'pointer',
                 fontSize: '2rem',
-               
               }}
             >
               {isFavorite ? (
-                <FaHeart style={{ color: "rgb(230, 207, 53)" }} />
-                
+                <FaHeart style={{ color: 'rgb(230, 207, 53)' }} />
               ) : (
                 <FaRegHeart className="heart" />
               )}
             </div>
-           <ShareIcon/>
+            <ShareIcon />
           </div>
 
           <p className="coffee-single-description">{coffee.description}</p>
           <p>
-            <strong style={{color:"#444"}}>Notes:</strong> {coffee.notes.join(', ')}
+            <strong style={{ color: '#444' }}>Notes:</strong>{' '}
+            {coffee.notes.join(', ')}
           </p>
           <p>
-            <strong style={{color:"#444"}}>Category:</strong> {coffee.category}
+            <strong style={{ color: '#444' }}>Category:</strong>{' '}
+            {coffee.category}
           </p>
-          <p>
+          {/* <p>
             <strong style={{color:"#444"}}>Rating:</strong> {coffee.rating} / 5
-          </p>
+          </p> */}
+          <div className="coffee-rating">
+            <strong>Rating: </strong>
+            <StarRating rating={coffee.rating} />
+          </div>
           <p>
-            <strong style={{color:"#444"}}>Region:</strong> {coffee.region}
+            <strong style={{ color: '#444' }}>Region:</strong> {coffee.region}
           </p>
+          <div className="dropdown-parent">
+            <div className="coffee-single-weight">
+              <label>Select Weight: </label>
+              <select value={selectedWeight} onChange={handleWeightChange}>
+                <option value="choose">Choose an option</option>
+                <option value="250g">250g</option>
+                <option value="1000g">1000g</option>
+              </select>
+            </div>
 
-          <div className="coffee-single-weight">
-            <label>Select Weight: </label>
-            <select value={selectedWeight} onChange={handleWeightChange}>
-              <option value="choose">Choose an option</option>
-              <option value="250g">250g</option>
-              <option value="1000g">1000g</option>
-            </select>
-          </div>
+            <div className="coffee-single-roast">
+              <label>Select Roast: </label>
+              <select value={selectedRoast} onChange={handleRoastChange}>
+                <option value="choose">Choose an option</option>
+                <option value="Light">Light</option>
+                <option value="Medium">Medium</option>
+                <option value="Dark">Dark</option>
+              </select>
+            </div>
 
-          <div className="coffee-single-roast">
-            <label>Select Roast: </label>
-            <select value={selectedRoast} onChange={handleRoastChange}>
-              <option value="choose">Choose an option</option>
-              <option value="Light">Light</option>
-              <option value="Medium">Medium</option>
-              <option value="Dark">Dark</option>
-            </select>
-          </div>
-
-          <div className="coffee-single-quantity">
-            <label>Quantity: </label>
-            <input
-              type="number"
-              value={quantity}
-              min="1"
-              onChange={handleQuantityChange}
-            />
+            <div className="coffee-single-quantity">
+              <label>Quantity: </label>
+              <input
+                type="number"
+                value={quantity}
+                min="1"
+                onChange={handleQuantityChange}
+              />
+            </div>
           </div>
           <p className="totalPrice">
-            <strong style={{color:"#444"}}>Total:</strong>&euro;{getDisplayedPrice()}
+            <strong style={{ color: '#444' }}>Total:</strong>&euro;
+            {getDisplayedPrice()}
           </p>
           <button className="coffee-single-add-btn" onClick={handleAddToCart}>
             Add to Cart
           </button>
         </div>
       </div>
-
 
       <div className="coffee-single-long-description">
         <h4>Product Description</h4>
