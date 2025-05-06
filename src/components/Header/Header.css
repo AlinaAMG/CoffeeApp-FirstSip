@@ -4,30 +4,27 @@
   box-sizing: border-box;
 }
 .promo-bar {
-  width:100%;
+  width: 100%;
   color: #d2b48c;
   text-align: center;
   padding: 10px 0;
   font-size: 18px;
   font-weight: bold;
- 
-  margin-bottom:20px;
+
+  margin-bottom: 20px;
 }
- 
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;       
-  background-color: #4B2E2A;
+  flex-wrap: wrap;
+  background-color: #4b2e2a;
   padding: 1rem 2rem;
   position: sticky;
-  top:0;
-  z-index:1000;
+  top: 0;
+  z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- 
-  
-
 }
 
 .logo a {
@@ -35,7 +32,7 @@ nav {
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .menu {
@@ -54,7 +51,6 @@ nav {
   padding: 0;
 }
 
-
 .menu li {
   position: relative;
 }
@@ -67,9 +63,8 @@ nav {
   cursor: pointer;
   border-radius: 5px;
   font-size: 18px;
- transition:all 0.5s ease-in-out;;
+  transition: all 0.5s ease-in-out;
 }
-
 
 .menu ul li ul {
   display: none;
@@ -86,12 +81,10 @@ nav {
   transition: all 0.3s ease;
 }
 
-
 .menu ul li:hover > ul {
   display: block;
   opacity: 1;
 }
-
 
 .menu ul ul li {
   margin: 0;
@@ -101,7 +94,7 @@ nav {
   color: #ffffff;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   transition: all 0.3s ease;
 }
 .menu a:hover {
@@ -139,14 +132,13 @@ nav {
 }
 
 .menu ul ul li a {
-  color: #4b2e2a; 
+  color: #4b2e2a;
   padding: 0.5rem 1rem;
   font-size: 16px;
   font-weight: 600;
   display: block;
   text-decoration: none;
 }
-
 
 .menu ul li .drop-down {
   background: none;
@@ -156,33 +148,29 @@ nav {
   cursor: pointer;
 }
 
+.menu ul li ul li a:hover {
+  color: #d2b48c;
+}
 
-
- .menu ul li ul li a:hover { 
- color: #D2B48C; 
- }
-
-  .hamburger-icon {
+.hamburger-icon {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   display: none;
   flex-direction: column;
-  gap: 4px; 
-   align-items: center; 
-} 
+  gap: 4px;
+  align-items: center;
+}
 .icon-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px; 
- 
+  gap: 15px;
 }
 
-.favorites-icon{
-  margin-right:20px;
-  
+.favorites-icon {
+  margin-right: 20px;
 }
 cart-icon {
   position: relative;
@@ -191,10 +179,10 @@ cart-icon {
 
 .cart-icon .cart-count {
   position: absolute;
-  top: -5px;   
-  right: -10px; 
-  background-color: rgb(230, 207, 53); 
-  color:#111;
+  top: -5px;
+  right: -10px;
+  background-color: rgb(230, 207, 53);
+  color: #111;
   font-size: 12px;
   width: 20px;
   height: 20px;
@@ -203,12 +191,17 @@ cart-icon {
   align-items: center;
   justify-content: center;
 }
-   .favorites-count{
-font-size:18px;
-   }
-  
- @media (max-width: 768px) {
+.favorites-count {
+  font-size: 18px;
+}
 
+.welcome-msg {
+  color: #d2b48c;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 5px 0 10px;
+}
+@media (max-width: 768px) {
   .hamburger-icon {
     display: flex;
     flex-direction: column;
@@ -226,18 +219,17 @@ font-size:18px;
   }
 
   .menu {
-    display: none;           
-    width: 100%;              
+    display: none;
+    width: 100%;
     background-color: #4b2e2a;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;                 
-    margin-top: 1rem;          
+    gap: 1rem;
+    margin-top: 1rem;
   }
   .menu.active {
-    display: flex;           
+    display: flex;
   }
-
 
   .menu ul {
     display: flex;
@@ -260,14 +252,10 @@ font-size:18px;
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
-    transition:all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .menu ul li a:hover,
   .menu ul li .drop-down:hover {
     color: #d2b48c;
-  } 
-
   }
-
-
-
+}

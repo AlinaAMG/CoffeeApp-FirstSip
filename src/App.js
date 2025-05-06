@@ -1,6 +1,4 @@
-
-
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -12,7 +10,7 @@ import OurStory from "./components/OurStory/OurStory";
 import OurOrigins from "./components/OurOrigins/OurOrigins";
 import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
 import CoffeeBoxDetails from "./components/CoffeeBoxDetails/CoffeeBoxDetails";
-
+import RegisterPage from "./components/RegisterPage/RegisterPage";
 
 import AllCoffees from "./components/AllCoffees/AllCoffees";
 import ContactForm from "./components/ContactForm/ContactForm";
@@ -22,9 +20,8 @@ import Cart from "./components/CartPage/Cart";
 
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 
-import ReviewsPage from './components/ReviewsPage/ReviewsPage';
+import ReviewsPage from "./components/ReviewsPage/ReviewsPage";
 import NotFoundPage from "./components/404Page/404";
-
 
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -32,7 +29,7 @@ const App = () => {
   useEffect(() => {
     // Function to retrieve and set the cart count from localStorage
     const updateCartCount = () => {
-      const storedCartCount = localStorage.getItem('cartCount');
+      const storedCartCount = localStorage.getItem("cartCount");
       const count = storedCartCount ? parseInt(storedCartCount, 10) : 0;
       setCartCount(count);
     };
@@ -45,16 +42,13 @@ const App = () => {
       updateCartCount(); // Update cart count when event fires
     };
 
-    window.addEventListener('cartUpdated', handleCartUpdate);
+    window.addEventListener("cartUpdated", handleCartUpdate);
 
     return () => {
       // Clean up the event listener when the component unmounts
-      window.removeEventListener('cartUpdated', handleCartUpdate);
+      window.removeEventListener("cartUpdated", handleCartUpdate);
     };
   }, []);
-
-
-
 
   return (
     <BrowserRouter>
@@ -73,9 +67,9 @@ const App = () => {
         <Route path="/favorites" element={<FavoritesPage />} />
 
         <Route path="/check-out" element={<CheckoutPage />} />
-        
+
         {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
-         <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
 
         <Route path="/coffee-box" element={<CoffeeBox />} />
         <Route path="/coffee-box/details/:id" element={<CoffeeBoxDetails />} />
@@ -83,14 +77,14 @@ const App = () => {
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/login" element={<Login />} /> */}
-       
+        <Route path="/login" element={<RegisterPage />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
     </BrowserRouter>
   );
-}
+};
 
 export default App;
