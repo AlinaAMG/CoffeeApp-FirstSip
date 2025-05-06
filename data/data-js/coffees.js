@@ -1,5 +1,30 @@
 const coffees = [
   {
+    name: "Kopi Luwak",
+    description: "One of the rarest and most luxurious coffees in the world, known for its smooth, rich flavor and low acidity.",
+    longDescription:
+      `Kopi Luwak, often called 'Civet Coffee', is made using beans that have been eaten and digested by the Asian palm civet. The beans undergo fermentation in the civet’s digestive system before being collected, cleaned, and roasted. This process gives the coffee a unique, ultra-smooth flavor profile with rich, earthy undertones and a hint of chocolate. Despite controversy around ethical sourcing, properly sourced Kopi Luwak remains a prized delicacy among coffee connoisseurs.
+      
+      Kopi Luwak is one of the most exclusive and unusual coffees in the world, originating in Indonesia. What makes this coffee truly unique is the process it undergoes: the beans are first eaten by the Asian palm civet, a small nocturnal mammal native to Southeast Asia. The civet selects only the ripest coffee cherries, and as they pass through its digestive system, natural fermentation occurs. Enzymes in the civet’s stomach break down the proteins that typically give coffee its bitter flavor, resulting in beans that produce an exceptionally smooth, mellow cup with low acidity and deep earthy notes.
+      
+      After the beans are excreted, they are carefully collected, cleaned, and roasted to perfection. Ethically sourced Kopi Luwak, which ensures the animals are wild or well cared for, is a rare delicacy prized by adventurous coffee lovers worldwide. The result is a luxurious and complex coffee experience that tells a story unlike any other.
+      
+      `,
+    imageUrl:
+      "https://magazine.bluekarmasecrets.com/wp-content/uploads/2019/10/1.-aman-kuba-coffee-manfaat-kopi.jpg",
+    price: 50.99,
+    category: "Premium Blends",
+    region: "Indonesia",
+    slug: "kopi-luwak",
+    rating: 4.8,
+    weightOptions: [250,1000],
+    roastLevel: "Medium",
+    notes: ["Smooth", "Earthy", "Low Acidity", "Chocolatey"],
+    soldOut: false,
+    bestSeller: true
+  },
+  
+  {
     name: "Panama Geisha",
     description: "Panama Geisha is one of the most prized and rare coffees in the world, known for its complex flavors of tropical fruits, jasmine, bergamot, and honey.",
     longDescription: `Panama Geisha is one of the most prized and celebrated coffees in the world, renowned for its exceptional flavor complexity and floral elegance. Originally from Ethiopia, the Geisha variety found its perfect home in the highlands of Panama, particularly in the Boquete region, where ideal altitude and climate conditions allow it to thrive.
@@ -9,7 +34,7 @@ const coffees = [
 
     Panama Geisha isn't just a coffee — it's a refined and luxurious sensory journey that rewards those who appreciate subtlety, balance, and complexity in every cup.
 .`,
-    price: 35.99,
+    price: 20.99,
     imageUrl:
       "https://plus.unsplash.com/premium_photo-1675435644687-562e8042b9db?q=80&w=3749&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: false,
@@ -32,9 +57,11 @@ const coffees = [
     The flavor profile of Ethiopian Yirgacheffe is known for its bright acidity and floral notes, often likened to jasmine, bergamot, and citrus. A delicate sweetness complements the vibrant acidity, making the coffee feel refreshing yet smooth. The coffee may also have hints of tropical fruits, such as mango or lemon zest, adding to its complexity. The aftertaste is clean and crisp, leaving a delightful lingering sweetness.
     
     Yirgacheffe coffee is often processed using the washed (wet) method, which highlights the clean, bright flavors and enhances its clarity. The beans are carefully harvested and processed by the local farmers, who meticulously wash the coffee cherries to remove any impurities. This attention to detail is reflected in the exceptional quality of the coffee.`,
-    price: 29.99,
+    price: 19.99,
     imageUrl:
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlfGVufDB8fDB8fHww",
+
+      'https://frontiercoffeeroasters.com/cdn/shop/articles/ethiopian_yirgacheffe_coffee_being_poured_in_a_cup.png?v=1739973719',
+
     bestSeller: true,
     category: "Premium Blends",
     weightOptions: [250, 1000],
@@ -42,18 +69,20 @@ const coffees = [
     region: "Ethiopia",
     notes: ["Citrus", "Floral", "Berry", "Lemon", "Orange"],
     slug: "ethiopian-yirgacheffe",
-    soldOut: false,
+    soldOut: true,
     rating: 4.5,
   },
 
   {
+
     name: "Sumatra Mandheling",
     description: "Sumatra Mandheling coffee is known for its earthy, full-bodied flavor profile with low acidity and notes of chocolate, spice, and tobacco.",
     longDescription:`Sumatra Mandheling is a distinctive and beloved coffee from the Indonesian island of Sumatra. Known for its bold, earthy flavors and full-bodied profile, Mandheling coffee has become a staple in the world of specialty coffee, appreciated for its depth and complexity.
+
     Grown in the rich volcanic soils of the island's highlands, Mandheling coffee beans are typically harvested at elevations ranging from 1,200 to 1,500 meters above sea level. The beans are handpicked by smallholder farmers who use traditional methods to cultivate and process the coffee, contributing to its unique flavor characteristics.
     The hallmark of Sumatra Mandheling is its intense, earthy flavor profile. It offers a deep, full-bodied experience with rich notes of dark chocolate, earthy spices, and a hint of herbal undertones. The coffee is known for its low acidity, which adds to its smooth, syrupy mouthfeel. As you sip, you may also detect subtle hints of dried fruit, tobacco, and a touch of brown sugar sweetness, providing a perfect balance of flavors.
     Mandheling coffee is often processed using the wet-hulling method, a traditional technique unique to Sumatra. This process involves removing the outer skin of the coffee cherry before the beans are fully dried, resulting in a cup that is rich and rustic in flavor. The wet-hulling method also contributes to the coffee's characteristic earthy, spicy, and slightly savory notes, distinguishing it from other coffee varieties.`,
-    price: 22.99,
+    price: 21.99,
     imageUrl: "https://images.squarespace-cdn.com/content/v1/5d9f5cfe66c0ff4ce192f1a2/d32676e0-bd1a-46dd-b16c-da27e1b4c1eb/My+project-1+%2820%29.png",
     bestSeller: true,
     category: "Single Origin",
@@ -72,7 +101,7 @@ const coffees = [
     and exceptional balance. Grown in the Antigua region of Guatemala, this coffee is celebrated for its complexity and rich taste profile, making it a favorite among coffee enthusiasts and connoisseurs alike.
     Located in the central highlands of Guatemala, Antigua is a volcanic region with rich, fertile soils, ideal for coffee cultivation. The coffee plants thrive at altitudes ranging from 1,500 to 2,000 meters, where the cooler temperatures and consistent rainfall create the perfect environment for producing high-quality beans. The beans are carefully handpicked by local farmers, many of whom have been cultivating coffee for generations, ensuring a traditional and meticulous approach to coffee farming.   
     The flavor profile of Guatemalan Antigua is distinctive and dynamic. The coffee is known for its bright and lively acidity, often described as citrus-like or similar to green apple. This is balanced by a full body and a smooth, velvety mouthfeel. As you sip, you'll find flavors of chocolate, caramel, and hints of floral undertones, along with a mild spiciness that adds depth and complexity to the cup. There's also a subtle smokiness and a touch of nutty sweetness that lingers in the aftertaste, making each sip an enjoyable experience.`,
-    price: 25.99,
+    price: 16.99,
     imageUrl:
       "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: false,
@@ -94,8 +123,9 @@ const coffees = [
     
     The flavor profile of Brazilian Santos is soft and approachable, with a medium body and a mellow, nutty sweetness that makes it an excellent choice for those who prefer a gentler cup of coffee. The coffee typically has a mild acidity, often described as round or smooth, which gives it a balanced and easy-drinking character. Notes of chocolate, hazelnut, and almond are common, with a subtle sweetness that lingers in the aftertaste. Some variations of Brazilian Santos may also exhibit a hint of caramel or toffee, adding richness to its flavor profile.`,
     price: 18.99,
-    imageUrl: "https://cdn.shopify.com/s/files/1/2783/4082/files/health-benefits-of-coffee-black-creek-coffee-blog.jpg?v=1620240785",
-    bestSeller: true,
+
+    imageUrl:"https://t4.ftcdn.net/jpg/01/05/90/77/360_F_105907729_4RzHYsHJ2UFt5koUI19fc6VzyFPEjeXe.jpg",
+     bestSeller: true,
     category: "Organic",
     weightOptions: [250, 500],
     roastLevel: "Medium",
@@ -127,7 +157,7 @@ const coffees = [
     region: "Colombia",
     notes: ["Caramel", "Chocolate", "Nutty", "Smooth", "Balanced"],
     slug: "colombian-supremo",
-    soldOut: false,
+    soldOut: true,
     rating: 4.8,
   },
   {
@@ -138,7 +168,7 @@ const coffees = [
     The Tarrazú region, often referred to as "The Valley of the Sun," boasts ideal conditions for coffee cultivation. The fertile volcanic soil, combined with a combination of tropical weather and altitude ranging from 1,200 to 1,800 meters above sea level, helps produce a coffee bean that is rich in flavor and aromatic qualities. The region is known for its excellent coffee-growing practices, and many small, family-owned farms take pride in handpicking the cherries, ensuring only the highest quality beans are selected.
     
     Costa Rican Tarrazú coffee is typically processed using the washed (wet) method, which contributes to its clean, bright taste. The cherries are pulped and fermented to remove the outer layers, and the beans are then washed to remove any remaining impurities. This method helps to preserve the natural flavors of the coffee, resulting in a smooth, crisp cup with a bright and tangy acidity.`,
-    price: 24.99,
+    price: 20.99,
     imageUrl:
       "https://images.unsplash.com/photo-1522726336270-3a0053210f06?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: false,
@@ -163,7 +193,7 @@ const coffees = [
     Kenyan AA coffee has a distinct and highly complex flavor profile. The first thing that strikes you is its vibrant acidity, often described as bright and crisp, with citrusy notes of lemon, orange, or black currant. There are often hints of tropical fruits like pineapple and passion fruit, adding layers of fruitiness that make each sip unique. The coffee also has a full-bodied mouthfeel with a pleasant smoothness, which balances the acidity and creates a rich, well-rounded flavor.
     
     The aftertaste of Kenyan AA coffee is clean and lingering, with a slightly wine-like quality. You may detect subtle undertones of berry, jasmine, or even sweet spices, adding depth and complexity to the cup. This coffee is often regarded as one of the best examples of the Arabica coffee variety, and its complexity makes it a favorite among coffee enthusiasts who appreciate bold and distinctive flavors.`,
-    price: 32.99,
+    price: 17.99,
     imageUrl:
       "https://images.unsplash.com/photo-1625021659159-f63f546d74a7?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: false,
@@ -173,9 +203,30 @@ const coffees = [
     region: "Kenya",
     notes: ["Berry", "Citrus", "Floral", "Bright", "Intense"],
     slug: "kenyan-aa",
-    soldOut: false,
+    soldOut: true,
     rating: 3.9,
   },
+  {
+    name: "Tanzania Peaberry",
+    description: "A bright and fruity coffee with a medium body and wine-like acidity, grown on the slopes of Mt. Kilimanjaro.",
+    longDescription:
+      `
+      Tanzania Peaberry is a rare and highly sought-after coffee grown on the lush, volcanic slopes of Mount Kilimanjaro and Mount Meru. Unlike most coffee cherries that produce two beans, peaberries are natural mutations where only a single, smaller, rounder bean develops—resulting in a denser bean with a more concentrated flavor. This unique shape allows for a more even roast and a smoother cup. The flavor profile is vibrant and complex, offering a medium body with a wine-like acidity and bright notes of citrus, berries, and floral undertones. Each sip finishes clean and crisp, making it a favorite among specialty coffee lovers seeking something both exotic and refreshing.
+      `,
+    imageUrl:
+      "https://images.unsplash.com/photo-1521677446241-d182a96ec49f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+    price: 27.49,
+    category: "Single Origin",
+    region: "Tanzania",
+    slug: "tanzania-peaberry",
+    rating: 4.7,
+    weightOptions: [250, 1000],
+    roastLevel: "Medium",
+    notes: ["Citrus", "Berry", "Bright", "Wine-like"],
+    soldOut: false,
+    bestSeller: true
+  },
+  
   {
     name: "Hawaiian Kona",
     description: "Hawaiian Kona coffee is known for its smooth, nutty flavor with a slight hint of tropical fruit and a pleasant, mellow aftertaste.",
@@ -186,7 +237,7 @@ const coffees = [
     Kona coffee is known for its smooth, well-balanced taste with a medium body and low acidity, making it a favorite among coffee connoisseurs. The beans are hand-picked, a labor-intensive process that ensures only the ripest cherries are harvested. After picking, the beans are processed using the wet method, which involves removing the pulp, fermenting, and washing the beans to enhance their flavor clarity and brightness.
     
     The flavor profile of Hawaiian Kona is both rich and nuanced. The coffee is known for its smooth, buttery texture and subtle sweetness. The first sip often reveals gentle nutty flavors, such as almond or hazelnut, along with mild fruity notes of red apple or cherry. As you continue, hints of chocolate, caramel, and vanilla emerge, giving the coffee a round, comforting flavor. The coffee’s clean finish and balanced acidity make it incredibly easy to drink and highly satisfying.`,
-    price: 40.99,
+    price: 20.99,
     imageUrl:
       "https://images.unsplash.com/photo-1498709112912-9be3173d30be?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: false,
@@ -213,8 +264,8 @@ const coffees = [
     When brewed, Blue Mountain Blend delivers a smooth, well-rounded cup with a medium body and a mild acidity. The flavor profile is complex and refined, with a subtle sweetness that is balanced by hints of nuts, caramel, and cocoa. You may also detect light fruity notes, such as ripe citrus or stone fruits, which add brightness and freshness to the cup. The aroma is inviting, with delicate floral and fruity fragrances that enhance the overall sensory experience.
     
     One of the defining features of Blue Mountain Blend is its lack of harsh bitterness. This makes it a perfect choice for those who enjoy a gentle, nuanced cup without the overpowering aftertaste found in many other coffees. The balance between acidity, sweetness, and body creates a coffee that is both satisfying and refreshing, with a clean, smooth finish that lingers pleasantly on the palate.`,
-    price: 59.99,
-    imageUrl: "https://img.freepik.com/premium-photo/coffee-cup-coffee-beans_78677-5886.jpg?w=900",
+    price: 31.50,
+    imageUrl: "https://images.unsplash.com/photo-1501492673258-2bcfc17241fd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: true,
     category: "Premium Blends",
     weightOptions: [250, 1000],
@@ -231,7 +282,7 @@ const coffees = [
       "A rich and aromatic blend of Colombian coffee with a touch of Brazilian beans, offering a full-bodied taste with bright acidity and hints of caramel and chocolate.",
     longDescription:
       "This premium blend combines high-quality Colombian coffee, renowned for its rich flavor and balanced acidity, with Brazilian beans that add depth and a mild nuttiness. The result is a cup that is both full-bodied and smooth, with a bright acidity that gives way to flavors of caramel, chocolate, and a slight nutty sweetness. Perfect for those who enjoy a well-rounded, medium-bodied cup of coffee with a satisfying finish.",
-    price: 44.99,
+    price: 24.50,
     imageUrl:
       "https://images.unsplash.com/photo-1537130508299-46ab547b4be3?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODV8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
     bestSeller: false,
@@ -250,7 +301,7 @@ const coffees = [
       "A premium espresso blend combining rich Italian beans with a touch of dark-roasted Brazilian coffee, providing a bold, full-bodied espresso with notes of chocolate and caramel.",
     longDescription:
       "This Italian Espresso Blend combines high-quality beans from Italy with dark-roasted Brazilian coffee to create a bold, full-bodied espresso that has deep, rich flavors. The blend offers notes of chocolate, caramel, and a slightly smoky undertone, making it perfect for espresso lovers who enjoy a strong, flavorful cup. Whether enjoyed as a straight shot or in lattes and cappuccinos, this espresso is a true indulgence.",
-    price: 49.99,
+    price: 19.75,
     imageUrl:
       "https://img.freepik.com/free-photo/close-up-delicious-coffee-after-harvest_23-2151913332.jpg?t=st=1746196724~exp=1746200324~hmac=50dca791b87be32e63825efc68db7e76d7c2c1f154ad3da914971ddb658c8cde&w=996",
     bestSeller: true,
@@ -269,8 +320,8 @@ const coffees = [
     longDescription:
       "Grown in the highlands of Peru, this organic coffee offers a smooth and well-balanced cup. The mild flavor is complemented by hints of toasted nuts and caramel, with a clean, refreshing finish. Perfect for a calm morning brew.",
     imageUrl:
-      "https://img.freepik.com/free-photo/cup-hot-coffee-with-cookies-table-lights_181624-45606.jpg?t=st=1746196831~exp=1746200431~hmac=5062fcc7fa45a10eee79d39bc2adc1f4b872e0cd89b3dab44aaef806cce15554&w=1380",
-    price: 42.0,
+      "https://images.unsplash.com/photo-1511759066510-46958c3fffa0?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+    price: 14.15,
     category: "Organic",
     region: "Peru",
     slug: "organic-peru-coffee",
@@ -288,7 +339,7 @@ const coffees = [
       "Organic Ethiopian Sidamo offers a unique flavor profile with bright acidity and floral notes of jasmine and bergamot. Its full-bodied taste is balanced with a slight citrusy sweetness, making it a versatile coffee for various brewing methods.",
     imageUrl:
       "https://plus.unsplash.com/premium_photo-1672406540165-bbb755ffc221?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxjb2ZmZWV8ZW58MHx8MHx8fDA%3D",
-    price: 50.0,
+    price: 28.65,
     category: "Organic",
     region: "Ethiopia",
     slug: "organic-ethiopian-sidamo",
@@ -306,7 +357,7 @@ const coffees = [
       "This organic coffee from Mexico is known for its rich, earthy flavor with undertones of dark chocolate. The smooth finish and balanced acidity make it an excellent choice for those who prefer a medium-bodied coffee with depth.",
     imageUrl:
       "https://images.unsplash.com/photo-1493925410384-84f842e616fb?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMzfHxjb2ZmZWV8ZW58MHx8MHx8fDA%3D",
-    price: 38.0,
+    price: 35.99,
     category: "Organic",
     region: "Mexico",
     slug: "organic-mexican-coffee",
@@ -323,8 +374,8 @@ const coffees = [
     longDescription:
       "Organic Costa Rican coffee is known for its rich, creamy body with vibrant citrus flavors and a touch of honey sweetness. It has a clean, crisp finish and is perfect for those who love a bright cup with a smooth texture.",
     imageUrl:
-      "https://images.unsplash.com/photo-1529229089-f5719a804879?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQzfHxjb2ZmZWV8ZW58MHx8MHx8fDA%3D",
-    price: 45.0,
+      "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+    price: 27.99,
     category: "Organic",
     region: "Costa Rica",
     slug: "organic-costa-rican-coffee",
@@ -336,13 +387,33 @@ const coffees = [
     bestSeller: true,
   },
   {
+    name: "Kona Coffee from Hawaii",
+    description: "Kona Coffee offers a distinctive, full-bodied cup with hints of macadamia nuts, chocolate, and a smooth, rich finish.",
+    longDescription: 
+      `Kona Coffee is not only beloved for its smooth, rich taste, but it’s also grown in a unique environment that adds to its distinctiveness. The volcanic soils of the Kona region, combined with Hawaii's ideal climate, create perfect conditions for growing high-quality Arabica beans. The beans are carefully handpicked to ensure that only the best are selected, contributing to its reputation as a luxury coffee. Whether you're savoring it as a morning brew or sharing it with friends, Kona Coffee delivers a remarkable and unforgettable experience.
+      Grown in the volcanic soils of the Kona region in Hawaii, Kona Coffee is known for its smooth, rich flavor profile. It has notes of macadamia nuts and chocolate, with a well-balanced, full-bodied finish. The beans are handpicked at the peak of ripeness, ensuring a high-quality cup that is both smooth and flavorful, ideal for coffee connoisseurs.`,
+    imageUrl: "https://plus.unsplash.com/premium_photo-1675237625845-ed58c887f3cf?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D",
+    price: 30.99,
+    category: "Premium Blends",
+    region: "Kona, Hawaii",
+    slug: "kona-coffee-from-hawaii",
+    rating: 4.7,
+    weightOptions: [250, 1000],
+    roastLevel: "Medium",
+    notes: ["Macadamia Nut", "Chocolate", "Full-bodied", "Smooth"],
+    soldOut: false,
+    bestSeller: true,
+  },
+  {
     name: "Organic Indian Monsooned Malabar",
     description: "A unique organic coffee known for its smooth, earthy flavor and a distinct, slightly spicy aftertaste. Great for bold coffee lovers.",
     longDescription:
       "Organic Indian Monsooned Malabar is processed using a unique method where the beans are exposed to the monsoon winds, giving the coffee a smooth, earthy flavor. It has a bold body with subtle hints of spice and a complex aftertaste.",
     imageUrl:
-      "https://images.unsplash.com/photo-1517476950322-6251d142eddf?w=1000&auto=format&fit=crop&q=60&ixid=M3wxMjA3fDB8MHxwaG90by1jb3ZmZWV8MjF8fHx8fHwxNjg3NjA3MDA5&ixlib=rb-4.0.3",
-    price: 55.0,
+
+      'https://www.mycuppa.com.au/cdn/shop/collections/mycuppa_India_Collection.jpg?v=1720424974&width=1296',
+
+    price: 26.99,
     category: "Organic",
     region: "India",
     slug: "organic-indian-monsooned-malabar",

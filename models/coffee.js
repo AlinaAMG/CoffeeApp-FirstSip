@@ -72,6 +72,9 @@ const coffeeSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    soldOut: {
+      type: Boolean,
+    },
   },
   { timestamps: true });
 

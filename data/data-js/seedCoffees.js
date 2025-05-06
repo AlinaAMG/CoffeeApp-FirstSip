@@ -9,7 +9,7 @@ const coffeeMockData = require('./coffees')  //require('./matrix-final-db.coffee
  *  Be careful this command line delete all coffee data and add mock data in the DB.
  *  Therefore only must use to add mock data in DB.
  *
-    node ./data/seedCoffees.js
+    node ./data/data-js/seedCoffees.js
  */
 async function seedCoffee() {
     try {
