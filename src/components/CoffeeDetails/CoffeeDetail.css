@@ -89,11 +89,10 @@
   
   
   .coffee-single-weight select,
-  .coffee-single-roast select,
-  .coffee-single-quantity input {
+  .coffee-single-roast select
+   {
     padding: 0.4rem;
-    margin-left: 0.5rem;
-    border:none;
+     border:none;
     border:1px solid #d2b48c;
    
   }
@@ -104,16 +103,22 @@
     border:1px solid #d2b48c;
    
   }
-
-  
+ .dropdown-parent{
+  display:flex;
+  gap:10px;
+ }
+ 
   .coffee-single-quantity input {
-    width:10%;
-    border:none;
+    width:20%;
     border:1px solid #d2b48c;
+    padding: 0.3rem;
+    margin-left: 0.5rem;
+   
+   
   }
   
   .coffee-single-add-btn {
-   margin-top: 1.5rem;
+   margin-top: 0.5rem;
     padding: 0.6rem 2rem;
     background-color:#4b2e2a;
     color:bisque;

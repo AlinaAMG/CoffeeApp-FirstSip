@@ -10,10 +10,10 @@
 }
 
 .hero-content {
-  max-width: 800px; /* Limits the width of the content */
+  max-width: 800px; 
   padding: 2rem;
   color: #fff;
-  z-index: 1; /* This ensures that the content stays above the background */
+  z-index: 1; 
 }
 
 .hero h1 {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import StarRating from '../StarRating/StarRating';
 import './ReviewsPage.css';
 
 const ReviewsPage = () => {
@@ -9,6 +9,7 @@ const ReviewsPage = () => {
   const [text, setText] = useState('');
   const [rating, setRating] = useState(1);
   const [message, setMessage] = useState('');
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   // Fetch testimonials from the backend when the component mounts
   useEffect(() => {
@@ -53,26 +54,9 @@ const ReviewsPage = () => {
       });
   };
 
-  // Function to render star rating
-  const renderStars = (rating) => {
-    let stars = [];
-    // Create 5 stars based on the rating
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(
-          <span key={i} className="star filled">
-            ★
-          </span>
-        );
-      } else {
-        stars.push(
-          <span key={i} className="star empty">
-            ★
-          </span>
-        );
-      }
-    }
-    return stars;
+  
+  const toggleReviews = () => {
+    setShowAllReviews((prev) => !prev);
   };
 
   return (
@@ -89,6 +73,7 @@ const ReviewsPage = () => {
               required
             />
             <textarea
+             
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Your Testimonial"
@@ -126,33 +111,46 @@ const ReviewsPage = () => {
         </div>
       </div>
 
-      {/* Display Testimonials Section */}
       <div className="testimonials-grid">
         <h2>Customer Reviews</h2>
         <div className="grid-container">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial._id}
-              className={`testimonial-card ${index % 2 === 0 ? 'even' : 'odd'}`}
-            >
-              <div className="testimonial-header">
-                <div className="user-info">
-                  <img
-                    src="https://www.w3schools.com/w3images/avatar2.png"
-                    alt="User Avatar"
-                    className="user-avatar"
-                  />
+          {testimonials
+            .slice(0, showAllReviews ? testimonials.length : 5)
+            .map((testimonial, index) => (
+              <div
+                key={testimonial._id}
+                className={`testimonial-card ${
+                  index % 2 === 0 ? 'even' : 'odd'
+                }`}
+              >
+                <div className="testimonial-header">
+                  <div className="user-info">
+                    <img
+                      src="https://www.w3schools.com/w3images/avatar2.png"
+                      alt="User Avatar"
+                      className="user-avatar"
+                    />
+                  </div>
+                  <div className="author">{testimonial.author}</div>
                 </div>
-                <div className="author">{testimonial.author}</div>
+                <p className="testimonial-text">"{testimonial.text}"</p>
+                {/* <div className="rating">{renderStars(testimonial.rating)}</div> */}
+                <StarRating rating={testimonial.rating} />
+                <div className="date">
+                  {new Date(testimonial.date).toLocaleDateString()}
+                </div>
               </div>
-              <p className="testimonial-text">"{testimonial.text}"</p>
-              <div className="rating">{renderStars(testimonial.rating)}</div>
-              <div className="date">
-                {new Date(testimonial.date).toLocaleDateString()}
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
+
+        {/* Show toggle button if there are more than 5 reviews */}
+        {testimonials.length > 5 && (
+          <div className="see-more-container">
+            <button className="toggle-button" onClick={toggleReviews}>
+              {showAllReviews ? 'See Less Reviews' : 'See More Reviews'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

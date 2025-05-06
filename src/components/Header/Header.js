@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
+
 const Header = ({ cartCount }) => {
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For the mobile menu toggle
 
   const [hasFavorites, setHasFavorites] = useState(false);
+ 
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
