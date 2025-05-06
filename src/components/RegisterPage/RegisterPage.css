@@ -1,0 +1,77 @@
+.register-wrap {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+.register-form input:last-of-type {
+  margin-bottom: 0;
+}
+.register-input {
+  width: 300px;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #4b2e2a;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.register-title {
+  margin: 10px auto;
+  text-align: center;
+}
+.register-sub-title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.register-form ::placeholder {
+  font-size: 16px;
+}
+.register-form button {
+  background-color: #d2b48c;
+  color: #4b2e2a;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 150px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px auto auto auto;
+}
+.forgot-link {
+  margin-top: 10px;
+}
+
+.toggle-link {
+  display: flex;
+  align-items: center;
+}
+.toggle-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.toggle-button {
+  background-color: #d2b48c;
+  color: #4b2e2a;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 150px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px auto auto auto;
+}
+@media (max-width: 768px) {
+  .register-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+}
