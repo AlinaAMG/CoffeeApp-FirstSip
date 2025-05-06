@@ -7,12 +7,14 @@ import "./DropboxUser.css";
 function DropboxUser({ open: forceOpen = false }) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   const dropdownRef = useRef(null);
   const isLoggedIn = !!localStorage.getItem("token");
   const toggleDropdownUser = () => setOpen((prev) => !prev);
 
   useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("admin")));
     if (forceOpen) return;
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -32,9 +34,7 @@ function DropboxUser({ open: forceOpen = false }) {
       window.dispatchEvent(new Event("storage"));
       navigate("/login");
     } catch (error) {
-      alert(
-        "Logout failed: " + (error.response?.data?.message || error.message)
-      );
+      alert("Logout failed: " + (error.response?.data?.message || error.message));
     }
   };
   console.log("Dropdown open:", open);
@@ -43,10 +43,7 @@ function DropboxUser({ open: forceOpen = false }) {
   return (
     <div className="dropdown" ref={dropdownRef}>
       {!forceOpen && (
-        <button
-          onClick={forceOpen ? undefined : toggleDropdownUser}
-          className="dropdown-toggle"
-        >
+        <button onClick={forceOpen ? undefined : toggleDropdownUser} className="dropdown-toggle">
           <span className="login-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z" />
@@ -58,9 +55,20 @@ function DropboxUser({ open: forceOpen = false }) {
       {isDropdownVisible && (
         <ul className={`dropdown-menu ${forceOpen ? "open" : ""}`}>
           {isLoggedIn ? (
-            <li>
-              <button onClick={handleLogOut}>Logout</button>
-            </li>
+            user?.role === "ADMIN" ? (
+              <>
+                <li>
+                  <button onClick={handleLogOut}>Logout</button>
+                </li>
+                <li>
+                  <button onClick={()=>navigate("/dashboard")}>Dashboard</button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <button onClick={handleLogOut}>Logout</button>
+              </li>
+            )
           ) : (
             <>
               <li>
