@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import StarRating from '../StarRating/StarRating';
 import './ReviewsPage.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import StarRating from '../StarRating/StarRating';
 
 const ReviewsPage = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -44,7 +44,6 @@ const ReviewsPage = () => {
           setMessage('');
         }, 3000);
       })
-
       .catch((error) => {
         setMessage('Error submitting testimonial!');
         console.error('Error:', error);
@@ -117,22 +116,12 @@ const ReviewsPage = () => {
             .map((testimonial, index) => (
               <div
                 key={testimonial._id}
-                className={`testimonial-card ${
-                  index % 2 === 0 ? 'even' : 'odd'
-                }`}
+                className={`testimonial-card ${index % 2 === 0 ? 'even' : 'odd'}`}
               >
                 <div className="testimonial-header">
-                  <div className="user-info">
-                    <img
-                      src="https://www.w3schools.com/w3images/avatar2.png"
-                      alt="User Avatar"
-                      className="user-avatar"
-                    />
-                  </div>
                   <div className="author">{testimonial.author}</div>
                 </div>
                 <p className="testimonial-text">"{testimonial.text}"</p>
-                {/* <div className="rating">{renderStars(testimonial.rating)}</div> */}
                 <StarRating rating={testimonial.rating} />
                 <div className="date">
                   {new Date(testimonial.date).toLocaleDateString()}
@@ -145,15 +134,15 @@ const ReviewsPage = () => {
         {testimonials.length > 5 && (
           <div className="see-more-container">
             <button className="toggle-button" onClick={toggleReviews}>
-            {showAllReviews ? (
-    <>
-      See Less <i className="bi bi-caret-up-fill"></i>
-    </>
-  ) : (
-    <>
-      See More <i className="bi bi-caret-down-fill"></i>
-    </>
-  )}
+              {showAllReviews ? (
+                <>
+                  See Less <i className="bi bi-caret-up-fill"></i>
+                </>
+              ) : (
+                <>
+                  See More <i className="bi bi-caret-down-fill"></i>
+                </>
+              )}
             </button>
           </div>
         )}
