@@ -12,10 +12,12 @@ const coffees = [
       `,
     imageUrl:
       "https://magazine.bluekarmasecrets.com/wp-content/uploads/2019/10/1.-aman-kuba-coffee-manfaat-kopi.jpg",
+     
     price: 50.99,
     category: "Premium Blends",
     region: "Indonesia",
     slug: "kopi-luwak",
+    suitableFor: ['Espresso', 'Drip Coffee', 'French Press', 'Cold Brew'], 
     rating: 4.8,
     weightOptions: [250,1000],
     roastLevel: "Medium",
@@ -40,6 +42,8 @@ const coffees = [
     bestSeller: false,
     category: "Single Origin",
     weightOptions: [250, 1000],
+    suitableFor: ['Pour-Over', 'Espresso', 'Aeropress', 'French Press'],
+
     roastLevel: "Light",
     region: "Panama",
     notes: ["Tropical Fruit", "Jasmine", "Bergamot", "Honey", "Papaya"],
@@ -66,6 +70,8 @@ const coffees = [
     category: "Premium Blends",
     weightOptions: [250, 1000],
     roastLevel: "Medium",
+    suitableFor: ['Pour-Over', 'Espresso', 'Aeropress', 'French Press'],
+
     region: "Ethiopia",
     notes: ["Citrus", "Floral", "Berry", "Lemon", "Orange"],
     slug: "ethiopian-yirgacheffe",
@@ -88,6 +94,7 @@ const coffees = [
     category: "Single Origin",
     weightOptions: [250, 1000],
     roastLevel: "Dark",
+    suitableFor: ['Espresso', 'French Press'],  
     region: "Sumatra",
     notes: ["Earthy", "Chocolate", "Spicy", "Tobacco", "Smoky"],
     slug: "sumatra-mandheling",
@@ -107,6 +114,8 @@ const coffees = [
     bestSeller: false,
     category: "Organic",
     weightOptions: [250, 1000],
+    suitableFor: ['Drip Coffee', 'French Press', 'Espresso', 'Pour-Over'],
+
     roastLevel: "Medium",
     region: "Guatemala",
     notes: ["Cocoa", "Orange", "Floral", "Citrus", "Sweet"],
@@ -128,6 +137,8 @@ const coffees = [
      bestSeller: true,
     category: "Organic",
     weightOptions: [250, 500],
+    suitableFor: ['Espresso', 'Drip Coffee', 'French Press', 'Cold Brew'],
+
     roastLevel: "Medium",
     region: "Brazil",
     notes: ["Chocolate", "Nutty", "Caramel", "Mild", "Smooth"],
@@ -153,6 +164,8 @@ const coffees = [
     bestSeller: false,
     category: "Organic",
     weightOptions: [250, 1000],
+    suitableFor: ['Espresso', 'Drip Coffee', 'French Press', 'Pour Over'],
+
     roastLevel: "Medium",
     region: "Colombia",
     notes: ["Caramel", "Chocolate", "Nutty", "Smooth", "Balanced"],
@@ -174,6 +187,8 @@ const coffees = [
     bestSeller: false,
     category: "Single Origin",
     weightOptions: [250, 1000],
+    suitableFor: ['Espresso', 'Pour Over', 'French Press', 'Aeropress'],
+
     roastLevel: "Light",
     region: "Costa Rica",
     notes: ["Citrus", "Honey", "Sweet", "Fruity", "Bright"],
@@ -200,6 +215,8 @@ const coffees = [
     category: "Single Origin",
     weightOptions: [250, 1000],
     roastLevel: "Medium",
+    suitableFor: ['Espresso', 'Pour Over', 'French Press', 'Aeropress'],
+
     region: "Kenya",
     notes: ["Berry", "Citrus", "Floral", "Bright", "Intense"],
     slug: "kenyan-aa",
@@ -219,6 +236,8 @@ const coffees = [
     category: "Single Origin",
     region: "Tanzania",
     slug: "tanzania-peaberry",
+    suitableFor: ['Espresso', 'Pour Over', 'French Press', 'Cold Brew'],
+
     rating: 4.7,
     weightOptions: [250, 1000],
     roastLevel: "Medium",
@@ -243,6 +262,8 @@ const coffees = [
     bestSeller: false,
     category: "Single Origin",
     weightOptions: [250, 1000],
+    suitableFor: ['Espresso', 'Pour Over', 'French Press', 'Drip Coffee'],
+
     roastLevel: "Medium",
     region: "Hawaii",
     notes: ["Nutty", "Chocolate", "Tropical Fruit", "Smooth", "Mellow"],
@@ -269,6 +290,8 @@ const coffees = [
     bestSeller: true,
     category: "Premium Blends",
     weightOptions: [250, 1000],
+    suitableFor: ['Espresso', 'Pour Over', 'French Press', 'Cold Brew'],
+
     roastLevel: "Medium",
     region: "Jamaica & Central America",
     notes: ["Floral", "Mild Acidity", "Smooth", "Fruity", "Balanced"],
@@ -288,6 +311,8 @@ const coffees = [
     bestSeller: false,
     category: "Premium Blends",
     weightOptions: [250, 1000],
+    suitableFor: ['Espresso', 'Pour Over', 'Drip', 'French Press'],
+
     roastLevel: "Medium",
     region: "Colombia & Brazil",
     notes: ["Caramel", "Chocolate", "Nutty", "Bright Acidity", "Full-bodied"],
@@ -324,6 +349,8 @@ const coffees = [
     price: 14.15,
     category: "Organic",
     region: "Peru",
+    suitableFor: ['Pour Over', 'French Press', 'Cold Brew', 'Aeropress'],
+
     slug: "organic-peru-coffee",
     rating: 4.3,
     weightOptions: [250, 1000],
@@ -341,6 +368,8 @@ const coffees = [
       "https://plus.unsplash.com/premium_photo-1672406540165-bbb755ffc221?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxjb2ZmZWV8ZW58MHx8MHx8fDA%3D",
     price: 28.65,
     category: "Organic",
+    suitableFor: ['Pour Over', 'French Press', 'Aeropress', 'Espresso'],
+
     region: "Ethiopia",
     slug: "organic-ethiopian-sidamo",
     rating: 4.6,
@@ -360,6 +389,8 @@ const coffees = [
     price: 35.99,
     category: "Organic",
     region: "Mexico",
+    suitableFor: ['Drip Coffee', 'French Press', 'Espresso'],
+
     slug: "organic-mexican-coffee",
     rating: 4.2,
     weightOptions: [250, 1000],
@@ -380,6 +411,8 @@ const coffees = [
     region: "Costa Rica",
     slug: "organic-costa-rican-coffee",
     rating: 4.4,
+    suitableFor: ['Drip Coffee', 'French Press', 'Aeropress'],
+
     weightOptions: [250, 1000],
     roastLevel: "Medium",
     notes: ["Citrus", "Honey", "Creamy", "Bright"],
@@ -397,6 +430,8 @@ const coffees = [
     category: "Premium Blends",
     region: "Kona, Hawaii",
     slug: "kona-coffee-from-hawaii",
+    suitableFor: ['Drip Coffee', 'Pour Over', 'Espresso'],
+
     rating: 4.7,
     weightOptions: [250, 1000],
     roastLevel: "Medium",
@@ -416,6 +451,8 @@ const coffees = [
     price: 26.99,
     category: "Organic",
     region: "India",
+    suitableFor: ['Drip Coffee', 'Espresso', 'French Press'],
+
     slug: "organic-indian-monsooned-malabar",
     rating: 4.5,
     weightOptions: [250, 1000],

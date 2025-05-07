@@ -33,30 +33,7 @@ const addContact = async (req, res) => {
   }
 };
 
-const quizController = async (req, res) => {
-  const { prompt } = req.body;
 
-  try {
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: prompt }],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // OpenAI API key here
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-    console.log('OpenAI response:', response.data);
-    res.json(response.data);
-  } catch (error) {
-    console.error('OpenAI error:', error.response?.data || error.message);
-    res.status(500).json({ error: 'Failed to connect to OpenAI' });
-  }
-};
 
 
 const notFoundPage = (req, res) => {
@@ -64,6 +41,6 @@ const notFoundPage = (req, res) => {
   };
 module.exports = {
   addContact, 
-  quizController,
+ 
    notFoundPage
  }  

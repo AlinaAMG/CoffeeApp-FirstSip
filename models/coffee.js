@@ -72,6 +72,12 @@ const coffeeSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+  
+  suitableFor: {
+    type: [String], // Array of strings to represent different types of coffee
+    required: true,
+    default: ['Espresso', 'Drip Coffee', 'French Press'], // Default example values
+  },
     soldOut: {
       type: Boolean,
     },
