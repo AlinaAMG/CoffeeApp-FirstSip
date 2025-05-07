@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Modal from "./Modal";
 
 function CoffeeEditModal({ coffee, onClose, onUpdate, onDelete }) {
-  const [formData, setFormData] = useState({ ...coffee });  
+  const [formData, setFormData] = useState({ ...coffee });
 
   useEffect(() => {
     setFormData({ ...coffee }); // update form when coffee prop changes
@@ -9,15 +10,15 @@ function CoffeeEditModal({ coffee, onClose, onUpdate, onDelete }) {
   }, [coffee]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target; 
-    
+    const { name, value } = e.target;
+
     // Convert to number or boolean if needed
     let parsedValue = name === "price" || name === "rating" ? parseFloat(value) : name === "bestSeller" || name === "soldOut" ? e.target.checked : value;
-    
-    if(e.target.name==='rating'){
-        if(parsedValue>5.0) parsedValue=5.0
-        if(parsedValue<1.0) parsedValue=1.0
-        console.log("handleChange: ", parsedValue);
+
+    if (e.target.name === "rating") {
+      if (parsedValue > 5.0) parsedValue = 5.0;
+      if (parsedValue < 1.0) parsedValue = 1.0;
+      console.log("handleChange: ", parsedValue);
     }
 
     setFormData({ ...formData, [name]: parsedValue });
@@ -27,86 +28,70 @@ function CoffeeEditModal({ coffee, onClose, onUpdate, onDelete }) {
     setFormData({ ...formData, [key]: e.target.value.split(",").map((s) => s.trim()) });
   };
 
-  const handleSubmit = () => onUpdate(formData);
+  const handleUpdate = () => onUpdate(formData);
   const handleDelete = () => onDelete(formData);
+  const handleClose =()=>onClose(null)
 
   return (
-    <div className="modal show fade" style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }} onClick={onClose}>
-      <div className="modal-dialog modal-lg" role="document" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Edit Coffee - {formData.name}</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
-          </div>
-          <div className="modal-body">
-            {/* Editable fields */}
-            <div className="row g-3">
-              <div className="col-md-6">
-                <label className="form-label">Name</label>
-                <input name="name" value={formData.name} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Description</label>
-                <input name="description" value={formData.description} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Long Description</label>
-                <textarea name="longDescription" value={formData.longDescription} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Region</label>
-                <input name="region" value={formData.region} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-4">
-                <label className="form-label">Category</label>
-                <select name="category" value={formData.category} onChange={handleChange} className="form-select">
-                  <option value="">Select Category</option>
-                  <option value="Single Origin">Single Origin</option>
-                  <option value="Organic">Organic</option>
-                  <option value="Premium Blends">Premium Blends</option>
-                </select>
-              </div>
-
-              <div className="col-md-4">
-                <label className="form-label">Price</label>
-                <input name="price" type="number" value={formData.price} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-4">
-                <label className="form-label">Rating</label>
-                <input name="rating" type="number" value={formData.rating} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Notes (comma-separated)</label>
-                <input value={formData.notes?.join(", ")} onChange={(e) => handleArrayChange(e, "notes")} className="form-control" />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Weight Options (comma-separated)</label>
-                <input value={formData.weightOptions?.join(", ")} onChange={(e) => handleArrayChange(e, "weightOptions")} className="form-control" />
-              </div>
-              <div className="col-md-6 form-check mt-3">
-                <input name="bestSeller" type="checkbox" className="form-check-input" checked={formData.bestSeller} onChange={handleChange} />
-                <label className="form-check-label">Best Seller</label>
-              </div>
-              <div className="col-md-6 form-check mt-3">
-                <input name="soldOut" type="checkbox" className="form-check-input" checked={formData.soldOut} onChange={handleChange} />
-                <label className="form-check-label">Sold Out</label>
-              </div>
-            </div>
-          </div>
-          <div className="modal-footer">
-            <button className="btn btn-danger me-auto" onClick={handleDelete}>
-              Delete
-            </button>
-            <button className="btn btn-secondary" onClick={onClose}>
-              Cancel
-            </button>
-            <button className="btn btn-primary" onClick={handleSubmit}>
-              Update
-            </button>
-          </div>
+    <Modal 
+      title="Edit Coffee" 
+      onClose={() => handleClose()} 
+      onSubmit={() => handleUpdate(formData)} 
+      onDelete={() => handleDelete(formData)}
+      >
+      {/* Editable fields */}
+      <div className="row g-3">
+        <div className="col-md-6">
+          <label className="form-label">Name</label>
+          <input name="name" value={formData.name} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">Description</label>
+          <input name="description" value={formData.description} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">Long Description</label>
+          <textarea name="longDescription" value={formData.longDescription} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">Region</label>
+          <input name="region" value={formData.region} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-4">
+          <label className="form-label">Category</label>
+          <select name="category" value={formData.category} onChange={handleChange} className="form-select">
+            <option value="">Select Category</option>
+            <option value="Single Origin">Single Origin</option>
+            <option value="Organic">Organic</option>
+            <option value="Premium Blends">Premium Blends</option>
+          </select>
+        </div>
+        <div className="col-md-4">
+          <label className="form-label">Price</label>
+          <input name="price" type="number" value={formData.price} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-4">
+          <label className="form-label">Rating</label>
+          <input name="rating" type="number" value={formData.rating} onChange={handleChange} className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">Notes (comma-separated)</label>
+          <input value={formData.notes?.join(", ")} onChange={(e) => handleArrayChange(e, "notes")} className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label className="form-label">Weight Options (comma-separated)</label>
+          <input value={formData.weightOptions?.join(", ")} onChange={(e) => handleArrayChange(e, "weightOptions")} className="form-control" />
+        </div>
+        <div className="col-md-6 form-check mt-3">
+          <input name="bestSeller" type="checkbox" className="form-check-input" checked={formData.bestSeller} onChange={handleChange} />
+          <label className="form-check-label">Best Seller</label>
+        </div>
+        <div className="col-md-6 form-check mt-3">
+          <input name="soldOut" type="checkbox" className="form-check-input" checked={formData.soldOut} onChange={handleChange} />
+          <label className="form-check-label">Sold Out</label>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 }
 

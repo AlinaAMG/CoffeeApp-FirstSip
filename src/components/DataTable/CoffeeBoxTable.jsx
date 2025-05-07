@@ -21,7 +21,7 @@ const coffeeData = [
   // Add more
 ];
 
-function CoffeeTableWithModal() {
+function CoffeeBoxTable() {
   const [selectedCoffee, setSelectedCoffee] = useState(null);
   const [coffees, setCoffees] = useState(coffeeData);
 
@@ -54,7 +54,7 @@ function CoffeeTableWithModal() {
 
   return (
     <div className="container mt-4">
-      <h3>Coffee List</h3>
+      <h3>Coffee Box List</h3>
       <table className="table table-bordered">
         <thead className="table-light">
           <tr>
@@ -65,11 +65,12 @@ function CoffeeTableWithModal() {
         </thead>
         <tbody>
           {coffees.map(coffee => (
-            <tr key={coffee.id}>
+            <tr key={coffee._id}>
               <td>{coffee.name}</td>
               <td>{coffee.description}</td>
               <td>
-                <button className="btn btn-sm btn-info" style={{color:"white", backgroundColor:"#4b2e2a"}} onClick={() => setSelectedCoffee(coffee)}>☰</button>
+                <button className="btn btn-sm btn-info" style={{color:"white", backgroundColor:"#4b2e2a"}} 
+                  onClick={() => setSelectedCoffee(coffee)}>☰</button>
               </td>
             </tr>
           ))}
@@ -88,4 +89,4 @@ function CoffeeTableWithModal() {
   );
 }
 
-export default CoffeeTableWithModal;
+export default CoffeeBoxTable;
