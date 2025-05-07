@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './AllCoffees.css';
 import coffeeImage from './img/coffeeBag.png';
-import coffeeHover from './img/coffeemock.png';
+import coffeeHover from './img/koffie-b.png';
 import StarRating from '../StarRating/StarRating';
 
 function AllCoffees() {
@@ -14,6 +14,7 @@ function AllCoffees() {
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate();
 
@@ -37,32 +38,52 @@ function AllCoffees() {
       });
   }, []);
   
-  const applyFilters = (category, priceRange) => {
-    let filtered = coffees;
-  
-    if (category) {
-      filtered = filtered.filter((coffee) => coffee.category === category);
-    }
-  
-    if (priceRange) {
-      const [min, max] = priceRange.split("-").map(Number);
-      filtered = filtered.filter((coffee) => coffee.price >= min && coffee.price <= max);
-    }
-  
-    setFilteredCoffees(filtered);
-  };
+  const applyFilters = () => {
+  let filtered = coffees;
+
+  if (selectedCategory) {
+    filtered = filtered.filter((coffee) => coffee.category === selectedCategory);
+  }
+
+  if (selectedPriceRange) {
+    const [min, max] = selectedPriceRange.split("-").map(Number);
+    filtered = filtered.filter((coffee) => coffee.price >= min && coffee.price <= max);
+  }
+
+  if (searchTerm) {
+    filtered = filtered.filter((coffee) =>
+      coffee.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  setFilteredCoffees(filtered);
+};
+  useEffect(() => {
+    applyFilters();
+  }, [searchTerm, selectedCategory, selectedPriceRange]);
   
   const handleCategoryChange = (e) => {
     const selected = e.target.value;
     setSelectedCategory(selected);
     applyFilters(selected, selectedPriceRange);
-  };
+    };
+    
   const handlePriceChange = (e) => {
     const selected = e.target.value;
     setSelectedPriceRange(selected);
     applyFilters(selectedCategory, selected);
-  };
-  
+    };
+
+    const handleSearchChange = (e) => {
+      setSearchTerm(e.target.value);
+    };
+    const handleSearchKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyFilters();
+        setSearchTerm('');
+      }
+    };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -78,6 +99,19 @@ function AllCoffees() {
   
       {/* Filters */}
       <div className="filter-container">
+
+        <div className="search-container">
+        <label className="label">Filter by Name:</label>
+        <input
+          type="text"
+          placeholder="Search by coffee name..."
+          value={searchTerm}
+            onChange={handleSearchChange}
+            onKeyDown={handleSearchKeyDown}
+          className="search-input"
+          />
+          </div>
+        
         <div className="category-filter1">
           <label className="label">Filter by Category:</label>
           <select id="category-filter" onChange={handleCategoryChange}>
@@ -99,42 +133,7 @@ function AllCoffees() {
         </div>
       </div>
   
-      {/* Coffee Cards */}
-      {/* <div className="coffee-cards">
-        {filteredCoffees.length === 0 ? (
-          <p className="no-results">❌ No coffees found for the selected category and price range.</p>
-        ) : (
-          filteredCoffees.map((coffee) => (
-            <div key={coffee._id} className="coffee-card">
-              <Link to={`/shop/${coffee._id}`}>
-                <div className="image-container">
-                  <img src={coffeeImage} alt={coffee.name} className="default-img" />
-                  <img src={coffeeHover} alt={coffee.name} className="hover-img" />
-                </div>
-              </Link>
-              <h2 className="title">{coffee.name}</h2>
-              <p><strong>Category: </strong>{coffee.category}</p>
-              <p><strong>Price:</strong> &euro;{coffee.price}</p>
-              <div className="coffee-rating">
-              <StarRating rating={coffee.rating} />
-            </div>
-
-              <p className="description">
-                <strong>Description:</strong> {coffee.description.split(' ').slice(0, 5).join(' ')}
-                <Link className="read-more" to={`/shop/${coffee._id}`}>
-                  <i className="bi bi-arrow-right"></i>
-                </Link>
-              </p>
-              <button className="btn-all-coffees" onClick={() => redirectToDetails(coffee._id)}>
-                Add To Cart
-              </button>
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-  );
-}   */}
+     
       <div className="coffee-cards">
   {filteredCoffees.length === 0 ? (
     <p className="no-results">❌ No coffees found for the selected category and price range.</p>
@@ -180,8 +179,7 @@ function AllCoffees() {
  </div>
     </div>
   );
-}   
+}
       
-      
+export default AllCoffees;     
 
-export default AllCoffees;

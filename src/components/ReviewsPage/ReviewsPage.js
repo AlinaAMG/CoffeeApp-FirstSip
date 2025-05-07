@@ -54,7 +54,6 @@ const ReviewsPage = () => {
       });
   };
 
-  
   const toggleReviews = () => {
     setShowAllReviews((prev) => !prev);
   };
@@ -73,7 +72,6 @@ const ReviewsPage = () => {
               required
             />
             <textarea
-             
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Your Testimonial"
@@ -147,7 +145,15 @@ const ReviewsPage = () => {
         {testimonials.length > 5 && (
           <div className="see-more-container">
             <button className="toggle-button" onClick={toggleReviews}>
-              {showAllReviews ? 'See Less Reviews' : 'See More Reviews'}
+            {showAllReviews ? (
+    <>
+      See Less <i className="bi bi-caret-up-fill"></i>
+    </>
+  ) : (
+    <>
+      See More <i className="bi bi-caret-down-fill"></i>
+    </>
+  )}
             </button>
           </div>
         )}

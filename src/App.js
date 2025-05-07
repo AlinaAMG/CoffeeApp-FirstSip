@@ -9,7 +9,7 @@ import CoffeeQuiz from "./components/Quiz/Quiz";
 import OurStory from "./components/OurStory/OurStory";
 import OurOrigins from "./components/OurOrigins/OurOrigins";
 import CoffeeBox from "./components/CoffeeBox/CoffeeBox";
-import CoffeeBoxDetails from "./components/CoffeeBoxDetails/CoffeeBoxDetails";
+
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 
 import AllCoffees from "./components/AllCoffees/AllCoffees";
@@ -19,7 +19,7 @@ import FavoritesPage from "./components/Favorites/Favorites";
 import Cart from "./components/CartPage/Cart";
 
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
-
+import CoffeeBlog from "./components/CoffeeBlog/CoffeeBlog";
 import ReviewsPage from "./components/ReviewsPage/ReviewsPage";
 import NotFoundPage from "./components/404Page/404";
 
@@ -59,21 +59,19 @@ const App = () => {
         <Route path="/quiz" element={<CoffeeQuiz />} />
 
         <Route path="/shop/all-coffees" element={<AllCoffees />} />
-        {/* <Route path="/shop/single-origin" element={<SingleOrigin />} />
-        <Route path="/shop/organic" element={<Organic />} />
-        <Route path="/shop/premium-blends" element={<PremiumBlends />} /> */}
         <Route path="/our-origins" element={<OurOrigins />} />
         <Route path="/shop/:id" element={<CoffeeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
 
         <Route path="/check-out" element={<CheckoutPage />} />
+        
+        <Route path="/blog" element={<CoffeeBlog />} />
 
-        {/* <Route path="/coffee-box" element={<CoffeeBox />} /> */}
+
+      
         <Route path="/reviews" element={<ReviewsPage />} />
 
         <Route path="/coffee-box" element={<CoffeeBox />} />
-        <Route path="/coffee-box/details/:id" element={<CoffeeBoxDetails />} />
-        {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/about" element={<OurStory />} />
         <Route path="/cart" element={<Cart />} />

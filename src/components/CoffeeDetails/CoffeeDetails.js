@@ -73,7 +73,7 @@ function CoffeeDetail() {
     // Check if the item already exists in the cart
     const itemIndex = currentCart.findIndex(
       (item) =>
-        item.coffee._id === cartItem.coffee._id &&
+        item.coffee && item.coffee._id === cartItem.coffee._id &&
         item.selectedWeight === cartItem.selectedWeight
     );
 
@@ -93,6 +93,7 @@ function CoffeeDetail() {
     );
     localStorage.setItem('cartCount', currentCartCount);
     window.dispatchEvent(new Event('cartUpdated'));
+    // localStorage.removeItem('cart');
 
     alert('Item added to the cart!');
   };

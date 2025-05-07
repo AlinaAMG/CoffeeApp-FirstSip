@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaShoppingBasket, FaTrash } from 'react-icons/fa';
 import './Cart.css';
 
@@ -23,34 +23,51 @@ function CartPage() {
   const handleDelete = (index) => {
     const updatedCart = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedCart);
-  
+
     // Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-  
+
     // Update the cart count in localStorage after deleting the item
     const updatedCartCount = updatedCart.reduce(
       (acc, item) => acc + item.quantity,
       0
     );
     localStorage.setItem('cartCount', updatedCartCount);
-  
+
     // Dispatch the event to notify that the cart has been updated
     window.dispatchEvent(new Event('cartUpdated'));
   };
+  // const getTotalPrice = () => {
+  //   return cartItems
+  //     .reduce((total, item) => {
+  //       const basePrice = item.coffee.price;
+  //       const weightMultiplier = item.selectedWeight === '1000g' ? 4 : 1;
+  //       return total + basePrice * weightMultiplier * item.quantity;
+  //     }, 0)
+  //     .toFixed(2);
+  // };
+
   const getTotalPrice = () => {
     return cartItems
       .reduce((total, item) => {
-        const basePrice = item.coffee.price;
-        const weightMultiplier = item.selectedWeight === '1000g' ? 4 : 1;
-        return total + basePrice * weightMultiplier * item.quantity;
+        const isSubscription = item.type === 'subscription';
+
+        if (isSubscription) {
+          // Subscription box: flat price
+          return total + item.price * item.quantity;
+        } else {
+          // Regular coffee item
+          const basePrice = item.coffee?.price || 0;
+          const weightMultiplier = item.selectedWeight === '1000g' ? 4 : 1;
+          return total + basePrice * weightMultiplier * item.quantity;
+        }
       }, 0)
       .toFixed(2);
   };
 
-  
   const handleClick = () => {
     // you could add logic here first
-    navigate("/check-out");
+    navigate('/check-out');
   };
 
   // Calculate shipping fee
@@ -77,15 +94,21 @@ function CartPage() {
         <div className="cart-items">
           {cartItems.map((item, index) => (
             <div className="cart-item" key={index}>
-              <img
+              {/* <img
                 src={item.coffee.imageUrl}
                 alt={item.coffee.name}
                 className="cart-item-img"
+              /> */}
+              <img
+                src={item.coffee?.imageUrl || 'path/to/placeholder.jpg'} // Fallback to placeholder if imageUrl is undefined
+                alt={item.coffee?.name || 'Coffee'}
+                className="cart-item-img"
               />
               <div className="cart-item-info">
-                <h4>{item.coffee.name}</h4>
+                {/* <h4>{item.coffee.name}</h4> */}
+                <h4>{item.coffee ? item.coffee.name : 'Unknown Coffee'}</h4>
                 <p>Weight: {item.selectedWeight}</p>
-             <p>
+                <p>
                   Quantity:
                   <select
                     value={item.quantity}
@@ -99,15 +122,25 @@ function CartPage() {
                       </option>
                     ))}
                   </select>
-                  </p>
-                <p>
+                </p>
+                {/* <p>
                   Price: €
                   {(
                     item.coffee.price *
                     (item.selectedWeight === '1000g' ? 4 : 1) *
                     item.quantity
                   ).toFixed(2)}
+                </p> */}
+
+                <p>
+                  Price: €
+                  {(
+                    item.coffee?.price *
+                    (item.selectedWeight === '1000g' ? 4 : 1) *
+                    item.quantity
+                  ).toFixed(2)}
                 </p>
+
                 <button
                   className="delete-btn"
                   onClick={() => handleDelete(index)}
@@ -121,9 +154,7 @@ function CartPage() {
         <div className="cart-summary">
           <div className="price">
             <h4>Total</h4>
-            <h5>
-              €{getTotalPrice()}
-            </h5>
+            <h5>€{getTotalPrice()}</h5>
           </div>
 
           {/* Shipping fee section */}
@@ -133,24 +164,26 @@ function CartPage() {
               {shippingFee === 0
                 ? 'Free Shipping'
                 : ` €${shippingFee.toFixed(2)}`}
-                      </h5>
-                      
+            </h5>
           </div>
 
           <div className="total">
             <h4>Total with Shipping:</h4>
-            <h5><strong>€{totalWithShipping.toFixed(2)}</strong></h5>
+            <h5>
+              <strong>€{totalWithShipping.toFixed(2)}</strong>
+            </h5>
           </div>
           <div className="cart-actions">
             <Link to="/shop/all-coffees" className="btn-back">
               Continue Shopping
             </Link>
-            <button onClick={handleClick} className="btn-purchase">Proceed to checkout</button>
+            <button onClick={handleClick} className="btn-purchase">
+              Proceed to checkout
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
 export default CartPage;

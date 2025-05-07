@@ -45,7 +45,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -101,6 +101,10 @@ nav {
   color: #d2b48c;
   border-bottom: 2px solid #d2b48c;
   padding-bottom: 2px;
+}
+.bi-truck {
+  font-size:20px;
+  margin-left:10px;
 }
 
 .menu > ul > li > .drop-down {
@@ -172,10 +176,7 @@ nav {
 .favorites-icon {
   margin-right: 20px;
 }
-cart-icon {
-  position: relative;
-  display: inline-block;
-}
+
 
 .cart-icon .cart-count {
   position: absolute;
