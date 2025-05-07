@@ -64,11 +64,9 @@ function DropboxUser({ open: forceOpen = false }) {
           ) : (
             <>
               <li>
-                <Link to="/login">Signup</Link>
+                <Link to="/login">Signup/Login</Link>
               </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
+              
             </>
           )}
         </ul>

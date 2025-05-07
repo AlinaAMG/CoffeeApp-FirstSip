@@ -1,5 +1,5 @@
 .container {
-  /* max-width: 1000px; */
+
   padding: 20px;
 
 }
@@ -113,11 +113,33 @@
   animation: slideIn 0.5s ease-out forwards;
 }
 
-.button.coffeeBox-button{
-}
+
 .coffeeBox-ribbon span {
   display: block;
   padding: 4px 0;
+}
+
+.coffeeBox-button {
+  display: block;
+  margin: auto;
+  font-size: 1rem;  /* Slightly larger font for better readability */
+  color: #fff;
+  background-color: #5c3d00; /* Dark coffee brown color */
+  padding: 12px 25px;
+  width: 80%;  /* Ensures the button is wide but not overwhelming */
+  border: none;
+  border-radius: 25px;  /* Rounded corners for a smoother look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth hover effects */
+}
+
+.coffeeBox-button:hover {
+  background-color: #4b2e2a;  /* Darker brown on hover */
+  transform: translateY(-2px);  /* Slight lifting effect */
+}
+
+.coffeeBox-button:active {
+  transform: translateY(1px);  /* Slight press effect when clicked */
 }
 
 /* Анімація появи */
@@ -183,6 +205,171 @@
 }
 
 /* Адаптивність */
+@media (max-width: 768px) {
+  .coffeeBox-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .coffeeBox-card {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* General container styles */
+.container {
+  padding: 20px;
+}
+
+/* Coffee Box Banner */
+.coffeeBox-banner {
+  background-color: #fbeec1;
+  border: 2px solid #d4af37;
+  padding: 24px;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+
+.coffeeBox-banner h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: #5c3d00;
+}
+
+.coffeeBox-banner p {
+  margin-bottom: 12px;
+  color: #3b2f2f;
+  font-size: 1rem;
+}
+
+.coffeeBox-banner-btn {
+  background-color: #d4af37;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.coffeeBox-banner-btn:hover {
+  background-color: #c79c2b;
+}
+
+/* Coffee Box Cards Section */
+.coffeeBox-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.coffeeBox-wrap {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.coffeeBox-card {
+  position: relative;
+  flex: 0 0 calc(33.333% - 20px);
+  max-width: calc(33.333% - 50px);
+  height:90vh;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.coffeeBox-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.coffeeBox-ribbon {
+  width: 80px;
+  background: #e53e3e;
+  color: #fff;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: -10px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 6px 0;
+}
+
+.coffeeBox-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #5c3d00;
+  margin: 15px 0;
+}
+
+.coffeeBox-data {
+  color: #3b2f2f;
+  font-size: 1rem;
+}
+
+.coffeeBox-item {
+  margin: 10px 0;
+}
+
+.coffeeBox-selection h4 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.coffeeBox-price {
+  font-weight: bold;
+  margin:20px;
+  color: #8c6239;
+}
+.price-box{
+  margin:20px;
+  font-size:20px;
+}
+
+.coffeeBox-button {
+  display: block;
+  margin: 70px auto 0;
+  background-color: #5c3d00;
+  color: #fff;
+  padding: 12px 25px;
+  width: 60%;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.img-boxes{
+  width:200px;
+  height:200px;
+  margin-top:20px;
+ 
+    object-fit: contain; /* or 'cover' */
+  
+}
+
+.coffeeBox-button:hover {
+  background-color: #4b2e2a;
+  transform: translateY(-2px);
+}
+
+.coffeeBox-button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .coffeeBox-card {
     flex: 1 1 calc(50% - 20px);

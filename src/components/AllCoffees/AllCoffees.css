@@ -5,7 +5,9 @@
 }
 
 #category-filter,
-#price-filter {
+#price-filter,
+.search-input
+ {
   padding: 10px;
  
   border: 1px solid#8b5e3c;
@@ -16,26 +18,28 @@
   margin-bottom: 30px;
   width: 250px;
 }
+.search-input{
+ padding:8px;
+}
 .label{
   margin-bottom:10px;
   color: #4b2e2a;
+  gap:10px;
   
 }
 .filter-container{
-  margin-bottom:20px;
+  margin:20px 0 30px 0;;
   display:flex;
+  gap:30px;
 }
 
 
-#category-filter:focus {
+#category-filter:focus ,
+.search-input:focus{
   outline: none;
   border-color: #8b5e3c;
   box-shadow: 0 0 5px rgba(139, 94, 60, 0.5);
 }
-.category-filter1{
-  margin-right:40px;
-}
-
 
 .container {
   display: flex;
@@ -69,7 +73,6 @@
 
   background-color: #f5f0e6;
   width: 300px;
- 
   
  
 }
@@ -82,6 +85,7 @@
 .coffee-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+
 }
 
 .coffee-card img {
