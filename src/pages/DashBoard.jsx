@@ -37,29 +37,22 @@ function Dashboard() {
               {!collapsed && <div className="flex-grow-1">Coffees</div>}
             </button>
           </li>
-          <li className="nav-item">
-          <button className="btn btn-outline-secondary my-1 w-100 d-flex align-items-start" onClick={() => setPage("box")}>
-              {/* Icon column */}
+          {/* <li className="nav-item">
+            <button className="btn btn-outline-secondary my-1 w-100 d-flex align-items-start" onClick={() => setPage("box")}>
               <div style={{ width: "30px" }} className="text-center">
               <i className="bi bi-box-seam"></i>
               </div>
-
-              {/* Text column (conditionally rendered) */}
               {!collapsed && <div className="flex-grow-1">Coffee Box</div>}
             </button>
-          </li>
-          <li className="nav-item">
-          <button className="btn btn-outline-secondary my-1 w-100 d-flex align-items-start" onClick={() => setPage("users")}>
-              {/* Icon column */}
-              <div style={{ width: "30px" }} className="text-center">
-              <i className="bi bi-person"></i>
-              </div>
-
-              {/* Text column (conditionally rendered) */}
-              {!collapsed && <div className="flex-grow-1">Users</div>}
-            </button>
-  
-          </li>
+          </li> */}
+            {/* <li className="nav-item">
+              <button className="btn btn-outline-secondary my-1 w-100 d-flex align-items-start" onClick={() => setPage("users")}>
+                <div style={{ width: "30px" }} className="text-center">
+                  <i className="bi bi-person"></i>
+                </div>
+                {!collapsed && <div className="flex-grow-1">Users</div>}
+              </button>
+            </li> */}
         </ul>
       </div>
 

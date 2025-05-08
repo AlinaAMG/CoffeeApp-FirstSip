@@ -2,24 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CoffeeEditModal from './CoffeeEditModal'; 
 import axios from 'axios';
 
-const coffeeData = [
-  {
-    id: 1,
-    name: "Colombian Supremo",
-    description: "Rich and smooth",
-    longDescription: "Detailed info...",
-    region: "Colombia",
-    notes: ["Chocolate", "Nutty"],
-    price: 14.99,
-    category: "Single Origin",
-    rating: 4.5,
-    bestSeller: true,
-    soldOut: false,
-    weightOptions: [250, 1000],
-    imageUrl: "",
-  },
-  // Add more
-];
 
 function UsersTable() {
   const [selectedCoffee, setSelectedCoffee] = useState(null);

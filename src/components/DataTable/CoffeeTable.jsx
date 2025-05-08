@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import CoffeeEditModal from "./CoffeeEditModal";
-import AddCaffee from "./AddCafee";
+import AddCoffee from "./AddCofee";
 import axios from "axios";
 
 const coffeeData = [
   {
-    id: 1,
-    name: "Colombian Supremo",
-    description: "Rich and smooth",
-    longDescription: "Detailed info...",
-    region: "Colombia",
+    name: "",
+    description: "",
+    longDescription: "",
+    region: "",
     notes: ["Chocolate", "Nutty"],
-    price: 14.99,
+    price:1,
     category: "Single Origin",
-    rating: 4.5,
+    rating: 1,
     bestSeller: true,
     soldOut: false,
     weightOptions: [250, 1000],
@@ -25,7 +24,7 @@ const coffeeData = [
 function CoffeeTable() {
   const [selectedCoffee, setSelectedCoffee] = useState(null);
   const [coffees, setCoffees] = useState(coffeeData);
-  const [openAddCafee, setOpenCoffee]=useState(false)
+  const [openAddCafee, setOpenCoffee] = useState(false);
 
   useEffect(() => {
     axios
@@ -37,23 +36,54 @@ function CoffeeTable() {
       .catch((err) => {
         console.error("Error fetching coffee data:", err);
       });
-  }, []);
+  }, [openAddCafee]);
 
   const handleUpdate = (updated) => {
-    setCoffees((prev) => prev.map((c) => (c._id === updated._id ? updated : c)));
-    setSelectedCoffee(null);
+    const token = localStorage.getItem("token");
+    axios
+      .put("http://localhost:4001/api/coffees/update-coffee",
+        updated,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        })
+      .then((res) => {
+        console.log("Update:", res);
+        setCoffees((prev) => prev.map((c) => (c._id === updated._id ? updated : c)));
+        setSelectedCoffee(null);
+      })
+      .catch((err) => {
+        console.error("Error updating coffee data:", err);
+        alert("Error updating coffee.");
+      });
   };
 
   const handleDelete = (toDelete) => {
-    setCoffees((prev) => prev.filter((c) => c._id !== toDelete._id));
-    setSelectedCoffee(null);
+    const token = localStorage.getItem("token");
+    axios
+      .delete("http://localhost:4001/api/coffees/delete-coffee", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: toDelete,
+      })
+      .then((res) => {
+        console.log("Delete:", res);
+        setCoffees((prev) => prev.filter((c) => c._id !== toDelete._id));
+        setSelectedCoffee(null);
+      })
+      .catch((err) => {
+        console.error("Error deleting coffee data:", err);
+        alert("Error deleting coffee.");
+      });
   };
 
   return (
     <div className="container m-0">
       <div className="d-flex justify-content-between my-2">
         <h3>Coffee List</h3>
-        <button class="btn btn-outline-secondary me-2" type="button" onClick={()=>setOpenCoffee(true)}>
+        <button className="btn btn-outline-secondary me-2" type="button" onClick={() => setOpenCoffee(true)}>
           Add Coffee
         </button>
       </div>
@@ -66,8 +96,8 @@ function CoffeeTable() {
           </tr>
         </thead>
         <tbody>
-          {coffees.map((coffee) => (
-            <tr key={coffee._id}>
+          {coffees.map((coffee, i) => (
+            <tr key={i}>
               <td>{coffee.name}</td>
               <td>{coffee.description}</td>
               <td>
@@ -81,7 +111,7 @@ function CoffeeTable() {
       </table>
 
       {selectedCoffee && <CoffeeEditModal coffee={selectedCoffee} onClose={() => setSelectedCoffee(null)} onUpdate={handleUpdate} onDelete={handleDelete} />}
-        {openAddCafee && <AddCaffee onClose={() => setOpenCoffee(false)}/>}
+      {openAddCafee && <AddCoffee onClose={() => setOpenCoffee(false)} />}
     </div>
   );
 }

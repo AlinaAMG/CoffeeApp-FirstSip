@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from './Modal'
+import axios from 'axios';
 
 const coffeeDataDefault =
 {
@@ -28,17 +29,31 @@ function AddCaffee({ onClose }) {
             if (parsedValue < 1.0) parsedValue = 1.0;
             console.log("handleChange: ", parsedValue);
         }
-
         setFormData({ ...formData, [name]: parsedValue });
     };
     const handleArrayChange = (e, key) => {
         setFormData({ ...formData, [key]: e.target.value.split(",").map((s) => s.trim()) });
     };
     const handleOnSubmit = () => {
-        console.log("form data=>", formData);
-
+        // console.log("form data=>", formData);
+        const token = localStorage.getItem('token');
+        axios
+            .post('http://localhost:4001/api/coffees/add-coffee',
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
+                })
+            .then((res) => {
+                console.log(res.data);
+                onClose(false)
+            })
+            .catch((err) => {
+                console.error('Error fetching coffee data:', err);
+                alert('Error fetching coffee data: May you check fields?')
+            });
     }
-
     return (
         <>
             <Modal title="Add Cafee"
@@ -62,6 +77,10 @@ function AddCaffee({ onClose }) {
                     <div className="col-md-6">
                         <label className="form-label">Region</label>
                         <input name="region" value={formData.region} onChange={handleChange} className="form-control" />
+                    </div>
+                    <div className="col-md-6">
+                        <label className="form-check-label">Image Url</label>
+                        <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} className="form-control" />
                     </div>
                     <div className="col-md-4">
                         <label className="form-label">Category</label>
@@ -96,6 +115,7 @@ function AddCaffee({ onClose }) {
                         <input name="soldOut" type="checkbox" className="form-check-input" checked={formData.soldOut} onChange={handleChange} />
                         <label className="form-check-label">Sold Out</label>
                     </div>
+
                 </div>
             </Modal>
         </>

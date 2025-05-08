@@ -18,7 +18,7 @@ function CoffeeEditModal({ coffee, onClose, onUpdate, onDelete }) {
     if (e.target.name === "rating") {
       if (parsedValue > 5.0) parsedValue = 5.0;
       if (parsedValue < 1.0) parsedValue = 1.0;
-      console.log("handleChange: ", parsedValue);
+      // console.log("handleChange: ", parsedValue);
     }
 
     setFormData({ ...formData, [name]: parsedValue });
