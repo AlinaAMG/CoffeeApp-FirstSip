@@ -154,7 +154,7 @@ function AllCoffees() {
         </div>
 
         <p className="description">
-          <strong>Description:</strong> {coffee.description.split(' ').slice(0, 5).join(' ')}
+          <strong>Description:</strong> {coffee?.description?.split(' ').slice(0, 5).join(' ')}
           <Link className="read-more" to={`/shop/${coffee._id}`}>
             <i className="bi bi-arrow-right"></i>
           </Link>
