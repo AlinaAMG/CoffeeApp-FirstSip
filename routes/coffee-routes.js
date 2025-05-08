@@ -6,7 +6,7 @@ const { addCoffee, getBestSellers, deleteCoffee, updateCoffee,
 
 /* Coffee routes*/
 
-router.post('/api/coffees/add-coffee', verifyJWT, addCoffee)
+router.post('/api/coffees/add-coffee', verifyJWT, addCoffee)  //
 router.delete('/api/coffees/delete-coffee', verifyJWT, deleteCoffee)
 router.put('/api/coffees/update-coffee', verifyJWT, updateCoffee)
 router.get('/api/coffees/all-coffees',  getAllCoffees)
