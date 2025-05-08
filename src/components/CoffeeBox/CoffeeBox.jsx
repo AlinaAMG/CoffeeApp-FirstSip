@@ -17,10 +17,7 @@ function CoffeeBox() {
 
 
   useEffect(() => {
-
-
-
-    
+   
   const coffeeBoxesData = [
     {
       type: 'subscription',
@@ -134,7 +131,7 @@ function CoffeeBox() {
       </div>
 
       <div className="coffeeBox-title">Choose Your Coffee Box</div>
-      <div className="coffeeBox-wrap">
+       <div className="coffeeBox-wrap">
         {coffeeBoxes.map((box, index) => (
           <div key={index} className="coffeeBox-card">
             <div className="coffeeBox-ribbon">

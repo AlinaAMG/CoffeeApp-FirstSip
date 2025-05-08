@@ -15,6 +15,7 @@ function AllCoffees() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchInput, setSearchInput] = useState('');
 
   const navigate = useNavigate();
 
@@ -65,25 +66,33 @@ function AllCoffees() {
   const handleCategoryChange = (e) => {
     const selected = e.target.value;
     setSelectedCategory(selected);
-    applyFilters(selected, selectedPriceRange);
+    // applyFilters(selected, selectedPriceRange);
     };
     
   const handlePriceChange = (e) => {
     const selected = e.target.value;
     setSelectedPriceRange(selected);
-    applyFilters(selectedCategory, selected);
+    // applyFilters(selectedCategory, selected);
     };
 
     const handleSearchChange = (e) => {
       setSearchTerm(e.target.value);
     };
-    const handleSearchKeyDown = (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        applyFilters();
-        setSearchTerm('');
-      }
-    };
+  //   const handleSearchKeyDown = (e) => {
+  //     if (e.key === 'Enter') {
+  //       e.preventDefault();
+  //       applyFilters();
+  //       setSearchTerm('');
+  //     }
+  // };
+  
+  const handleSearchKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      setSearchTerm(searchInput); // ✅ triggers useEffect
+      setSearchInput(''); // ✅ clears the field
+    }
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -107,7 +116,8 @@ function AllCoffees() {
           placeholder="Search by coffee name..."
           value={searchTerm}
             onChange={handleSearchChange}
-            onKeyDown={handleSearchKeyDown}
+             onKeyDown={handleSearchKeyDown}
+            
           className="search-input"
           />
           </div>

@@ -23,6 +23,7 @@
   width: 100%;
   margin-bottom: 20px;
   padding-left:10px;
+  border-radius:10px;
 }
 
 .testimonial-form-section input:focus,
@@ -49,7 +50,7 @@
   color: #6c4f3d; 
   box-shadow: 2px 2px 7px rgba(108, 79, 61, 0.5); 
 }
-.toggle-button {
+.toggle-button-btn {
   margin-top: 1rem;
   background: none;
   border: none;
@@ -63,6 +64,7 @@
   padding: 8px;
   margin-top: 10px;
   font-size: 16px;
+  border-radius:10px;
 }
 
 .submit-btn {
@@ -91,7 +93,7 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -110,7 +112,9 @@
 .testimonial-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
+  margin:20px 0;
 }
 
 .icon img {
@@ -161,6 +165,13 @@
     font-weight: bold;
     margin-top: 10px;
   }
+  .testimonial-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+ 
   
   .error-message {
     color: red;

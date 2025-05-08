@@ -406,11 +406,11 @@ function CoffeeDetail() {
 
           <p className="coffee-single-description">{coffee.description}</p>
           <p>
-            <strong style={{ color: '#444' }}>Notes:</strong>{' '}
+            <strong >Notes:</strong>{' '}
             {coffee.notes.join(', ')}
           </p>
           <p>
-            <strong style={{ color: '#444' }}>Category:</strong>{' '}
+            <strong >Category:</strong>{' '}
             {coffee.category}
           </p>
           <div className="coffee-rating">
@@ -418,7 +418,7 @@ function CoffeeDetail() {
             <StarRating rating={coffee.rating} />
           </div>
           <p>
-            <strong style={{ color: '#444' }}>Region:</strong> {coffee.region}
+            <strong >Region:</strong> {coffee.region}
           </p>
 
           <div className="dropdown-parent">
@@ -462,7 +462,7 @@ function CoffeeDetail() {
           </div>
 
           <p className="totalPrice">
-            <strong style={{ color: '#444' }}>Total:</strong>&euro;
+            <strong >Total:</strong>&euro;
             {getDisplayedPrice()}
           </p>
 

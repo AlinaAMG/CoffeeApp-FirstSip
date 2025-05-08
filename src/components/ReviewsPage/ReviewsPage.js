@@ -1,7 +1,8 @@
 import './ReviewsPage.css';
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import StarRating from '../StarRating/StarRating';
+import { useNavigate } from 'react-router-dom';
 
 const ReviewsPage = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -10,6 +11,7 @@ const ReviewsPage = () => {
   const [rating, setRating] = useState(1);
   const [message, setMessage] = useState('');
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [title, setTitle] = useState('');
 
   // Fetch testimonials from the backend when the component mounts
   useEffect(() => {
@@ -31,6 +33,7 @@ const ReviewsPage = () => {
       .post('http://localhost:4001/api/testimonials', {
         author,
         text,
+        title,
         rating,
         verified: false,
       })
@@ -38,6 +41,7 @@ const ReviewsPage = () => {
         setMessage('Review added successfully!');
         setAuthor('');
         setText('');
+        setTitle("");
         setRating(1);
         setTestimonials([response.data, ...testimonials]);
         setTimeout(() => {
@@ -63,6 +67,12 @@ const ReviewsPage = () => {
         <div className="form-container">
           <h2>Add a Review</h2>
           <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Review Title (optional)"
+            />
             <input
               type="text"
               value={author}
@@ -116,9 +126,14 @@ const ReviewsPage = () => {
             .map((testimonial, index) => (
               <div
                 key={testimonial._id}
-                className={`testimonial-card ${index % 2 === 0 ? 'even' : 'odd'}`}
+                className={`testimonial-card ${
+                  index % 2 === 0 ? 'even' : 'odd'
+                }`}
               >
                 <div className="testimonial-header">
+                  {testimonial.title && (
+                    <h3 className="testimonial-title">"{testimonial.title}"</h3>
+                  )}
                   <div className="author">{testimonial.author}</div>
                 </div>
                 <p className="testimonial-text">"{testimonial.text}"</p>
@@ -133,7 +148,7 @@ const ReviewsPage = () => {
         {/* Show toggle button if there are more than 5 reviews */}
         {testimonials.length > 5 && (
           <div className="see-more-container">
-            <button className="toggle-button" onClick={toggleReviews}>
+            <button className="toggle-button-btn" onClick={toggleReviews}>
               {showAllReviews ? (
                 <>
                   See Less <i className="bi bi-caret-up-fill"></i>
@@ -152,3 +167,5 @@ const ReviewsPage = () => {
 };
 
 export default ReviewsPage;
+
+

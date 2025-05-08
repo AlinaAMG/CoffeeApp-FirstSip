@@ -21,6 +21,7 @@ import Cart from "./components/CartPage/Cart";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import CoffeeBlog from "./components/CoffeeBlog/CoffeeBlog";
 import ReviewsPage from "./components/ReviewsPage/ReviewsPage";
+
 import NotFoundPage from "./components/404Page/404";
 
 const App = () => {

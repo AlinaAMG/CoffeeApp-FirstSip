@@ -2,13 +2,16 @@
   margin-top: 15px;
   margin-bottom: 15px;
   display: flex;
-  gap: 20px;
+  width:80%;
+  margin: 40px auto;
   justify-content: space-around;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .register-form input:last-of-type {
   margin-bottom: 0;
@@ -48,18 +51,20 @@
   margin-top: 10px;
 }
 
-.toggle-link {
+.toggle-link { 
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 .toggle-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+ 
 }
-.toggle-button {
+button.toggle-button {
   background-color: #d2b48c;
-  color: #4b2e2a;
+  color:#61413d;
   border: none;
   padding: 0.8rem 1rem;
   border-radius: 20px;

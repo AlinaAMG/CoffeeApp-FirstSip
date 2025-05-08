@@ -31,6 +31,7 @@ function RegisterPage() {
     }
   };
 
+
   const handleSignUp = async (user) => {
     try {
       await axios.post("http://localhost:4001/api/auth/signup", user);

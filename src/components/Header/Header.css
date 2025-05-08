@@ -202,6 +202,23 @@ nav {
   font-family: "Montserrat", sans-serif;
   margin: 0 5px 0 10px;
 }
+
+#theme-toggle {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #201f1f;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #444;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .hamburger-icon {
     display: flex;

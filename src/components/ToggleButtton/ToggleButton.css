@@ -1,0 +1,70 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #5f5f5f;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #3b3b3b;
+    color: #fff; /* Set text color to white in dark mode */
+  }
+  
+  /* Other elements in dark mode */
+  body.dark-mode .card {
+    background-color: #4a4a4a;
+    color: #fff;
+  }
+  
+  body.dark-mode img {
+    filter: brightness(0.7);
+  }
+  
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4,
+  body.dark-mode h5,
+  body.dark-mode h6,
+  body.dark-mode p,
+  body.dark-mode label,
+  body.dark-mode strong {
+    color: #fff; 
+  }
+  
+  /* Button icon color in dark mode */
+  body.dark-mode #theme-toggle {
+    color: #fff;
+  }
+
+  body.dark-mode .carousel-container,
+  body.dark-mode .reviews-container,
+  body.dark-mode .review-card ,
+  body.dark-mode .why-choose-us,
+  body.dark-mode .coffee-card,
+  body.dark-mode .coffeeBox-card,
+  body.dark-mode .question,
+  body.dark-mode .result,
+  body.dark-mode .our-origins,
+  body.dark-mode .section-slogan,
+  body.dark-mode .testimonials-grid,
+  body.dark-mode .testimonial-card,
+  body.dark-mode .coffee-blog-container,
+  body.dark-mode .post-content,
+  body.dark-mode .glass-card,
+  body.dark-mode .favorite-card-body,
+  body.dark-mode .cart-summary,
+  body.dark-mode .container-payment,
+  body.dark-mode .coffeeBox-banner,
+  body.dark-mode .story-name
+  {
+    background-color: #4e4d4d; 
+    color: #bbbaba;            
+  }
+
+  
