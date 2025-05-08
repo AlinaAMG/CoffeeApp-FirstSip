@@ -74,7 +74,7 @@ const ContactForm = () => {
     <div className="contact-container">
       <form className="glass-card" onSubmit={handleSubmit}>
         <h2>
-          If you want to get in touch with us. Feel free to drop us a line
+         Do you want to contact us? Drop us a line below
         </h2>
         <input
           type="text"

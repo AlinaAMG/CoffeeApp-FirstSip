@@ -17,64 +17,7 @@ function CoffeeBox() {
 
   useEffect(() => {
 
-   
-  // const coffeeBoxesData = [
-  //   {
-  //     type: 'subscription',
-  //     id: 'single-origin-box',
-  //     name: 'Single Origin Box',
-  //     description:
-  //       'Explore the rich and diverse flavors of single origin coffees.',
-  //     price: 29.50, // changed from pricePerMonth
-  //     weight: '1000',
-  //     quantity: 1,
-  //     imageUrl: koffieImg,
-  //     coffeeSelection: [
-  //       {
-  //         name: 'Black Ivory Coffee',
-  //         description: 'Fruity, floral, and full of flavor.',
-  //         region: 'Ethiopia',
-  //         imageUrl: blackIvory,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     type: 'subscription',
-  //     id: 'organic-box',
-  //     name: 'Organic Box',
-  //     description: 'Certified organic coffees for a guilt-free experience.',
-  //     price: 35.99,
-  //     imageUrl: '',
-  //     weight: '1000',
-  //     quantity: 1,
-  //     coffeeSelection: [
-  //       {
-  //         name: 'Organic Peru',
-  //         description: 'Clean, with notes of caramel and cocoa.',
-  //         region: 'Peru',
-  //         imageUrl: koffieImg,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     type: 'subscription',
-  //     id: 'premium-box',
-  //     name: 'Premium Box',
-  //     imageUrl: '',
-  //     description: 'Handpicked premium beans from the best regions.',
-  //     price: 39.99,
-  //     weight: '1000',
-  //     quantity: 1,
-  //     coffeeSelection: [
-  //       {
-  //         name: 'Jamaican Blue Mountain',
-  //         description: 'Luxuriously smooth and mellow.',
-  //         region: 'Jamaica',
-  //         imageUrl: blumountainImg,
-  //       },
-  //     ],
-  //   },
-  // ];
+  
   const coffeeBoxesData = [
       {
         type: "subscription",
@@ -82,7 +25,7 @@ function CoffeeBox() {
         name: "Single Origin Box",
         description:
           "Explore the rich and diverse flavors of single origin coffees.",
-        price: 29.5, // changed from pricePerMonth
+        price: 29.55, 
         weight: 1000,
         quantity: 1,
         imageUrl: koffieImg,
@@ -215,111 +158,7 @@ function CoffeeBox() {
   };
 
   if (loading) return <div className="loading">Loading...</div>;
-
-  // return (
-  //   <div className="container">
-  //     <div className="coffeeBox-banner">
-  //       <h2>Discover Our Coffee Boxes</h2>
-  //       <p>
-  //         Curated selections of the finest coffee from around the world,
-  //         delivered to your door.
-  //       </p>
-  //       <button className="coffeeBox-banner-btn">
-  //         Get 10% Discount if You Subscribe Today
-  //       </button>
-  //     </div>
-
-  //     <div className="coffeeBox-title">Choose Your Coffee Box</div>
-  //      <div className="coffeeBox-wrap">
-  //       {coffeeBoxes.map((box, index) => (
-  //         <div key={index} className="coffeeBox-card">
-  //           <div className="coffeeBox-ribbon">
-  //             <span>New</span>
-  //           </div>
-  //           <div className="coffeeBox-name">{box.name}</div>
-  //           <div className="coffeeBox-data">
-  //             <p>{box.description}</p>
-
-  //             <p>
-  //               <strong>Weight:</strong> {box.weight} g
-  //             </p>
-  //             <div className="coffeeBox-selection">
-  //               {box.coffeeSelection.map((coffee, coffeeIndex) => (
-  //                 <div key={coffeeIndex} className="coffeeBox-item">
-  //                   <h4>
-  //                     <strong>{coffee.name}</strong>
-  //                   </h4>
-  //                   <p>{coffee.description}</p>
-  //                   <p>
-  //                     <strong>Region:</strong> {coffee.region}
-  //                   </p>
-  //                   <p className="price-box">
-  //                     <strong>Price:</strong> &euro; {box.price} / month
-  //                   </p>
-  //                   {coffee.imageUrl && (
-  //                     <img
-  //                       className="img-boxes"
-  //                       src={coffee.imageUrl}
-  //                       alt={coffee.name}
-  //                     />
-  //                   )}
-  //                 </div>
-  //               ))}
-  //             </div>
-  //           </div>
-  //           <button
-  //             className="coffeeBox-button"
-  //             onClick={() => handleSubscribe(box)} // Trigger the subscription handling
-  //           >
-  //             Subscribe Now
-  //           </button>
-  //   <div className="coffeeBox-wrap">
-  //     {coffeeBoxes.map((box) => (
-  //       <div key={box.id} className="coffeeBox-card">
-  //         <div className="coffeeBox-ribbon">
-  //           <span>New</span>
-
-  //         </div>
-  //         <div className="coffeeBox-name">{box.name}</div>
-  //         <div className="coffeeBox-data">
-  //           <p>{box.description}</p>
-  //           <p>
-  //             <strong>Weight:</strong> {box.weight} g
-  //           </p>
-  //           <p className="price-box">
-  //             <strong>Price:</strong> &euro; {box.price} / month
-  //           </p>
-  //           <div className="coffeeBox-selection">
-  //             {box.coffeeSelection.map((coffee, coffeeIndex) => (
-  //               <div key={coffeeIndex} className="coffeeBox-item">
-  //                 <h4>
-  //                   <strong>{coffee.name}</strong>
-  //                 </h4>
-  //                 <p>{coffee.description}</p>
-  //                 <p>
-  //                   <strong>Region:</strong> {coffee.region}
-  //                 </p>
-  //                 {coffee.imageUrl && (
-  //                   <img
-  //                     className="img-boxes"
-  //                     src={coffee.imageUrl}
-  //                     alt={coffee.name}
-  //                   />
-  //                 )}
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-  //         <button
-  //           className="coffeeBox-button"
-  //           onClick={() => handleSubscribe(box)}
-  //         >
-  //           Subscribe Now
-  //         </button>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
+ 
 
   return (
     <div className="container">

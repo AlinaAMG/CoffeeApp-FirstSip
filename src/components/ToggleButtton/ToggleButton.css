@@ -68,14 +68,14 @@ body {
   body.dark-mode .container-payment,
   body.dark-mode .coffeeBox-banner,
   body.dark-mode .story-name
- 
-
   {
     background-color: #4e4d4d; 
     color: #bbbaba;            
   }
   body.dark-mode .heart,
-  body.dark-mode .bi-share-fill{
+  body.dark-mode .bi-share-fill,
+  body.dark-mode .read-more-button,
+  body.dark-mode .toggle-button-btn{
     color:#fff
   }
  
