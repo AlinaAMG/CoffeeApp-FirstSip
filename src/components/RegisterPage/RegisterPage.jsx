@@ -19,11 +19,15 @@ function RegisterPage() {
         user
       );
       const { token, user: loggedInUser } = response.data;
-
       localStorage.setItem("username", loggedInUser.name);
       localStorage.setItem("token", token);
 
-      navigate("/shop/all-coffees");
+      if(loggedInUser.role==='ADMIN') {
+        localStorage.setItem('admin',JSON.stringify(loggedInUser))
+        navigate('/dashboard')
+      }
+      else   navigate("/shop/all-coffees");
+
     } catch (error) {
       alert(
         "Login failed: " + (error.response?.data?.message || error.message)
