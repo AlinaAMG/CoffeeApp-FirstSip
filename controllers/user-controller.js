@@ -76,7 +76,11 @@ const login = async (req, res) => {
                 const token = jwt.sign({ email: email }, process.env.JWT_SECRET, { expiresIn: '1h' })
                 const { password, confirmPassword, ...userWithoutPsw } = user.toObject()
 
-                res.cookie('token', token)
+                res.cookie('token', token, {
+                    secure: false, // only use true in production (HTTPS)
+                    httpOnly: false,
+                    sameSite: 'lax'
+                 });
 
                 return res.send({
                     user: userWithoutPsw,
