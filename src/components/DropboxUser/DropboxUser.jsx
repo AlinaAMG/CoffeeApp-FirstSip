@@ -59,7 +59,7 @@ function DropboxUser({ open: forceOpen = false }) {
         <ul className={`dropdown-menu ${forceOpen ? "open" : ""}`}>
           {isLoggedIn ? (
             <li>
-              <button onClick={handleLogOut}>Logout</button>
+              <button className="logout" onClick={handleLogOut}>Logout</button>
             </li>
           ) : (
             <>

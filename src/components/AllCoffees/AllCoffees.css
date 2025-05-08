@@ -234,11 +234,11 @@
 }
 
 .card-content {
-  flex-grow: 1; /* Ensures content occupies remaining space */
+  flex-grow: 1; 
 }
 
 .card-button {
-  margin-top: auto; /* Keeps the button at the bottom */
+  margin-top: auto; 
 }
 
 .read-more {
@@ -252,12 +252,6 @@
 }
 
 
-
-
-
-
-
-
 @media (max-width: 768px) {
   .coffee-card {
     min-height: 350px;
@@ -267,9 +261,8 @@
     height: 200px;
   }
 }
-/* Mobile & Tablet Responsive Styles */
+
 @media screen and (max-width: 768px) {
-  /* Adjust filter container layout */
   .filter-container {
     flex-direction: column;
     gap: 20px;
@@ -282,7 +275,6 @@
     height: auto; 
   }
 
-  
   .container h2 {
     font-size: 1.8rem;
   }

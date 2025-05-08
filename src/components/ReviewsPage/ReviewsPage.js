@@ -2,7 +2,7 @@ import './ReviewsPage.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarRating from '../StarRating/StarRating';
-import { useNavigate } from 'react-router-dom';
+
 
 const ReviewsPage = () => {
   const [testimonials, setTestimonials] = useState([]);

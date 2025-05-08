@@ -13,46 +13,75 @@ function CartPage() {
     setCartItems(storedCart);
   }, []);
 
+  // const handleQuantityChange = (index, newQuantity) => {
+  //   const updatedCart = [...cartItems];
+  //   updatedCart[index].quantity = parseInt(newQuantity);
+  //   setCartItems(updatedCart);
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+  //   const updatedCartCount = updatedCart.reduce(
+  //     (acc, item) => acc + item.quantity,
+  //     0
+  //   );
+  //   localStorage.setItem("cartCount", updatedCartCount);
+  //   window.dispatchEvent(new Event("cartUpdated"));
+  // };
+
   const handleQuantityChange = (index, newQuantity) => {
     const updatedCart = [...cartItems];
     updatedCart[index].quantity = parseInt(newQuantity);
     setCartItems(updatedCart);
+    
+    // Save updated cart in localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
+  
+    // Update cart count in localStorage
     const updatedCartCount = updatedCart.reduce(
       (acc, item) => acc + item.quantity,
       0
     );
     localStorage.setItem("cartCount", updatedCartCount);
+  
+    // Dispatch event to update navbar cart count
     window.dispatchEvent(new Event("cartUpdated"));
   };
+  
+  // const handleDelete = (index) => {
+  //   const updatedCart = cartItems.filter((_, i) => i !== index);
+  //   setCartItems(updatedCart);
+
+  //   // Save the updated cart back to localStorage
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+  //   // Update the cart count in localStorage after deleting the item
+  //   const updatedCartCount = updatedCart.reduce(
+  //     (acc, item) => acc + item.quantity,
+  //     0
+  //   );
+  //   localStorage.setItem("cartCount", updatedCartCount);
+
+  //   // Dispatch the event to notify that the cart has been updated
+  //   window.dispatchEvent(new Event("cartUpdated"));
+  // };
+ 
 
   const handleDelete = (index) => {
     const updatedCart = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedCart);
-
-    // Save the updated cart back to localStorage
+  
+    // Save the updated cart in localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    // Update the cart count in localStorage after deleting the item
+  
+    // Update cart count in localStorage after deleting an item
     const updatedCartCount = updatedCart.reduce(
       (acc, item) => acc + item.quantity,
       0
     );
     localStorage.setItem("cartCount", updatedCartCount);
-
-    // Dispatch the event to notify that the cart has been updated
+  
+    // Dispatch event to notify that the cart has been updated
     window.dispatchEvent(new Event("cartUpdated"));
   };
-  // const getTotalPrice = () => {
-  //   return cartItems
-  //     .reduce((total, item) => {
-  //       const basePrice = item.coffee.price;
-  //       const weightMultiplier = item.selectedWeight === '1000g' ? 4 : 1;
-  //       return total + basePrice * weightMultiplier * item.quantity;
-  //     }, 0)
-  //     .toFixed(2);
-  // };
 
   const getTotalPrice = () => {
     return cartItems

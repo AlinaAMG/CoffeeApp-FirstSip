@@ -16,9 +16,9 @@ function ThemeToggle() {
     <button
       onClick={() => setDarkMode(!darkMode)}
       style={{
-        padding: "10px",
+        padding: "7px",
         borderRadius: "50%",
-        backgroundColor: darkMode ? "#444" : "#e0e0e0",
+        backgroundColor: darkMode ? "#444" : "#999",
         color: darkMode ? "#fff" : "#000",
         border: "none",
         fontSize: "18px",

@@ -1,27 +1,33 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import DropboxUser from '../DropboxUser/DropboxUser';
+ import DropboxUser from '../DropboxUser/DropboxUser';
 import './Header.css';
 import ThemeToggle from '../ToggleButtton/ToggleButton';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
-   const [hasFavorites, setHasFavorites] = useState(false);
-  const [username, setUsername] = useState(localStorage.getItem("username") || null);
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [cartCount, setCartCount] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasFavorites, setHasFavorites] = useState(false);
+  const [username, setUsername] = useState(
+    localStorage.getItem('username') || null
+  );
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [cartCount, setCartCount] = useState(
+    parseInt(localStorage.getItem('cartCount')) || 0
+  );
 
   useEffect(() => {
     const updateCartCount = () => {
-      const count = parseInt(localStorage.getItem("cartCount")) || 0;
+      const count = parseInt(localStorage.getItem('cartCount')) || 0;
       setCartCount(count);
     };
+
     const handleFavoritesChange = () => {
       const storedFavorites =
         JSON.parse(localStorage.getItem('favorites')) || [];
       setHasFavorites(storedFavorites.length > 0);
     };
+
     const handleUserDataChange = () => {
       const storedName = localStorage.getItem('username');
       const storedToken = localStorage.getItem('token');
@@ -29,21 +35,20 @@ const Header = () => {
       setToken(storedToken);
     };
 
-    // Initialize values on mount
+    // Initial setup
     handleFavoritesChange();
     handleUserDataChange();
     updateCartCount();
-    // Add event listeners to listen for changes in localStorage
-    window.addEventListener("storage", handleFavoritesChange);
-    window.addEventListener("storage", handleUserDataChange);
 
-    // Clean up event listeners when component unmounts
-    return () => {
-      window.removeEventListener("storage", handleFavoritesChange);
-      window.removeEventListener("storage", handleUserDataChange);
-    };
-  }, []);
+    // Listen for updates
+    window.addEventListener('storage', handleFavoritesChange);
+    window.addEventListener('storage', handleUserDataChange);
+    window.addEventListener('storage', updateCartCount);
+    window.addEventListener('cartUpdated', updateCartCount);
+    window.addEventListener('favoritesUpdated', handleFavoritesChange);
+  })
 
+  
   const handleDropdownToggle = (menu) => {
     setIsDropdownOpen((prev) => (prev === menu ? null : menu));
   };
@@ -52,25 +57,28 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen); // Toggle the menu visibility
   };
 
+  
   return (
     <nav>
       <div className="promo-bar">
-        <p>Free shipping for orders over &#x20AC;39.99 <i class="bi bi-truck"></i></p>
+        <p>
+          Free shipping for orders over &#x20AC;39.99{' '}
+          <i className="bi bi-truck"></i>
+        </p>
       </div>
       <div className="logo">
         <Link to="/">
           First Sip <i className="bi bi-cup-hot-fill"></i>
         </Link>
       </div>
-     
-
+  
       {/* Hamburger Icon */}
       <button className="hamburger-icon" onClick={toggleMenu}>
         <span className="hamburger-bar"></span>
         <span className="hamburger-bar"></span>
         <span className="hamburger-bar"></span>
       </button>
-
+  
       {/* Menu */}
       <div className={`menu ${isMenuOpen ? 'active' : ''}`}>
         {username?.trim() && token && (
@@ -80,7 +88,7 @@ const Header = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-
+  
           <li>
             <button
               className="drop-down"
@@ -93,14 +101,14 @@ const Header = () => {
                 <li>
                   <Link to="/shop/all-coffees">All Coffees</Link>
                 </li>
-
+  
                 <li>
                   <Link to="/coffee-box">Coffee Box</Link>
                 </li>
               </ul>
             )}
           </li>
-
+  
           <li>
             <Link to="/our-origins">Our Origins</Link>
           </li>
@@ -119,7 +127,7 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-
+  
           <li>
             <Link to="/favorites">
               <span className="favorites-icon">
@@ -131,6 +139,9 @@ const Header = () => {
                 >
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
+                {hasFavorites && (
+                  <span className="favorites-count">★</span>
+                )}
               </span>
             </Link>
           </li>
@@ -147,15 +158,17 @@ const Header = () => {
                 </svg>
                 {cartCount > 0 && (
                   <span className="cart-count">{cartCount}</span>
-                )}{' '}
-                {/* Only render count if cartCount > 0 */}
+                )}
               </span>
             </Link>
           </li>
+  
+         
+          {/* User Dropdown */}
           <li className="menu-user-dropdown mobile-only">
             <button
               className="drop-down"
-              onClick={() => handleDropdownToggle('user')}
+              onClick={() => handleDropdownToggle("user")}
             >
               <span className="login-icon">
                 <svg
@@ -168,20 +181,35 @@ const Header = () => {
                 </svg>
               </span>
             </button>
-            {isDropdownOpen === 'user' && (
+            {isDropdownOpen === "user" && (
               <div className="dropdown-wrapper">
-                <DropboxUser open={true} />
+                {/* If user is not logged in, show login/register options */}
+                {!username && !token ? (
+                  <div>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                  </div>
+                ) : (
+                  // Display user profile or other logged-in content
+                  <div>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/logout">Logout</Link>
+                  </div>
+                )}
               </div>
             )}
           </li>
         </ul>
+
+        {/* Dropbox Container for Desktop */}
         <div className="dropbox-container desktop-only">
           <DropboxUser />
         </div>
       </div>
-      <ThemeToggle /> 
+      
+      <ThemeToggle />
     </nav>
   );
-};
+}
 
 export default Header;
