@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaShoppingBasket, FaTrash } from 'react-icons/fa';
-import './Cart.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaShoppingBasket, FaTrash } from "react-icons/fa";
+import "./Cart.css";
 
 function CartPage() {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    console.log('Cart loaded:', storedCart);
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log("Cart loaded:", storedCart);
     setCartItems(storedCart);
   }, []);
 
@@ -17,7 +17,14 @@ function CartPage() {
     const updatedCart = [...cartItems];
     updatedCart[index].quantity = parseInt(newQuantity);
     setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    const updatedCartCount = updatedCart.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+    localStorage.setItem("cartCount", updatedCartCount);
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   const handleDelete = (index) => {
@@ -25,17 +32,17 @@ function CartPage() {
     setCartItems(updatedCart);
 
     // Save the updated cart back to localStorage
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
 
     // Update the cart count in localStorage after deleting the item
     const updatedCartCount = updatedCart.reduce(
       (acc, item) => acc + item.quantity,
       0
     );
-    localStorage.setItem('cartCount', updatedCartCount);
+    localStorage.setItem("cartCount", updatedCartCount);
 
     // Dispatch the event to notify that the cart has been updated
-    window.dispatchEvent(new Event('cartUpdated'));
+    window.dispatchEvent(new Event("cartUpdated"));
   };
   // const getTotalPrice = () => {
   //   return cartItems
@@ -50,7 +57,7 @@ function CartPage() {
   const getTotalPrice = () => {
     return cartItems
       .reduce((total, item) => {
-        const isSubscription = item.type === 'subscription';
+        const isSubscription = item.type === "subscription";
 
         if (isSubscription) {
           // Subscription box: flat price
@@ -58,7 +65,7 @@ function CartPage() {
         } else {
           // Regular coffee item
           const basePrice = item.coffee?.price || 0;
-          const weightMultiplier = item.selectedWeight === '1000g' ? 4 : 1;
+          const weightMultiplier = item.selectedWeight === "1000g" ? 4 : 1;
           return total + basePrice * weightMultiplier * item.quantity;
         }
       }, 0)
@@ -67,7 +74,7 @@ function CartPage() {
 
   const handleClick = () => {
     // you could add logic here first
-    navigate('/check-out');
+    navigate("/check-out");
   };
 
   // Calculate shipping fee
@@ -92,64 +99,74 @@ function CartPage() {
       <h2>Shopping Cart</h2>
       <div className="cart-wrapper">
         <div className="cart-items">
-          {cartItems.map((item, index) => (
-            <div className="cart-item" key={index}>
-              {/* <img
-                src={item.coffee.imageUrl}
-                alt={item.coffee.name}
-                className="cart-item-img"
-              /> */}
-              <img
-                src={item.coffee?.imageUrl || 'path/to/placeholder.jpg'} // Fallback to placeholder if imageUrl is undefined
-                alt={item.coffee?.name || 'Coffee'}
-                className="cart-item-img"
-              />
-              <div className="cart-item-info">
-                {/* <h4>{item.coffee.name}</h4> */}
-                <h4>{item.coffee ? item.coffee.name : 'Unknown Coffee'}</h4>
-                <p>Weight: {item.selectedWeight}</p>
-                <p>
-                  Quantity:
-                  <select
-                    value={item.quantity}
-                    onChange={(e) =>
-                      handleQuantityChange(index, e.target.value)
-                    }
+          {cartItems.map((item, index) => {
+            const isSubscription = item.type === "subscription";
+
+            return (
+              <div className="cart-item" key={index}>
+                <img
+                  src={
+                    isSubscription
+                      ? !item.imageUrl
+                        ? "path/to/placeholder.jpg"
+                        : item.imageUrl
+                      : !item.coffee?.imageUrl
+                      ? "path/to/placeholder.jpg"
+                      : item.coffee?.imageUrl
+                  }
+                  alt={
+                    isSubscription
+                      ? item.name || "Coffee Box"
+                      : item.coffee?.name || "Coffee"
+                  }
+                  className="cart-item-img"
+                />
+
+                <div className="cart-item-info">
+                  <h4>{isSubscription ? item.name : item.coffee?.name}</h4>
+
+                  <p>
+                    Weight:{" "}
+                    {isSubscription ? `${item.weight}g` : item.selectedWeight}
+                  </p>
+
+                  <p>
+                    Quantity:
+                    <select
+                      value={item.quantity}
+                      onChange={(e) =>
+                        handleQuantityChange(index, e.target.value)
+                      }
+                    >
+                      {[...Array(10).keys()].map((n) => (
+                        <option key={n + 1} value={n + 1}>
+                          {n + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </p>
+
+                  <p>
+                    Price: €
+                    {isSubscription
+                      ? (item.price * item.quantity).toFixed(2)
+                      : (
+                          item.coffee?.price *
+                          (item.selectedWeight === "1000g" ? 4 : 1) *
+                          item.quantity
+                        ).toFixed(2)}
+                  </p>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(index)}
                   >
-                    {[...Array(10).keys()].map((n) => (
-                      <option key={n + 1} value={n + 1}>
-                        {n + 1}
-                      </option>
-                    ))}
-                  </select>
-                </p>
-                {/* <p>
-                  Price: €
-                  {(
-                    item.coffee.price *
-                    (item.selectedWeight === '1000g' ? 4 : 1) *
-                    item.quantity
-                  ).toFixed(2)}
-                </p> */}
-
-                <p>
-                  Price: €
-                  {(
-                    item.coffee?.price *
-                    (item.selectedWeight === '1000g' ? 4 : 1) *
-                    item.quantity
-                  ).toFixed(2)}
-                </p>
-
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(index)}
-                >
-                  <FaTrash />
-                </button>
+                    <FaTrash />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="cart-summary">
           <div className="price">
@@ -162,7 +179,7 @@ function CartPage() {
             <h3>Shipping:</h3>
             <h5>
               {shippingFee === 0
-                ? 'Free Shipping'
+                ? "Free Shipping"
                 : ` €${shippingFee.toFixed(2)}`}
             </h5>
           </div>

@@ -4,17 +4,19 @@ import DropboxUser from '../DropboxUser/DropboxUser';
 import './Header.css';
 import ThemeToggle from '../ToggleButtton/ToggleButton';
 
-const Header = ({ cartCount }) => {
+const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // For the mobile menu toggle
-
-  const [hasFavorites, setHasFavorites] = useState(false);
-  const [username, setUsername] = useState(
-    localStorage.getItem('username') || null
-  );
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+   const [hasFavorites, setHasFavorites] = useState(false);
+  const [username, setUsername] = useState(localStorage.getItem("username") || null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
+    const updateCartCount = () => {
+      const count = parseInt(localStorage.getItem("cartCount")) || 0;
+      setCartCount(count);
+    };
     const handleFavoritesChange = () => {
       const storedFavorites =
         JSON.parse(localStorage.getItem('favorites')) || [];
@@ -30,15 +32,15 @@ const Header = ({ cartCount }) => {
     // Initialize values on mount
     handleFavoritesChange();
     handleUserDataChange();
-
+    updateCartCount();
     // Add event listeners to listen for changes in localStorage
-    window.addEventListener('storage', handleFavoritesChange);
-    window.addEventListener('storage', handleUserDataChange);
+    window.addEventListener("storage", handleFavoritesChange);
+    window.addEventListener("storage", handleUserDataChange);
 
     // Clean up event listeners when component unmounts
     return () => {
-      window.removeEventListener('storage', handleFavoritesChange);
-      window.removeEventListener('storage', handleUserDataChange);
+      window.removeEventListener("storage", handleFavoritesChange);
+      window.removeEventListener("storage", handleUserDataChange);
     };
   }, []);
 
@@ -53,10 +55,7 @@ const Header = ({ cartCount }) => {
   return (
     <nav>
       <div className="promo-bar">
-        <p>
-          Free shipping for orders over &#x20AC;39.99{' '}
-          <i class="bi bi-truck"></i>
-        </p>
+        <p>Free shipping for orders over &#x20AC;39.99 <i class="bi bi-truck"></i></p>
       </div>
       <div className="logo">
         <Link to="/">
