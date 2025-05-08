@@ -55,7 +55,7 @@ function CoffeeTable() {
       })
       .catch((err) => {
         console.error("Error updating coffee data:", err);
-        alert("Error updating coffee.");
+        alert(`Error updating coffee. ${err?.response?.data?.message}`);
       });
   };
 
@@ -75,7 +75,7 @@ function CoffeeTable() {
       })
       .catch((err) => {
         console.error("Error deleting coffee data:", err);
-        alert("Error deleting coffee.");
+        alert(`Error deleting coffee. ${err?.response?.data?.message}`);
       });
   };
 

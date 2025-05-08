@@ -51,7 +51,7 @@ function AddCaffee({ onClose }) {
             })
             .catch((err) => {
                 console.error('Error fetching coffee data:', err);
-                alert('Error fetching coffee data: May you check fields?')
+                alert(`Error fetching coffee data: May you check fields? ${err?.response?.data?.message}`)
             });
     }
     return (
