@@ -2,24 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 #category-filter,
 #price-filter,
 .search-input
+
  {
   padding: 10px;
   border: 1px solid#8b5e3c;
-  border-radius: 8px;
   font-size: 1rem;
   background-color: #f5f0e6;
   color: #4b2e2a;
   margin-bottom: 30px;
   width: 250px;
+  border-radius:20px;
+  cursor: pointer;
+
 }
 .search-input{
- padding:8px;
+ /* padding:8px; */
 }
+
 .label{
   margin-bottom:10px;
   color: #4b2e2a;
@@ -27,19 +32,56 @@
   
 }
 .filter-container{
-  margin:20px 0 30px 0;;
+ 
   display:flex;
-  gap:30px;
+  gap:40px;
   justify-content: center;
 
+  background-color: #f5f0e6;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 30px 10px;
+  color: #4b2e2a;
+  cursor: pointer;
+  font-size: 1rem;
+  width:95%;
+  margin:30px auto;
+ 
+ 
 }
-
-
 #category-filter:focus ,
 .search-input:focus{
-  outline: none;
-  border-color: #8b5e3c;
+  outline:none;
+ border-color: #8b5e3c;
   box-shadow: 0 0 5px rgba(139, 94, 60, 0.5);
+}
+.search-container{
+  position:relative;
+  width:250px;
+  margin:20px 0 0 30px;
+}
+
+.region-filter{
+  width:20%;
+  position:relative;
+  z-index:1;
+  
+}
+
+.search-input::placeholder{
+  color:#4b2e2a
+}
+
+.search-container input{
+  padding-left: 35px; 
+   border-radius:20px;
+}
+.search-icon{
+  position:absolute;
+  top:20%;
+  left:10px;
+   color: #888;
+
 }
 
 .container {
@@ -51,7 +93,7 @@
 .container h2 {
   text-align: center;
   color: #4b2e2a;
-  margin: 20px auto;
+  margin: 0 auto 50px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
   font-size:2.2rem;
 }
@@ -214,6 +256,7 @@
   position: relative; 
 }
 
+
 .sold-out-overlay {
   background-color: rgba(81, 81, 81, 0.5);
   color: white;
@@ -251,14 +294,25 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-
-@media (max-width: 768px) {
+@media screen and (max-width:1200px) {
   .coffee-card {
-    min-height: 350px;
+    width:40%;
+    margin:0 auto;
   }
+  .search-container{
+    
+    margin-left:60px;
+  }
+  .filter-container{
+    display:flex;
+    flex-direction: column;
+    width:80%;
+    justify-content: center;
+    align-items: center;
 
-  .coffee-card img {
-    height: 200px;
+  }
+  .region-filter{
+    width:50%;
   }
 }
 
@@ -270,9 +324,21 @@
 
   
   .coffee-card {
-    width: 100%;
-    max-width: 320px; 
-    height: auto; 
+    width: 80%;
+    display:flex;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .image-container .default-img,
+  .image-container .hover-img{
+    width:100%;
+    height:500px;
+  }
+  
+  .coffee-card img{
+    width:100%;
   }
 
   .container h2 {
@@ -298,6 +364,9 @@
 }
 .coffee-card {
   height: auto;        
+}
+.region-filter{
+  width:100%;
 }
 
 }

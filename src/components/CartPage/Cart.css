@@ -32,6 +32,9 @@
     margin-bottom:10px;
   
   }
+  .qty select{
+    margin-left:10px;
+  }
   
   .cart-item-img {
     width: 50px;

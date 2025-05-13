@@ -84,7 +84,7 @@ const CoffeeBlog = () => {
           {posts.map((post, index) => (
             <div key={index} className="blog-post">
               <div className="post-image-container">
-                <img src={post.image} alt={post.title} className="post-image" />
+                <img src={post.image} alt={post.title}   className="post-image" />
               </div>
               <div className="post-content">
                 <h2 className="post-title">{post.title}</h2>

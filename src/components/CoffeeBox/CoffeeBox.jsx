@@ -4,7 +4,7 @@ import "./CoffeeBox.css";
 // import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import blumountainImg from "./img/blue-mountain.png";
-import koffieImg from "./img/copkoffie.jpg";
+import koffieImg from "./img/sumatra.png";
 import blackIvory from "./img/black-ivory.png";
 
 function CoffeeBox() {
@@ -27,7 +27,8 @@ function CoffeeBox() {
           "Explore the rich and diverse flavors of single origin coffees.",
         price: 29.55, 
         weight: 1000,
-        quantity: 1,
+      quantity: 1,
+      roastLevel: "Light",
         imageUrl: koffieImg,
         coffeeSelection: [
           {
@@ -44,14 +45,15 @@ function CoffeeBox() {
         name: "Organic Box",
         description: "Certified organic coffees for a guilt-free experience.",
         price: 35.99,
-        imageUrl: "",
+      
         weight: 1000,
         quantity: 1,
+          roastLevel: "Medium",
         coffeeSelection: [
           {
-            name: "Organic Peru",
+            name: "Sumatra Mandheling",
             description: "Clean, with notes of caramel and cocoa.",
-            region: "Peru",
+            region: "Indonesia",
             imageUrl: koffieImg,
           },
         ],
@@ -60,11 +62,12 @@ function CoffeeBox() {
         type: "subscription",
         id: "premium-box",
         name: "Premium Box",
-        imageUrl: "",
+       
         description: "Handpicked premium beans from the best regions.",
         price: 39.99,
         weight: 1000,
         quantity: 1,
+           roastLevel: "Dark",
         coffeeSelection: [
           {
             name: "Jamaican Blue Mountain",
@@ -107,31 +110,32 @@ function CoffeeBox() {
       navigate("/login", { state: { from: location } });
       return;
     }
-    // Створюємо об'єкт товару, який ми хочемо додати
+   
     const cartItem = {
       type: box.type,
       id: box.id,
       name: box.name,
       description: box.description,
       price: box.price,
+      roastLevel:box.roastLevel,
       weight: box.weight,
       quantity: 1,
       imageUrl: box.imageUrl || (box.coffeeSelection[0]?.imageUrl ?? ""),
     };
 
-    // Оновлення кошика: перевірка на наявність товару
+    
     setCart((prevCart) => {
-      // Перевіряємо, чи є вже товар з таким id в кошику
+      
       const existingItemIndex = prevCart.findIndex(
         (item) => item.id === box.id
       );
 
       if (existingItemIndex > -1) {
-        // Якщо товар вже є в кошику, збільшуємо його кількість
+       
         const updatedCart = [...prevCart];
         updatedCart[existingItemIndex].quantity += 1;
 
-        // Оновлюємо кошик в localStorage
+        
 
         const totalCount = updatedCart.reduce(
           (acc, item) => acc + item.quantity,
@@ -143,7 +147,7 @@ function CoffeeBox() {
         alert(`Quantity of ${box.name} has been updated in your cart!`);
         return updatedCart;
       } else {
-        // Якщо товару немає, додаємо новий товар
+        
         const updatedCart = [...prevCart, cartItem];
         const totalCount = updatedCart.reduce(
           (acc, item) => acc + item.quantity,
@@ -183,8 +187,9 @@ function CoffeeBox() {
             </div>
   
             <div className="coffeeBox-name">{box.name}</div>
-            <div className="coffeeBox-data">
+            <div className="coffeeBox-data1">
               <p>{box.description}</p>
+               <p><strong>Roast Level:</strong> {box.roastLevel}</p>
               <p><strong>Weight:</strong> {box.weight} g</p>
               <p className="price-box">
                 <strong>Price:</strong> &euro; {box.price} / month

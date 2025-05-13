@@ -1,5 +1,5 @@
 .container {
-
+ /* background-color: #fff; */
   padding: 20px;
 
 }
@@ -66,6 +66,7 @@
 
 .coffeeBox-section {
   margin-bottom: 40px;
+ 
 }
 
 .coffeeBox-section-title {
@@ -81,9 +82,13 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
+  
 }
-.coffeeBox-data {
-  height: 60%;
+.coffeeBox-data1 {
+  background-color: #cfbca4;
+  backdrop-filter: blur(10px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 .coffeeBox-card {
   position: relative;
@@ -97,11 +102,12 @@
   transition: box-shadow 0.3s ease;
   min-width: 260px;
 }
-/* Стрічка */
+
 .coffeeBox-ribbon {
   width: 120px;
   background: #e53e3e;
   color: #fff;
+ 
   text-align: center;
   font-size: 0.75rem;
   font-weight: bold;
@@ -122,9 +128,9 @@
 .coffeeBox-button {
   display: block;
   margin: auto;
-  font-size: 1rem;  /* Slightly larger font for better readability */
+  font-size: 1rem;  
   color: #fff;
-  background-color: #5c3d00; /* Dark coffee brown color */
+  background-color: #5c3d00; 
   padding: 12px 25px;
   width: 80%;  /* Ensures the button is wide but not overwhelming */
   border: none;
@@ -134,15 +140,15 @@
 }
 
 .coffeeBox-button:hover {
-  background-color: #4b2e2a;  /* Darker brown on hover */
-  transform: translateY(-2px);  /* Slight lifting effect */
+  background-color: #4b2e2a;  
+  transform: translateY(-2px);  
 }
 
 .coffeeBox-button:active {
-  transform: translateY(1px);  /* Slight press effect when clicked */
+  transform: translateY(1px); 
 }
 
-/* Анімація появи */
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -204,24 +210,6 @@
   color: #ffffff;
 }
 
-/* Адаптивність */
-@media (max-width: 768px) {
-  .coffeeBox-card {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-
-@media (max-width: 480px) {
-  .coffeeBox-card {
-    flex: 1 1 100%;
-  }
-}
-
-
-/* General container styles */
-.container {
-  padding: 20px;
-}
 
 /* Coffee Box Banner */
 .coffeeBox-banner {
@@ -369,15 +357,17 @@
   transform: translateY(1px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .coffeeBox-card {
-    flex: 1 1 calc(50% - 20px);
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile: 1 card per row */
+@media (max-width: 600px) {
   .coffeeBox-card {
-    flex: 1 1 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

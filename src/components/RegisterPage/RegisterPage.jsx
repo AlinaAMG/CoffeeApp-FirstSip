@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import LogIn from "../../components/LogIn/LogIn";
-import SignUp from "../../components/SignUp/SignUp";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import LogIn from '../../components/LogIn/LogIn';
+import SignUp from '../../components/SignUp/SignUp';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -15,35 +15,35 @@ function RegisterPage() {
   const handleLogin = async (user) => {
     try {
       const response = await axios.post(
-        "http://localhost:4001/api/auth/signin",
+        'http://localhost:4001/api/auth/signin',
         user
       );
       const { token, user: loggedInUser } = response.data;
-      localStorage.setItem("username", loggedInUser.name);
-      localStorage.setItem("token", token);
+      console.log(response.data.user);
+      localStorage.setItem('username', loggedInUser.name);
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(loggedInUser));
 
-      if(loggedInUser.role==='ADMIN') {
-        localStorage.setItem('admin',JSON.stringify(loggedInUser))
-        navigate('/dashboard')
-      }
-      else   navigate("/shop/all-coffees");
-
+      if (loggedInUser.role === 'ADMIN') {
+        console.log(loggedInUser);
+        localStorage.setItem('admin', JSON.stringify(loggedInUser));
+        navigate('/dashboard');
+      } else navigate('/');
     } catch (error) {
       alert(
-        "Login failed: " + (error.response?.data?.message || error.message)
+        'Login failed: ' + (error.response?.data?.message || error.message)
       );
     }
   };
 
-
   const handleSignUp = async (user) => {
     try {
-      await axios.post("http://localhost:4001/api/auth/signup", user);
-      alert("Registration successful! Please log in.");
-      setIsLogin(true)
+      await axios.post('http://localhost:4001/api/auth/signup', user);
+      alert('Registration successful! Please log in.');
+      setIsLogin(true);
     } catch (error) {
       alert(
-        "Registration failed: " +
+        'Registration failed: ' +
           (error.response?.data?.message || error.message)
       );
     }
@@ -60,14 +60,14 @@ function RegisterPage() {
       <div className="toggle-link">
         {isLogin ? (
           <p className="toggle-text">
-            Don’t have an account?{" "}
+            Don’t have an account?{' '}
             <button onClick={toggleForm} className="toggle-button">
               Sign Up
             </button>
           </p>
         ) : (
           <p className="toggle-text">
-            Already have an account?{" "}
+            Already have an account?{' '}
             <button onClick={toggleForm} className="toggle-button">
               Log In
             </button>

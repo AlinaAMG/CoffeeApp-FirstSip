@@ -33,6 +33,7 @@ nav {
   font-weight: bold;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
+ 
 }
 
 .menu {
@@ -44,6 +45,7 @@ nav {
 .menu ul {
   display: flex;
   justify-content: center;
+
   align-items: center;
   gap: 1.5rem;
   list-style: none;
@@ -53,6 +55,7 @@ nav {
 
 .menu li {
   position: relative;
+    
 }
 
 .drop-down {
@@ -77,6 +80,7 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 200px;
   z-index: 1000;
+
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -84,10 +88,12 @@ nav {
 .menu ul li:hover > ul {
   display: block;
   opacity: 1;
+  
 }
 
 .menu ul ul li {
   margin: 0;
+  
 }
 
 .menu a {
@@ -97,10 +103,15 @@ nav {
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s ease;
 }
+
+.menu a.active{
+  color: #FF8C00;
+  font-weight: bold;
+}
 .menu a:hover {
   color: #d2b48c;
-  border-bottom: 2px solid #d2b48c;
   padding-bottom: 2px;
+
 }
 .bi-truck {
   font-size:20px;
@@ -129,6 +140,7 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 200px;
   z-index: 10;
+    
 }
 
 .menu li:hover > ul {
@@ -177,7 +189,9 @@ nav {
   margin-right: 20px;
 }
 
-
+li{
+  text-decoration: none;
+}
 .cart-icon .cart-count {
   position: absolute;
   top: -5px;

@@ -159,9 +159,9 @@ function CartPage() {
                     {isSubscription ? `${item.weight}g` : item.selectedWeight}
                   </p>
 
-                  <p>
+                  <p className="qty">
                     Quantity:
-                    <select
+                     <select
                       value={item.quantity}
                       onChange={(e) =>
                         handleQuantityChange(index, e.target.value)

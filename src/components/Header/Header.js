@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link,NavLink,useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
  import DropboxUser from '../DropboxUser/DropboxUser';
 import './Header.css';
@@ -15,6 +15,7 @@ const Header = () => {
   const [cartCount, setCartCount] = useState(
     parseInt(localStorage.getItem('cartCount')) || 0
   );
+  const location = useLocation();
 
   useEffect(() => {
     const updateCartCount = () => {
@@ -86,50 +87,57 @@ const Header = () => {
         )}
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" exact activeClassName="active">Home</NavLink>
           </li>
   
           <li>
-            <button
+            {/* <button
               className="drop-down"
               onClick={() => handleDropdownToggle('shop')}
             >
               Shop
-            </button>
+            </button> */}
+
+            <button
+      className={`drop-down ${location.pathname.includes('/shop') ? 'active' : ''}`} // Add active class conditionally
+      onClick={() => handleDropdownToggle('shop')}
+    >
+      Shop
+    </button>
             {isDropdownOpen === 'shop' && (
               <ul>
                 <li>
-                  <Link to="/shop/all-coffees">All Coffees</Link>
+                  <NavLink to="/shop/all-coffees" activeClassName="active">All Coffees</NavLink>
                 </li>
   
                 <li>
-                  <Link to="/coffee-box">Coffee Box</Link>
+                  <NavLink to="/coffee-box"  activeClassName="active">Coffee Box</NavLink>
                 </li>
               </ul>
             )}
           </li>
   
           <li>
-            <Link to="/our-origins">Our Origins</Link>
+            <NavLink to="/our-origins"  activeClassName="active">Our Origins</NavLink>
           </li>
           <li>
-            <Link to="/quiz">Coffee Quiz</Link>
+            <NavLink to="/quiz"  activeClassName="active">Coffee Quiz</NavLink>
           </li>
           <li>
-            <Link to="/reviews">Customer Stories</Link>
+            <NavLink to="/reviews"  activeClassName="active">Customer Stories</NavLink>
           </li>
           <li>
-            <Link to="/blog">Coffee Blog</Link>
+            <NavLink to="/blog"  activeClassName="active">Coffee Blog</NavLink>
           </li>
           <li>
-            <Link to="/about">Our Story</Link>
+            <NavLink to="/about"  activeClassName="active">Our Story</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact"  activeClassName="active">Contact</NavLink>
           </li>
   
           <li>
-            <Link to="/favorites">
+            <NavLink to="/favorites"  activeClassName="active">
               <span className="favorites-icon">
                 <svg
                   width="24"
@@ -143,10 +151,10 @@ const Header = () => {
                   <span className="favorites-count">★</span>
                 )}
               </span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/cart">
+            <NavLink to="/cart"  activeClassName="active">
               <span className="cart-icon">
                 <svg
                   width="24"
@@ -160,7 +168,7 @@ const Header = () => {
                   <span className="cart-count">{cartCount}</span>
                 )}
               </span>
-            </Link>
+            </NavLink>
           </li>
   
          

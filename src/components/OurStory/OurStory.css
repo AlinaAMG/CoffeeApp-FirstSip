@@ -94,6 +94,15 @@
     .story-text h2 {
       font-size: 2rem;
     }
+    .story-text{
+      margin:0;
+      padding:0;
+    
+      
+    }
+    .video-wrapper{
+       height:50vh;
+    }
   
     
   }
