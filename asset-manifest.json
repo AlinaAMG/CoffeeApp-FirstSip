@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Final_Project/static/css/main.1cd1bef7.css",
+    "main.js": "/Final_Project/static/js/main.de05c648.js",
+    "static/media/coffee-beans.mp4": "/Final_Project/static/media/coffee-beans.b7f1002727c869dcac38.mp4",
+    "static/media/french-press.png": "/Final_Project/static/media/french-press.ef532a599482cd237b2c.png",
+    "static/media/premium.png": "/Final_Project/static/media/premium.fe704a1f895679360ed4.png",
+    "static/media/aeropress.png": "/Final_Project/static/media/aeropress.0d327cd59efe5e3be432.png",
+    "static/media/single-origin.png": "/Final_Project/static/media/single-origin.b01058f939dd683a2cef.png",
+    "static/media/coffee.png": "/Final_Project/static/media/coffee.a1914cc1633b16d41368.png",
+    "static/media/blue-mountain.png": "/Final_Project/static/media/blue-mountain.dc49f3f1bcf1dec67974.png",
+    "static/media/coffeeBag.png": "/Final_Project/static/media/coffeeBag.30451e01bf443f2df8bc.png",
+    "static/media/sumatra.png": "/Final_Project/static/media/sumatra.401975bb8ea2caaae7c4.png",
+    "static/media/black-ivory.png": "/Final_Project/static/media/black-ivory.6c38c9471e0bae88e096.png",
+    "static/media/coffeebeans.png": "/Final_Project/static/media/coffeebeans.a19e675f24fe6e87db7d.png",
+    "static/media/coffeefarm.png": "/Final_Project/static/media/coffeefarm.eb939a912fbfbe2fa8d3.png",
+    "static/media/koffie-b.png": "/Final_Project/static/media/koffie-b.5ade632fb760475f49c5.png",
+    "index.html": "/Final_Project/index.html",
+    "main.1cd1bef7.css.map": "/Final_Project/static/css/main.1cd1bef7.css.map",
+    "main.de05c648.js.map": "/Final_Project/static/js/main.de05c648.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1cd1bef7.css",
+    "static/js/main.de05c648.js"
+  ]
+}
